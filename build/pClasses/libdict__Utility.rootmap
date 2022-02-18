@@ -1,0 +1,4 @@
+[ libdict__Utility.so ]
+# List of selected classes
+class pUtility
+header pUtility.h

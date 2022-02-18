@@ -1,0 +1,38 @@
+{ decls }
+namespace std {  }
+namespace std { inline namespace __cxx11 {  } }
+class cPhysicalHit;
+template <typename T> class cFittedLine;
+template <typename T> class cVertex;
+template <typename T> class cFittedEvent;
+
+[ libdict.so ]
+# List of selected classes
+class cFittedEvent<cPhysicalHit>
+class cFittedEvent<int>
+class cFittedLine<cPhysicalHit>
+class cFittedLine<int>
+class cHit
+class cLookupTable
+class cPhysicalEvent
+class cPhysicalHit
+class cRawEvent
+class cRawSignal
+class cVertex<cPhysicalHit>
+class cVertex<int>
+class list<cPhysicalHit>
+class list<cVertex<cPhysicalHit> >
+class list<cVertex<int> >
+class list<int>
+class map<Int_t,cLookupTable::chanData>
+class map<int,cLookupTable::chanData>
+class vector<Double_t>
+class vector<cHit>
+class vector<cRawSignal>
+class vector<double>
+header cHit.h
+header cLookupTable.h
+header cPhysicalEvent.h
+header cPhysicalHit.h
+header cRawEvent.h
+header cRawSignal.h

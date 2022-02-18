@@ -1,0 +1,4 @@
+[ libdict__Signal.so ]
+# List of selected classes
+class pSignal
+header pSignal.h

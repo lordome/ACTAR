@@ -1,0 +1,4 @@
+[ libdict__SplineArcSignal.so ]
+# List of selected classes
+class pSplineArcSignal
+header pSplineArcSignal.h

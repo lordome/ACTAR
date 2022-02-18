@@ -1,0 +1,4 @@
+[ libdict__DSP.so ]
+# List of selected classes
+class pDSP
+header pDSP.h
