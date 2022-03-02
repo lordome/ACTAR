@@ -11,18 +11,18 @@
 #include "TTree.h"
 #include "TFile.h"
 #include "TString.h"
-#include "TCanvas.h"
+#include "TCanvas.h"    
 #include "TH3F.h"
 
 // Headers needed by this particular selector
 //#include "../root_e796/LinkDef.h"
-#include "ARDA_extraClasses/cPhysicalHit.h"
-#include "ARDA_extraClasses/cPhysicalEvent.h"
-#include "cTrackerFine.h"
-#include "cFittedEvent.h"
-#include "cVertexFinder.h"
-#include "cDrawEvents.h"
-#include "cUtils.h"
+#include "../commonDependencies/cPhysicalHit.h"
+#include "../commonDependencies/cPhysicalEvent.h"
+#include "../commonDependencies/cFittedEvent.h"
+#include "../commonDependencies/cTrackerFine.h"
+#include "../commonDependencies/cVertexFinder.h"
+#include "../commonDependencies/cDrawEvents.h"
+#include "../commonDependencies/cUtils.h"
 
 using namespace std;
 
@@ -62,8 +62,6 @@ int fit(string inputFileName = "input_parameters_hough.txt")
     std::vector<Float_t> multFactor = {xRescaling, yRescaling, static_cast<float>(zRescaling)};
 
     int skip = parMap["skip"];
-
-    cout << "zRescaling" << zRescaling << "  " << parMap["zRescaling"] << "  " << parMap["PointDistance"] << endl;
 
     // Opening the input file.
     TFile *ifile = new TFile(dataFileName.Data(), "READ");
@@ -128,16 +126,17 @@ int fit(string inputFileName = "input_parameters_hough.txt")
             trcC.setMinimumEnergy(minimumEnergy); // 50Ti 1000
             trcC.setMaxDistance(maxDistance);     // 50Ti 260
             trcC.setPointDistance(pointDistance);
-
             trcC.setMinPoints(minPoints);
-            trcC.setBeamMinEnergy(beamMinEnergy);
-            trcC.setBeamPointDistance(beamPointDistance);
-            trcC.setBeamMinPoints(beamMinSize);
+
+            // trcC.setBeamMinEnergy(beamMinEnergy);
+            // trcC.setBeamPointDistance(beamPointDistance);
+            // trcC.setBeamMinPoints(beamMinSize);
+
             trcC.setMultFactor(multFactor);
 
             trcC.points.clear();
             trcC.accumulator.clear();
-            trcC.lines.clear();
+            //trcC.lines.clear();
             trcC.fittedLines.clear();
 
             // In this cycle we want to select all the hits in a given
@@ -151,11 +150,11 @@ int fit(string inputFileName = "input_parameters_hough.txt")
             for (cPhysicalHit &h : event->getHits())
             {
                 // Save the hits from the ancillaries
-                if (h.getGlobalChannelId() >= 20000)
-                {
-                    fitEvt->getAncillaryHit().push_back(h);
-                    continue;
-                }
+                // if (h.getGlobalChannelId() >= 20000)
+                // {
+                //     fitEvt->getAncillaryHit().push_back(h);
+                //     continue;
+                // }
 
                 // Take only the pad hits that are set as trackable
                 if (!h.isTrackable() || h.GetEnergy() < 0)
@@ -165,20 +164,33 @@ int fit(string inputFileName = "input_parameters_hough.txt")
                 }
 
                 // Remove points in the wrong region
-                if (h.getZ() < rangeLow || h.getZ() > rangeHigh)
-                {
-                    fitEvt->getUnfittedPoints().push_back(h);
-                    continue;
-                }
+                // if (h.getZ() < rangeLow || h.getZ() > rangeHigh)
+                // {
+                //     fitEvt->getUnfittedPoints().push_back(h);
+                //     continue;
+                // }
 
                 // The remaining points are good to be tracked
-                h[2] -= rangeLow;
+                // h[2] -= rangeLow;
                 // h[2] /= zRescaling;
+
                 trcC.addPoint(h);
             }
 
-            // Start the tracking on the x,y plane
+            // Start the BEAM tracking on the x,z plane
+            trcC.setMinimumEnergy(beamMinEnergy); // 50Ti 1000
+            trcC.setPointDistance(beamPointDistance);
+            trcC.setMinPoints(beamMinSize);
+            trcC.setLinesFittable(false);
             trcC.track(cTrackerFine<cPhysicalHit>::direction::x, cTrackerFine<cPhysicalHit>::direction::z);
+
+            // Start the BEAM tracking on the x,z plane
+            trcC.setMinimumEnergy(minimumEnergy); // 50Ti 1000
+            trcC.setPointDistance(pointDistance);
+            trcC.setMinPoints(minPoints);
+            trcC.setLinesFittable(true);
+            trcC.track(cTrackerFine<cPhysicalHit>::direction::x, cTrackerFine<cPhysicalHit>::direction::z);
+
 
             // Fit the lines
             trcC.fitLines();

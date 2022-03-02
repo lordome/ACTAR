@@ -1,4 +1,4 @@
-inputFile ../ROOTFiles/outputTRACKS.root
+inputFile ../../ROOTFiles/outputPrecalibrator.root
 
 AngularSteps 2000. 
 DistanceSteps 3000. 
@@ -6,13 +6,13 @@ MaxDistance 500.
 
 MinimumEnergy 8000. 
 PointDistance 4.5
-MinPoints 15
+MinPoints 20
 
 xRescaling 1.
 yRescaling 1.
 zRescaling 1.1111
 
-beamEnergyThreshold 40000
+beamEnergyThreshold 60000
 beamWidth          3
 beamMinSize        150
 
@@ -23,7 +23,7 @@ maxX 128.
 maxY 128.
 maxZ 500.
 
-skip 100
+skip 10
 
 trcC.setAngularSteps(44);   // 50Ti 44
 trcC.setDistanceSteps(44.); // 50Ti 44

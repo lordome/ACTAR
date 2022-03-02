@@ -26,13 +26,12 @@ public:
   void setMinimumEnergy(Float_t);
   void setMinPoints(UInt_t);
 
-  void setBeamMinEnergy(Float_t);
-  void setBeamPointDistance(Float_t);
-  void setBeamMinPoints(Float_t);
   void setMultFactor(std::vector<Float_t>);
 
   // Set the distance of the points from the line to be considered part of it
   void setPointDistance(Float_t);
+
+  void setLinesFittable(bool);
 
   // Adds a point to the collection
   void addPoint(const T &);
@@ -57,11 +56,9 @@ public:
   Float_t pointDistance;
   UInt_t minPoints;
 
-  Float_t beamMinEnergy;
-  Float_t beamPointDistance;
-  UInt_t beamMinPoints;
+  bool isLineFittable;
 
-  // bool to use or not the 'oneSided' trick;
+  // bool to use or not the 'oneSided' trick
   bool oneSidedTracks = true;
 
   Float_t **projectiveLineSpace;
@@ -71,7 +68,7 @@ public:
   // List of points, accumulator and a list with the lines found
   pointList points;
   pointList accumulator;
-  std::list<pointList> lines;
+  //std::list<pointList> lines;
   std::list<cFittedLine<T>> fittedLines;
 
   // Theta and distance of the best 2D line found after the first Hough transform
@@ -104,7 +101,7 @@ public:
   void runInitialHoughTransform(direction a, direction b);
 
   // Load points in the maximum in the accumulator, returns true if the maximum point has sufficient energy
-  bool loadPointsInMaximum(direction a, direction b, bool beam);
+  bool loadPointsInMaximum(direction a, direction b);
 
   // Returns a pair containing the new x and y vectors based on bestTheta
   std::pair<TVector3, TVector3> getNewHoughAxis(direction, direction);
@@ -113,7 +110,7 @@ public:
   void runSecondHoughTransform(direction, direction);
 
   // Load points in the maximum as a line, returns true if a line is found
-  bool loadPointsInLine(direction a, direction b, bool beam);
+  bool loadPointsInLine(direction a, direction b);
 
   // Fits each line contained in lines
   void fitLines();

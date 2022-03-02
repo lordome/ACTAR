@@ -104,21 +104,15 @@ void cTrackerFine<T>::zeroSpace()
   }
 }
 
-template <class T> 
-void cTrackerFine<T>::setBeamMinEnergy(Float_t v){
-  beamMinEnergy = v;
-};
-template <class T> 
-void cTrackerFine<T>::setBeamPointDistance(Float_t v){
-  beamPointDistance = v;
-};
-template <class T> 
-void cTrackerFine<T>::setBeamMinPoints(Float_t v){
-  beamMinPoints = v;
+template <class T>
+void cTrackerFine<T>::setLinesFittable(bool v)
+{
+  isLineFittable = v;
 };
 
-template <class T> 
-void cTrackerFine<T>::setMultFactor(std::vector<Float_t> v){
+template <class T>
+void cTrackerFine<T>::setMultFactor(std::vector<Float_t> v)
+{
   multFactor = v;
 };
 
@@ -146,15 +140,15 @@ std::pair<UInt_t, UInt_t> cTrackerFine<T>::findMaximumPoint() const
 }
 
 template <class T>
-std::pair<UInt_t, UInt_t> cTrackerFine<T>::findMaximumPoint(bool beam) const
+std::pair<UInt_t, UInt_t> cTrackerFine<T>::findMaximumPoint(bool isLineFittable) const
 {
   Float_t val = 0.;
   UInt_t mAng = 0;
   UInt_t mDis = 0;
 
-  if (beam)
+  if (!isLineFittable)
   {
-    for (UInt_t i = 0; i < 0.01; i++)
+    for (UInt_t i = 0; getTheta(i) < 0.01; i++)
     {
       for (UInt_t j = 0; j < nDistanceSteps; j++)
       {
@@ -308,9 +302,9 @@ void cTrackerFine<T>::runInitialHoughTransform(direction a, direction b)
 }
 
 template <class T>
-bool cTrackerFine<T>::loadPointsInMaximum(direction a, direction b, bool beam)
+bool cTrackerFine<T>::loadPointsInMaximum(direction a, direction b)
 {
-  auto max = findMaximumPoint(beam);
+  auto max = findMaximumPoint();
   bestTheta = getTheta(max.first);
   bestDist = getDistance(max.second);
 
@@ -404,7 +398,7 @@ void cTrackerFine<T>::runSecondHoughTransform(direction a, direction b)
 }
 
 template <class T>
-bool cTrackerFine<T>::loadPointsInLine(direction a, direction b, bool beam)
+bool cTrackerFine<T>::loadPointsInLine(direction a, direction b)
 {
   auto xy = getNewHoughAxis(a, b);
   TVector3 x = xy.first;
@@ -412,7 +406,7 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b, bool beam)
 
   pointList lineCand;
 
-  auto max = findMaximumPoint(beam);
+  auto max = findMaximumPoint();
   Float_t mTheta = getTheta(max.first);
   Float_t mDist = getDistance(max.second);
 
@@ -465,19 +459,19 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b, bool beam)
       for (auto it_hits = lineCand.begin(); it_hits != lineCand.end(); it_hits++)
       {
         T p = *it_hits;
-        if (p.getY() < 62.)
+        if (p.getY() < 64.)
         {
           it_hits = lineCand.erase(it_hits);
           it_hits--;
         }
       }
     }
-    if (averageY < 56.)
+    if (averageY < 61.)
     {
       for (auto it_hits = lineCand.begin(); it_hits != lineCand.end(); it_hits++)
       {
         T p = *it_hits;
-        if (p.getY() > 62)
+        if (p.getY() > 64)
         {
           it_hits = lineCand.erase(it_hits);
           it_hits--;
@@ -486,11 +480,18 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b, bool beam)
     }
   }
 
-  cout << "Size: " << numberOfPoints << "  Energy " << lineEnergy << endl;
+  // cout << "Size: " << numberOfPoints << "  Energy " << lineEnergy << endl;
 
   if (lineEnergy > minEnergy && minPoints < numberOfPoints)
   {
-    lines.push_back(lineCand);
+
+    cFittedLine<T> lineToPush;
+    lineToPush.setPoints(lineCand);
+    lineToPush.setFittable(isLineFittable);
+
+    fittedLines.push_back(lineToPush);
+    // lines.push_back(lineCand);
+    // lines.setFittable(isLineFittable);
     return true;
   }
   else
@@ -504,65 +505,74 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b, bool beam)
 template <class T>
 void cTrackerFine<T>::fitLines()
 {
-  for (typename std::list<pointList>::iterator i = lines.begin(); i != lines.end(); i++)
+  // for (typename std::list<pointList>::iterator i = fittedLines.begin(); i != lines.end(); i++)
+  for (auto &i : fittedLines)
   {
-    // Create  the "chi square" function, and load the points of the line in it
-    cLine3DFCN<T> fcnFunctor;
-    fcnFunctor.setPoints(*i);
 
-    // Create the fitter object
-    ROOT::Fit::Fitter fitter;
-
-    // Create a functor that wraps the "chi square" function in order for the Fitter
-    // to like it
-    ROOT::Math::Functor fcn(fcnFunctor, 4);
-
-    // Look for the point that is further from the first in the array. Then use
-    // the line passing the two as starting parameter for the fit
-    TVector3 firstp(i->front()[0], i->front()[1], i->front()[2]);
-    TVector3 maxp;
-    double curMaxDist = 0.;
-    for (auto &p : *i)
+    if (i.isFittable())
     {
-      TVector3 currentPoint(p[0], p[1], p[2]);
-      double curDist = (currentPoint - firstp).Mag();
-      if (curMaxDist < curDist)
+      // Create  the "chi square" function, and load the points of the line in it
+      cLine3DFCN<T> fcnFunctor;
+      fcnFunctor.setPoints(i.getPoints());
+
+      // Create the fitter object
+      ROOT::Fit::Fitter fitter;
+
+      // Create a functor that wraps the "chi square" function in order for the Fitter
+      // to like it
+      ROOT::Math::Functor fcn(fcnFunctor, 4);
+
+      // Look for the point that is further from the first in the array. Then use
+      // the line passing the two as starting parameter for the fit
+      auto pt = i.getPoints().front();
+      TVector3 firstp(pt[0], pt[1], pt[2]);
+      TVector3 maxp;
+      double curMaxDist = 0.;
+      for (auto &p : i.getPoints())
       {
-        curMaxDist = curDist;
-        maxp = currentPoint;
+        TVector3 currentPoint(p[0], p[1], p[2]);
+        double curDist = (currentPoint - firstp).Mag();
+        if (curMaxDist < curDist)
+        {
+          curMaxDist = curDist;
+          maxp = currentPoint;
+        }
       }
+
+      TVector3 n = (firstp - maxp).Unit();
+      double thstart = TMath::ACos(n[0]);
+      double phistart = TMath::ATan(n[2] / n[1]);
+
+      TVector3 xtil(-sin(thstart), cos(thstart) * cos(phistart), cos(thstart) * sin(phistart));
+      TVector3 ytil(0, -sin(phistart), cos(phistart));
+
+      // Parameter starting point
+      double pStart[4] = {thstart, phistart, firstp * xtil, firstp * ytil};
+
+      // Set up the fit and run it
+      fitter.SetFCN(fcn, pStart);
+      fitter.Config().ParamsSettings()[0].SetValue(thstart + 1e-3);
+      fitter.Config().ParamsSettings()[1].SetValue(phistart + 1e-3);
+      fitter.Config().ParamsSettings()[2].SetValue(firstp * xtil + 1e-3);
+      fitter.Config().ParamsSettings()[3].SetValue(firstp * ytil + 1e-3);
+      fitter.FitFCN();
+
+      // Get the fit result
+      auto &r = fitter.Result();
+      const std::vector<double> &par = r.Parameters();
+
+      // Create the fitted line and store it
+
+      i.setDirection(fcnFunctor.getDirection(par));
+      i.setBasepoint(fcnFunctor.getBasepoint(par));
+      //cFittedLine<T> fl(fcnFunctor.getDirection(par), fcnFunctor.getBasepoint(par));
+      //fl.setPoints(*i);
+      //fittedLines.push_back(fl);
+
+      // Remove the line from the list
+      // i = lines.erase(i);
+      // i--;
     }
-
-    TVector3 n = (firstp - maxp).Unit();
-    double thstart = TMath::ACos(n[0]);
-    double phistart = TMath::ATan(n[2] / n[1]);
-
-    TVector3 xtil(-sin(thstart), cos(thstart) * cos(phistart), cos(thstart) * sin(phistart));
-    TVector3 ytil(0, -sin(phistart), cos(phistart));
-
-    // Parameter starting point
-    double pStart[4] = {thstart, phistart, firstp * xtil, firstp * ytil};
-
-    // Set up the fit and run it
-    fitter.SetFCN(fcn, pStart);
-    fitter.Config().ParamsSettings()[0].SetValue(thstart + 1e-3);
-    fitter.Config().ParamsSettings()[1].SetValue(phistart + 1e-3);
-    fitter.Config().ParamsSettings()[2].SetValue(firstp * xtil + 1e-3);
-    fitter.Config().ParamsSettings()[3].SetValue(firstp * ytil + 1e-3);
-    fitter.FitFCN();
-
-    // Get the fit result
-    auto &r = fitter.Result();
-    const std::vector<double> &par = r.Parameters();
-
-    // Create the fitted line and store it
-    cFittedLine<T> fl(fcnFunctor.getDirection(par), fcnFunctor.getBasepoint(par));
-    fl.setPoints(*i);
-    fittedLines.push_back(fl);
-
-    // Remove the line from the list
-    i = lines.erase(i);
-    i--;
   }
 }
 
@@ -578,11 +588,11 @@ void cTrackerFine<T>::track(direction a, direction b)
   // Run the first Hough transform until lines are found
   bool mm;
 
-  bool beam = false;
+  // bool beam = false;
   do
   {
     runInitialHoughTransform(a, b);
-    mm = loadPointsInMaximum(a, b, beam);
+    mm = loadPointsInMaximum(a, b);
 
     // TCanvas *c = new TCanvas();
     // c->cd();
@@ -598,13 +608,13 @@ void cTrackerFine<T>::track(direction a, direction b)
 
     // Run the second Hough transform and save points to a line
     runSecondHoughTransform(a, b);
-    mm = mm && loadPointsInLine(a, b, beam);
+    mm = mm && loadPointsInLine(a, b);
 
-    if (!mm && beam)
-    {
-      beam = false;
-      mm = true;
-    }
+    // if (!mm && beam)
+    // {
+    //   beam = false;
+    //   mm = true;
+    // }
 
     // Put the points left in the accumulator in the point list and then clear the accumulator
     points.insert(points.end(), accumulator.begin(), accumulator.end());
