@@ -1,9 +1,0 @@
-input_file      Raw_ROOTFiles/411Cal.root
-threshold       1500   
-trsize          12   
-fenergy         40000     
-width           4.5        
-fwidth          3.5        
-SqVertex_Width  55 
-loops           1000       
-besize          60        
