@@ -1,0 +1,33 @@
+inputFile ../ROOTFiles/outputTRACKS.root
+
+AngularSteps 2000. 
+DistanceSteps 3000. 
+MaxDistance 500.
+
+MinimumEnergy 8000. 
+PointDistance 4.5
+MinPoints 15
+
+xRescaling 1.
+yRescaling 1.
+zRescaling 1.1111
+
+beamEnergyThreshold 40000
+beamWidth          3
+beamMinSize        150
+
+binX 128
+binY 128
+binZ 100
+maxX 128.
+maxY 128.
+maxZ 500.
+
+skip 100
+
+trcC.setAngularSteps(44);   // 50Ti 44
+trcC.setDistanceSteps(44.); // 50Ti 44
+trcC.setMinimumEnergy(800); // 50Ti 1000
+trcC.setMaxDistance(800.);  // 50Ti 260
+trcC.setPointDistance(7.);
+trcC.setMinPoints(10);
