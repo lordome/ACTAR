@@ -34,7 +34,7 @@
 #include "../commonDependencies/cVertexFinder.h"
 #include "../commonDependencies/cDrawEvents.h"
 #include "../commonDependencies/cTrackerRansac.h"
-#include "../commonDependencies/cUtils.cpp"
+#include "../commonDependencies/cUtils.h"
 
 #ifdef __CLING__
 #pragma link C++ class cTrackerRansac < cPhysicalHit> + ;

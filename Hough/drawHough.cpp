@@ -11,45 +11,28 @@
 #include "TTree.h"
 #include "TFile.h"
 #include "TString.h"
+#include "TCanvas.h"
+#include "TH3F.h"
 
 // Headers needed by this particular selector
 //#include "../root_e796/LinkDef.h"
-#include "../root_e796/ARDA_extraClasses/cPhysicalHit.h"
-#include "../root_e796/ARDA_extraClasses/cPhysicalEvent.h"
+#include "ARDA_extraClasses/cPhysicalHit.h"
+#include "ARDA_extraClasses/cPhysicalEvent.h"
 #include "cTrackerFine.h"
 #include "cFittedEvent.h"
 #include "cVertexFinder.h"
-#include "TCanvas.h"
-#include "TH3F.h"
 #include "cDrawEvents.h"
+#include "cUtils.h"
 
 using namespace std;
 
-int fit(string input_file = "input_parameters_hough.txt")
+int fit(string inputFileName = "input_parameters_hough.txt")
 {
 
-    ifstream inFile(input_file);
-    if (!inFile)
-    {
-        std::cout << "\nError opening file.\n";
-        return 13;
-    }
-
-    string varName, nameDataFile;
-    double varValue;
+    TString dataFileName;
     map<string, double> parMap;
 
-    inFile >> varName >> nameDataFile;
-
-    TString ifname = nameDataFile;
-
-    while (inFile >> varName >> varValue)
-    {
-        parMap.insert(std::make_pair(varName, varValue));
-        cout << varName << "  " << varValue << endl;
-    }
-
-    inFile.close();
+    getInputMap(inputFileName, parMap, dataFileName);
 
     double angularSteps = parMap["AngularSteps"];
     double distanceSteps = parMap["DistanceSteps"];
@@ -83,10 +66,10 @@ int fit(string input_file = "input_parameters_hough.txt")
     cout << "zRescaling" << zRescaling << "  " << parMap["zRescaling"] << "  " << parMap["PointDistance"] << endl;
 
     // Opening the input file.
-    TFile *ifile = new TFile(ifname.Data(), "READ");
+    TFile *ifile = new TFile(dataFileName.Data(), "READ");
     if (ifile->IsZombie())
     {
-        printf("Unable to open inputfile: %s", ifname.Data());
+        printf("Unable to open inputfile: %s", dataFileName.Data());
         return -1;
     }
 

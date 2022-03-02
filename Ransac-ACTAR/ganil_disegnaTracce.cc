@@ -30,6 +30,8 @@
 #include "ARDA_extraClasses/cFittedLine.h"
 #include "ARDA_extraClasses/cFittedEvent.h"
 
+#include "../commonDependencies/cUtils.h"
+
 using namespace std;
 
 typedef array<Int_t, 2> arrayI2;
@@ -70,32 +72,13 @@ TVector3 MinuitForVertex(cFittedEvent<int> &tracker, vector<int> besttracks);   
 
 double ClusterTest(double &sumvalue, double &totalenergy, vector<int> &inliers); // function used to test the clusters.
 
-int fit(string input_file = "input_parameters.txt")
+int fit(string inputFileName = "input_parameters.txt")
 {
 
-  ifstream inFile(input_file);
+  TString dataFileName;
+  map<string, double> parMap;
 
-  string Var_Name, inp_n, data_file_name;
-  double Var_Value;
-  map<string, int> parMap;
-
-  if (!inFile)
-  {
-    std::cout << "\nError opening file.\n";
-    return 13;
-  }
-
-  inFile >> Var_Name >> data_file_name;
-
-  TString ifname = data_file_name;
-
-  while (inFile >> Var_Name >> Var_Value)
-  {
-    parMap.insert(make_pair(Var_Name, Var_Value));
-    cout << Var_Name << "  " << Var_Value << endl;
-  }
-
-  inFile.close();
+  getInputMap(inputFileName, parMap, dataFileName);
   // Setting Hyperparameters
   gROOT->SetBatch(kFALSE);
 
@@ -125,10 +108,10 @@ int fit(string input_file = "input_parameters.txt")
   int startFrom = parMap["startFrom"];
 
   // Opening the input file.
-  TFile *ifile = new TFile(ifname.Data(), "READ");
+  TFile *ifile = new TFile(dataFileName.Data(), "READ");
   if (ifile->IsZombie())
   {
-    printf("Unable to open inputfile: %s", ifname.Data());
+    printf("Unable to open inputfile: %s", dataFileName.Data());
     return -1;
   }
 
@@ -498,7 +481,8 @@ int fit(string input_file = "input_parameters.txt")
         arrayV2 outV;
         outV = MinuitForTrack(vectracks[i]);
 
-        if(abs(outV[1][2]) > 0.999 ){
+        if (abs(outV[1][2]) > 0.999)
+        {
           vectracks[i].setFittable(false);
         }
 
@@ -508,9 +492,6 @@ int fit(string input_file = "input_parameters.txt")
         vectracks[i].setBasepoint(outV[0]);
         vectracks[i].setDirection(outV[1]);
       } // end for(int i=0; i<vectracks.size(); i++)
-
-
-
 
       list<cFittedLine<int>> topush;
       topush.insert(topush.begin(), vectracks.begin(), vectracks.end()); // converting a vector to a list.

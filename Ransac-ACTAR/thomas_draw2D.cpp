@@ -31,7 +31,7 @@
 #include "../commonDependencies/ARDA_extraClasses/cFittedLine.h"
 #include "../commonDependencies/ARDA_extraClasses/cFittedEvent.h"
 
-#include "../commonDependencies/cUtils.cpp"
+#include "../commonDependencies/cUtils.h"
 
 using namespace std;
 
@@ -77,13 +77,11 @@ double ClusterTest(double &sumvalue, double &totalenergy, vector<int> &inliers);
 int fit( string inputFileName = "input_parameters.txt")
 {
 
-    string dataFileName;
+    TString dataFileName;
     map<string, double> parMap;
 
     getInputMap(inputFileName, parMap, dataFileName);
 
-
-    TString ifname = dataFileName;
 
     // Setting Hyperparameters
     gROOT->SetBatch(kFALSE);
@@ -115,10 +113,10 @@ int fit( string inputFileName = "input_parameters.txt")
     int startFrom = parMap["startFrom"];
 
     // Opening the input file.
-    TFile *ifile = new TFile(ifname.Data(), "READ");
+    TFile *ifile = new TFile(dataFileName.Data(), "READ");
     if (ifile->IsZombie())
     {
-        printf("Unable to open inputfile: %s", ifname.Data());
+        printf("Unable to open inputfile: %s", dataFileName.Data());
         return -1;
     }
 
