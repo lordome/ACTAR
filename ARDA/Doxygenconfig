@@ -1,3 +1,0 @@
-GENERATE_HTML = YES
-EXTRACT_PRIVATE = YES
-INPUT = "src/" "inc/"
