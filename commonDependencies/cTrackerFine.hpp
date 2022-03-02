@@ -304,7 +304,7 @@ void cTrackerFine<T>::runInitialHoughTransform(direction a, direction b)
 template <class T>
 bool cTrackerFine<T>::loadPointsInMaximum(direction a, direction b)
 {
-  auto max = findMaximumPoint();
+  auto max = findMaximumPoint(isLineFittable);
   bestTheta = getTheta(max.first);
   bestDist = getDistance(max.second);
 
@@ -480,18 +480,14 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b)
     }
   }
 
-  // cout << "Size: " << numberOfPoints << "  Energy " << lineEnergy << endl;
-
   if (lineEnergy > minEnergy && minPoints < numberOfPoints)
   {
-
+    // create a cFittedLine and push it to the list of lines
     cFittedLine<T> lineToPush;
     lineToPush.setPoints(lineCand);
     lineToPush.setFittable(isLineFittable);
-
     fittedLines.push_back(lineToPush);
-    // lines.push_back(lineCand);
-    // lines.setFittable(isLineFittable);
+
     return true;
   }
   else
@@ -505,7 +501,6 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b)
 template <class T>
 void cTrackerFine<T>::fitLines()
 {
-  // for (typename std::list<pointList>::iterator i = fittedLines.begin(); i != lines.end(); i++)
   for (auto &i : fittedLines)
   {
 
@@ -565,13 +560,6 @@ void cTrackerFine<T>::fitLines()
 
       i.setDirection(fcnFunctor.getDirection(par));
       i.setBasepoint(fcnFunctor.getBasepoint(par));
-      //cFittedLine<T> fl(fcnFunctor.getDirection(par), fcnFunctor.getBasepoint(par));
-      //fl.setPoints(*i);
-      //fittedLines.push_back(fl);
-
-      // Remove the line from the list
-      // i = lines.erase(i);
-      // i--;
     }
   }
 }
@@ -588,33 +576,18 @@ void cTrackerFine<T>::track(direction a, direction b)
   // Run the first Hough transform until lines are found
   bool mm;
 
-  // bool beam = false;
   do
   {
     runInitialHoughTransform(a, b);
     mm = loadPointsInMaximum(a, b);
 
-    // TCanvas *c = new TCanvas();
-    // c->cd();
-    // TH2 *h = convertSpaceToHist();
-    // h->Draw("colz");
-    // c->WaitPrimitive();
-
-    // delete h;
-    // c->Close();
-    // delete c;
+    //drawHoughSpace();
 
     zeroSpace();
 
     // Run the second Hough transform and save points to a line
     runSecondHoughTransform(a, b);
     mm = mm && loadPointsInLine(a, b);
-
-    // if (!mm && beam)
-    // {
-    //   beam = false;
-    //   mm = true;
-    // }
 
     // Put the points left in the accumulator in the point list and then clear the accumulator
     points.insert(points.end(), accumulator.begin(), accumulator.end());
@@ -623,3 +596,19 @@ void cTrackerFine<T>::track(direction a, direction b)
     zeroSpace();
   } while (mm);
 }
+
+
+
+template <class T>
+void cTrackerFine<T>::drawHoughSpace()
+{
+  TCanvas *c = new TCanvas();
+  c->cd();
+  TH2 *h = convertSpaceToHist();
+  h->Draw("colz");
+  c->WaitPrimitive();
+
+  delete h;
+  c->Close();
+  delete c;
+};

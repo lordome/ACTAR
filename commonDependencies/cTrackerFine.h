@@ -38,6 +38,7 @@ public:
 
   // Returns histogram of the current projectiveLineSpace
   TH2 *convertSpaceToHist() const;
+  void drawHoughSpace();
 
   typedef std::list<T> pointList;
 
@@ -68,7 +69,7 @@ public:
   // List of points, accumulator and a list with the lines found
   pointList points;
   pointList accumulator;
-  //std::list<pointList> lines;
+  // std::list<pointList> lines;
   std::list<cFittedLine<T>> fittedLines;
 
   // Theta and distance of the best 2D line found after the first Hough transform

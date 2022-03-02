@@ -23,7 +23,7 @@ maxX 128.
 maxY 128.
 maxZ 500.
 
-skip 10
+skip 19
 
 trcC.setAngularSteps(44);   // 50Ti 44
 trcC.setDistanceSteps(44.); // 50Ti 44
