@@ -24,21 +24,21 @@
 #include "TSystem.h"
 #include "TROOT.h"
 #include "TGraph.h"
+#include "TCanvas.h"
+#include "TH3F.h"
 
 // #include "ARDA_extraClasses/cPhysicalHit.h"
 // #include "ARDA_extraClasses/cPhysicalEvent.h"
-// #include "ARDA_extraClasses/cFittedLine.h"
+// #include "ARDA_extraClasses/cFittedLine.h"   
 // #include "ARDA_extraClasses/cFittedEvent.h"
 
-#include "../root_e796/ARDA_extraClasses/cPhysicalHit.h"
-#include "../root_e796/ARDA_extraClasses/cPhysicalEvent.h"
-#include "../trackingHough/cTrackerFine.h"
-#include "../trackingHough/cFittedEvent.h"
-#include "../trackingHough/cVertexFinder.h"
-#include "TCanvas.h"
-#include "TH3F.h"
-#include "cDrawEvents.h"
-#include "cTrackerRansac.h"
+#include "../commonDependencies/ARDA_extraClasses/cPhysicalHit.h"
+#include "../commonDependencies/ARDA_extraClasses/cPhysicalEvent.h"
+#include "../commonDependencies/cTrackerFine.h"
+#include "../commonDependencies/cFittedEvent.h"
+#include "../commonDependencies/cVertexFinder.h"
+#include "../commonDependencies/cDrawEvents.h"
+#include "../commonDependencies/cTrackerRansac.h"
 
 #ifdef __CLING__
 #pragma link C++ class cTrackerRansac < cPhysicalHit> + ;

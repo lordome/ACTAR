@@ -26,10 +26,12 @@
 #include "TROOT.h"
 #include "TGraph.h"
 
-#include "ARDA_extraClasses/cPhysicalHit.h"
-#include "ARDA_extraClasses/cPhysicalEvent.h"
-#include "ARDA_extraClasses/cFittedLine.h"
-#include "ARDA_extraClasses/cFittedEvent.h"
+#include "../commonDependencies/ARDA_extraClasses/cPhysicalHit.h"
+#include "../commonDependencies/ARDA_extraClasses/cPhysicalEvent.h"
+#include "../commonDependencies/ARDA_extraClasses/cFittedLine.h"
+#include "../commonDependencies/ARDA_extraClasses/cFittedEvent.h"
+
+#include "../commonDependencies/cUtils.cpp"
 
 using namespace std;
 
@@ -72,32 +74,17 @@ TVector3 MinuitForVertex(cFittedEvent<int> &tracker, vector<int> besttracks);   
 
 double ClusterTest(double &sumvalue, double &totalenergy, vector<int> &inliers); // function used to test the clusters.
 
-int fit(string input_file = "input_parameters.txt")
+int fit( string inputFileName = "input_parameters.txt")
 {
 
-    ifstream inFile(input_file);
+    string dataFileName;
+    map<string, double> parMap;
 
-    string Var_Name, inp_n, data_file_name;
-    double Var_Value;
-    map<string, int> parMap;
+    getInputMap(inputFileName, parMap, dataFileName);
 
-    if (!inFile)
-    {
-        std::cout << "\nError opening file.\n";
-        return 13;
-    }
 
-    inFile >> Var_Name >> data_file_name;
+    TString ifname = dataFileName;
 
-    TString ifname = data_file_name;
-
-    while (inFile >> Var_Name >> Var_Value)
-    {
-        parMap.insert(make_pair(Var_Name, Var_Value));
-        cout << Var_Name << "  " << Var_Value << endl;
-    }
-
-    inFile.close();
     // Setting Hyperparameters
     gROOT->SetBatch(kFALSE);
 
@@ -224,7 +211,7 @@ int fit(string input_file = "input_parameters.txt")
             // toanalyse+277)     {
             //  if (event->getEventNumber() == 1746 + 277 )     {
 
-            //cout << event->getEventNumber() << endl;
+            // cout << event->getEventNumber() << endl;
             energie.clear();
             delete tracker;
             tracker = new cFittedEvent<int>();
@@ -610,8 +597,7 @@ int fit(string input_file = "input_parameters.txt")
 
             auto end = std::chrono::steady_clock::now();
 
-            cout << "Time FOR ONE RUN = " << std::chrono::duration_cast<std::chrono::microseconds>(end-start).count() << endl;
-
+            cout << "Time FOR ONE RUN = " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << endl;
 
             for (auto &a : besttracks)
             {
