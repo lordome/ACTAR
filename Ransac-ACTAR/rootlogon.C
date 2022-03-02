@@ -1,6 +1,8 @@
 #include <iostream>
 #include <TString.h>
 #include "TSystem.h"
+#include "TROOT.h"
+#include "TStyle.h"
 
 using namespace std;
 
@@ -16,6 +18,8 @@ void rootlogon()
   // automatically load scripts
   gSystem->SetFlagsOpt("-O2 -std=c++11");
 
+
+  gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/ACTAR_git/commonDependencies/\"");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/inc/\"");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/MFMlib-JDF/install/include/mfmlib/\"");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/utils/reduction/include/\"");

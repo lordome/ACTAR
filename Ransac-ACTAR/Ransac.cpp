@@ -8,12 +8,10 @@
 #include "TTree.h"
 #include "TVector3.h"
 #include "TCanvas.h"
-#include "cPhysicalEvent.h"
 #include <array>
 #include "TTreeReader.h"
 #include "TRandom3.h"
-#include "cFittedLine.h"
-#include "cFittedEvent.h"
+
 #include <utility>
 #include <vector>
 #include <map>
@@ -22,6 +20,10 @@
 #include <time.h>
 #include "TSystem.h"
 #include "TROOT.h"
+
+#include "cPhysicalEvent.h"
+#include "cFittedLine.h"
+#include "cFittedEvent.h"
 
 using namespace std;
 
