@@ -19,10 +19,11 @@ void rootlogon()
   // automatically load scripts
   gSystem->SetFlagsOpt("-O2 -std=c++11");
 
-  gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/inc/\"");
-  gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/MFMlib-JDF/install/include/mfmlib/\"");
-  gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/utils/reduction/include/\"");
-  gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/utils/GFFT/src/\"");
+  gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/ACTAR_git/commonDependencies/\"");
+  // gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/inc/\"");
+  // gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/MFMlib-JDF/install/include/mfmlib/\"");
+  // gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/utils/reduction/include/\"");
+  // gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/utils/GFFT/src/\"");
 
   // gROOT->ProcessLine(".L /home/lorenzo/Desktop/Ganil_Actar/MFMlib-JDF/install/lib/libmfm.so");
   // gROOT->ProcessLine(".L /home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/libACTARshared.so");
