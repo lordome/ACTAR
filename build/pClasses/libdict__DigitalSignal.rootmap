@@ -1,4 +1,0 @@
-[ libdict__DigitalSignal.so ]
-# List of selected classes
-class pDigitalSignal
-header pDigitalSignal.h
