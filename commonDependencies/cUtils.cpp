@@ -1,5 +1,3 @@
-
-
 #ifndef cUtilsFunctions_hpp
 #define cUtilsFunctions_hpp
 
@@ -7,8 +5,9 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include "TString.h"
 
-void getInputMap(std::string &inputFileName, std::map<std::string, double> &parMap, std::string &dataFileName)
+void getInputMap(std::string &inputFileName, std::map<std::string, double> &parMap, TString &dataFileName)
 {
 
     std::ifstream inFile(inputFileName);
@@ -19,11 +18,11 @@ void getInputMap(std::string &inputFileName, std::map<std::string, double> &parM
         return;
     }
 
-    std::string Var_Name, inp_n;
+    std::string Var_Name, dataFileString;
     double Var_Value;
 
     inFile >> Var_Name >> dataFileName;
-
+    
     while (inFile >> Var_Name >> Var_Value)
     {
         parMap.insert(make_pair(Var_Name, Var_Value));
@@ -34,11 +33,5 @@ void getInputMap(std::string &inputFileName, std::map<std::string, double> &parM
 
     return;
 }
-
-
-
-
-
-
 
 #endif
