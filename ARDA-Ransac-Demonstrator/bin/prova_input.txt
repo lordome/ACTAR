@@ -1,0 +1,12 @@
+input /home/lorenzo/Desktop/fromNuclex1/CALfiles/410Cal.root
+
+threshold 15000
+fenergy 40000   
+width 4.5     
+fwidth 1.5       
+SqVertex_Width 55
+loops 500 
+trsize 40        
+besize 150       
+
+
