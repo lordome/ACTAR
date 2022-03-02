@@ -1,0 +1,4 @@
+[ libdict__FT.so ]
+# List of selected classes
+class pFT
+header pFT.h

@@ -1,0 +1,4 @@
+[ libdict__CFD.so ]
+# List of selected classes
+class pCFD
+header pCFD.h
