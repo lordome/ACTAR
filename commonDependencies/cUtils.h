@@ -1,5 +1,5 @@
-#ifndef cUtilsFunctions_hpp
-#define cUtilsFunctions_hpp
+#ifndef cUtilsFunctions_h
+#define cUtilsFunctions_h
 
 #include <string>
 #include <fstream>
