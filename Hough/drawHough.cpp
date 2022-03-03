@@ -11,7 +11,7 @@
 #include "TTree.h"
 #include "TFile.h"
 #include "TString.h"
-#include "TCanvas.h"    
+#include "TCanvas.h"
 #include "TH3F.h"
 
 // Headers needed by this particular selector
@@ -44,6 +44,8 @@ int fit(string inputFileName = "input_parameters_hough.txt")
     float_t xRescaling = parMap["xRescaling"];
     float_t yRescaling = parMap["yRescaling"];
     double zRescaling = parMap["zRescaling"];
+    double zRescalingBeam = parMap["zRescalingBeam"];
+
     double maxDistance = parMap["MaxDistance"];
     maxDistance = sqrt(128 * 128 + 128 * 128 + (500 * zRescaling) * (500 * zRescaling));
 
@@ -60,6 +62,7 @@ int fit(string inputFileName = "input_parameters_hough.txt")
     float maxZ = parMap["maxZ"];
 
     std::vector<Float_t> multFactor = {xRescaling, yRescaling, static_cast<float>(zRescaling)};
+    std::vector<Float_t> multFactorBeam = {xRescaling, yRescaling, static_cast<float>(zRescalingBeam)};
 
     int skip = parMap["skip"];
 
@@ -106,7 +109,9 @@ int fit(string inputFileName = "input_parameters_hough.txt")
 
     while (fReader.Next())
     {
-        cout << "\rConverting entry " << fReader.GetCurrentEntry() << " of " << nent << flush;
+        cout << "\nConverting entry " << fReader.GetCurrentEntry() << " of " << nent << flush;
+
+        gSystem->ProcessEvents();
 
         if (event->getEventNumber() > skip)
         {
@@ -128,15 +133,9 @@ int fit(string inputFileName = "input_parameters_hough.txt")
             trcC.setPointDistance(pointDistance);
             trcC.setMinPoints(minPoints);
 
-            // trcC.setBeamMinEnergy(beamMinEnergy);
-            // trcC.setBeamPointDistance(beamPointDistance);
-            // trcC.setBeamMinPoints(beamMinSize);
-
-            trcC.setMultFactor(multFactor);
-
             trcC.points.clear();
             trcC.accumulator.clear();
-            //trcC.lines.clear();
+            // trcC.lines.clear();
             trcC.fittedLines.clear();
 
             // In this cycle we want to select all the hits in a given
@@ -182,15 +181,16 @@ int fit(string inputFileName = "input_parameters_hough.txt")
             trcC.setPointDistance(beamPointDistance);
             trcC.setMinPoints(beamMinSize);
             trcC.setLinesFittable(false);
-            trcC.track(cTrackerFine<cPhysicalHit>::direction::x, cTrackerFine<cPhysicalHit>::direction::z);
+            trcC.setMultFactor(multFactorBeam);
+            trcC.track(cTrackerFine<cPhysicalHit>::direction::x, cTrackerFine<cPhysicalHit>::direction::y);
 
             // Start the BEAM tracking on the x,z plane
             trcC.setMinimumEnergy(minimumEnergy); // 50Ti 1000
             trcC.setPointDistance(pointDistance);
             trcC.setMinPoints(minPoints);
             trcC.setLinesFittable(true);
+            trcC.setMultFactor(multFactor);
             trcC.track(cTrackerFine<cPhysicalHit>::direction::x, cTrackerFine<cPhysicalHit>::direction::z);
-
 
             // Fit the lines
             trcC.fitLines();
@@ -221,7 +221,7 @@ int fit(string inputFileName = "input_parameters_hough.txt")
 
             cVertexFinder<cPhysicalHit> vrt;
             vrt.setMinZ(rangeLow);
-            std::vector<double> pStart = {64., 64., 500. / (zRescaling * 2.)};
+            std::vector<double> pStart = {64., 64., 500. / (1. / zRescaling * 2.)};
             vrt.setParStart(pStart);
             vrt.setMaxZ(rangeHigh);
             vrt.setMaxDist(sqrt(55.));
