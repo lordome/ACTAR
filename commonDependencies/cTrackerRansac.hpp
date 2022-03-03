@@ -11,7 +11,6 @@
 #include "cTrackerRansac.h"
 #include "cLine3DFCN.h"
 
-
 TVector3 zero(0, 0, 0);
 
 typedef std::array<Int_t, 2> arrayI2;
@@ -245,101 +244,8 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
 template <class T>
 void cTrackerRansac<T>::fitLines()
 {
-  for (auto it = lines.begin(); it != lines.end(); it++)
-  {
-    auto i = (*it).getPoints();
-    // Create  the "chi square" function, and load the points of the line in it
-    cLine3DFCN<T> fcnFunctor;
-    fcnFunctor.setPoints(i);
-
-    // Create the fitter object
-    ROOT::Fit::Fitter fitter;
-
-    // Create a functor that wraps the "chi square" function in order for the Fitter
-    // to like it
-    ROOT::Math::Functor fcn(fcnFunctor, 4);
-
-    // Look for the point that is further from the first in the array. Then use
-    // the line passing the two as starting parameter for the fit
-    TVector3 firstp(i.front()[0], i.front()[1], i.front()[2]);
-    TVector3 maxp;
-    double curMaxDist = 0.;
-    for (auto &p : i)
-    {
-      TVector3 currentPoint(p[0], p[1], p[2]);
-      double curDist = (currentPoint - firstp).Mag();
-      if (curMaxDist < curDist)
-      {
-        curMaxDist = curDist;
-        maxp = currentPoint;
-      }
-    }
-
-    TVector3 n = (firstp - maxp).Unit();
-    double thstart = TMath::ACos(n[0]);
-    double phistart = TMath::ATan(n[2] / n[1]);
-
-    TVector3 xtil(-sin(thstart), cos(thstart) * cos(phistart), cos(thstart) * sin(phistart));
-    TVector3 ytil(0, -sin(phistart), cos(phistart));
-
-    // Parameter starting point
-    double pStart[4] = {thstart, phistart, firstp * xtil, firstp * ytil};
-
-    // Set up the fit and run it
-    fitter.SetFCN(fcn, pStart);
-    fitter.Config().ParamsSettings()[0].SetValue(thstart);
-    fitter.Config().ParamsSettings()[1].SetValue(phistart);
-    fitter.Config().ParamsSettings()[2].SetValue(firstp * xtil);
-    fitter.Config().ParamsSettings()[3].SetValue(firstp * ytil);
-    fitter.FitFCN();
-
-    // Get the fit result
-    auto &r = fitter.Result();
-    const std::vector<double> &par = r.Parameters();
-
-    // Create the fitted line and store 
-    
-
-    it->setDirection(fcnFunctor.getDirection(par));
-    it->setBasepoint(fcnFunctor.getBasepoint(par));
- 
-  }
+  trackLines(lines);
 }
-
-template <class T>
-void cTrackerRansac<T>::track(direction a, direction b)
-{
-
-  // // Run the first Hough transform until lines are found
-  // bool mm;
-  // do
-  // {
-  //   runInitialHoughTransform(a, b);
-  //   mm = loadPointsInMaximum(a, b);
-
-  //   zeroSpace();
-
-  //   // Run the second Hough transform and save points to a line
-  //   runSecondHoughTransform(a, b);
-  //   mm = mm && loadPointsInLine(a, b);
-
-  //   // Put the points left in the accumulator in the point list and then clear the accumulator
-  //   points.insert(points.end(), accumulator.begin(), accumulator.end());
-  //   accumulator.clear();
-
-  //   zeroSpace();
-  // } while (mm);
-}
-
-// template <class T>
-// arrayV2 cTrackerRansac<T>::GetParamWithSample(arrayD4 sample1, arrayD4 sample2)
-// {
-//   TVector3 p1(sample1[0], sample1[1], sample1[2]);
-//   TVector3 p2(sample2[0], sample2[1], sample2[2]);
-//   TVector3 u = p2 - p1;
-//   arrayV2 r = {p1, u.Unit()};
-//   return r;
-// }
 
 template <class T>
 Double_t cTrackerRansac<T>::GetError(std::array<TVector3, 2> model, std::array<Double_t, 4> p, double zScale)
