@@ -18,15 +18,15 @@ void getInputMap(std::string &inputFileName, std::map<std::string, double> &parM
         return;
     }
 
-    std::string Var_Name, dataFileString;
-    double Var_Value;
+    std::string varName, dataFileString;
+    double varValue;
 
-    inFile >> Var_Name >> dataFileName;
+    inFile >> varName >> dataFileName;
     
-    while (inFile >> Var_Name >> Var_Value)
+    while (inFile >> varName >> varValue)
     {
-        parMap.insert(make_pair(Var_Name, Var_Value));
-        std::cout << Var_Name << "  " << Var_Value << std::endl;
+        parMap.insert(make_pair(varName, varValue));
+        std::cout << varName << "  " << varValue << std::endl;
     }
 
     inFile.close();
