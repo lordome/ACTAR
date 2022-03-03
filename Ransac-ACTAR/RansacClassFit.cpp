@@ -58,7 +58,7 @@ int fit(string inputFileName = "input_parameters.txt")
     double fenergy = parMap["beamEnergyThreshold"];            // energy threshold for a track in order to be considered a beam track.
     double width = parMap["tracksWidth"];                      // maximum distance from model accepted in clustering
     double fwidth = parMap["beamWidth"];                       // maximum distance from model accepted in clustering for beam tracks
-    double SqVertex_Width = parMap["squaredVertexAcceptance"]; // maximum distance accepted between two different cluster
+    double vertexWidthAcceptance = parMap["vertexWidthAcceptance"]; // maximum distance accepted between two different cluster
     double loops = parMap["numberLoops"];                      // number of loops, i.e. number of random couples chosen.
     double trsize = parMap["trackMinSize"];                    // min number of pads required in order to consider a cluster a real track
     double besize = parMap["beamMinSize"];                     // min number of pads required in order to consider a cluster a real track FOR BEAM
@@ -124,7 +124,7 @@ int fit(string inputFileName = "input_parameters.txt")
             traC.setBeamEnergyThreshold(fenergy);
             traC.setTracksWidth(width);
             traC.setBeamWidth(fwidth);
-            traC.setLoopsNumber(SqVertex_Width);
+            traC.setLoopsNumber(vertexWidthAcceptance);
             traC.setTrackMinSize(trsize);
             traC.setBeamMinSize(besize);
 
@@ -171,7 +171,7 @@ int fit(string inputFileName = "input_parameters.txt")
             vrt.setMinZ(0);
             std::vector<double> pStart = {64., 64., 500. / (zRescaling * 2.)};
             vrt.setParStart(pStart);
-            vrt.setMaxZ(500);
+            vrt.setMaxZ(maxZ);
             vrt.setMaxDist(sqrt(55.));
             vrt.findVertex(fitEvt);
 

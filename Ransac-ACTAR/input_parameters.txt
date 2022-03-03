@@ -1,17 +1,17 @@
-inputFile ../ROOTFiles/outputPrecalibrator.root
+inputFile ../../ROOTFiles/outputPrecalibrator.root
 
 trackEnergyThreshold 8000
-beamEnergyThreshold 20000 
+beamEnergyThreshold 20000
 tracksWidth 5
 beamWidth 3
-squaredVertexAcceptance 150
-numberLoops 700
+vertexWidthAcceptance 7
+numberLoops 150
 trackMinSize 25  
 beamMinSize 80  
 
 oneEventOnly 0
 toAnalyse  3
-startFrom 50
+startFrom 1280
 
 zRescaling 15
 zRescalingFit 1
