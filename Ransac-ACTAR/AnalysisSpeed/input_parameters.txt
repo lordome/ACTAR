@@ -1,19 +1,19 @@
-inputFile ../../ROOTFiles/outputPrecalibrator.root
+inputFile /home/lorenzo/Desktop/ROOTFiles/outputPrecalibrator.root
 
 trackEnergyThreshold 8000
 beamEnergyThreshold 20000
-tracksWidth 4.2
-beamWidth 3.5
+tracksWidth 5
+beamWidth 3
 vertexWidthAcceptance 7
 numberLoops 1000
 trackMinSize 25  
 beamMinSize 80  
 
-oneEventOnly 0
-toAnalyse  -1
-startFrom 35
+oneEventOnly 1
+toAnalyse  12
+startFrom  10
 
-zRescaling 4
+zRescaling 2.5
 zRescalingFit 1
 
 
