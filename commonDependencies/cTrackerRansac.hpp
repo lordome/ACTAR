@@ -204,13 +204,13 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
       {
         for (unsigned int i = 0; i < bestInliers.size(); i++)
         {
-          if (bestInliers[i].getY() > 60)
+          if (bestInliers[i].getY() > 64)
             temporary.push_back(bestInliers[i]);
         }
         bestInliers = temporary;
       }
 
-      if (averageY < 56)
+      if (averageY < 61)
       {
         for (unsigned int i = 0; i < bestInliers.size(); i++)
         {
