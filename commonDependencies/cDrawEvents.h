@@ -22,9 +22,9 @@ public:
 
     void drawEvent2D(const bool &);
     void drawEvent3D(const bool &);
-    void drawComponents2D(const bool &);
-    void drawColors2D(const bool &);
-    void drawTracks3D(const bool &);
+    void drawComponents2D(const bool &, double, double, double, double);
+    void drawColors2D(const bool &, double, double, double, double);
+    void drawTracks3D(const bool &, double, double, double, double);
     void drawAll3D(const bool &);
     void drawAll2D(const bool &);
 
@@ -40,6 +40,7 @@ private:
     TCanvas *canvasDivided3D = NULL;
     TCanvas *canvasAll2D = NULL;
     TCanvas *canvasAll3D = NULL;
+    TCanvas *canDrawComp = NULL;
 
     TH2F *h2D = NULL;
     TH3D *h3D = NULL;
@@ -52,6 +53,10 @@ private:
     std::vector<TPolyLine3D *> vecLines = {
         NULL,
     };
+
+    TH2F *hXY_comp = NULL;
+    TH2F *hXZ_comp = NULL;
+    TH2F *hYZ_comp = NULL;
 
     TH2F *hAll2D = NULL;
     TH3F *hAll3D = NULL;
@@ -92,13 +97,9 @@ cDrawEvents<T>::cDrawEvents(int *sbinX, int *sbinY, int *sbinZ,
 template <class T>
 cDrawEvents<T>::~cDrawEvents()
 {
-    // if (event)
-    //     delete event;
-    // cout << "deleted event" << endl;
 
     if (canvas2d)
         delete canvas2d;
-
     if (canvas3d)
         delete canvas3d;
     if (canvasColor2D)
@@ -115,6 +116,14 @@ cDrawEvents<T>::~cDrawEvents()
         delete h2D;
     if (h3D)
         delete h3D;
+    if (hXY_comp)
+        delete hXY_comp;
+    if (hXZ_comp)
+        delete hXZ_comp;
+    if (hYZ_comp)
+        delete hYZ_comp;
+    if (canDrawComp)
+        delete canDrawComp;
 
     for (auto &it_vec : vec2D)
     {
@@ -218,7 +227,7 @@ void cDrawEvents<T>::drawEvent3D(const bool &wait)
 };
 
 template <class T>
-void cDrawEvents<T>::drawColors2D(const bool &wait)
+void cDrawEvents<T>::drawColors2D(const bool &wait, double x1, double y1, double x_w, double y_w)
 {
 
     for (auto &it_vec : vec2D)
@@ -236,7 +245,7 @@ void cDrawEvents<T>::drawColors2D(const bool &wait)
         delete canvasColor2D;
     }
 
-    canvasColor2D = new TCanvas("canvasColor2D", "canvasColor2D", 800, 600);
+    canvasColor2D = new TCanvas("canvasColor2D", "canvasColor2D", x1, y1, x_w, y_w);
     canvasColor2D->Divide(3);
     canvasColor2D->cd();
 
@@ -281,7 +290,7 @@ void cDrawEvents<T>::drawColors2D(const bool &wait)
 };
 
 template <class T>
-void cDrawEvents<T>::drawTracks3D(const bool &wait)
+void cDrawEvents<T>::drawTracks3D(const bool &wait, double x1, double y1, double x_w, double y_w)
 {
 
     for (auto &p : vec3D)
@@ -303,7 +312,7 @@ void cDrawEvents<T>::drawTracks3D(const bool &wait)
         delete canvasDivided3D;
     }
 
-    canvasDivided3D = new TCanvas("Canvas3DTracks", "Canvas3DTracks", 800, 600);
+    canvasDivided3D = new TCanvas("Canvas3DTracks", "Canvas3DTracks", x1, y1, x_w, y_w);
     canvasDivided3D->Divide(3, 3);
     canvasDivided3D->cd();
 
@@ -366,6 +375,54 @@ void cDrawEvents<T>::drawTracks3D(const bool &wait)
     }
     return;
 };
+
+template <class T>
+void cDrawEvents<T>::drawComponents2D(const bool &wait, double x1, double y1, double x_w, double y_w)
+{
+
+    if (hXY_comp)
+        delete hXY_comp;
+    if (hXZ_comp)
+        delete hXZ_comp;
+    if (hYZ_comp)
+        delete hYZ_comp;
+    if (canDrawComp)
+        delete canDrawComp;
+    canDrawComp = new TCanvas("components2D", "components2D", x1, y1, x_w, y_w);
+    canDrawComp->Divide(3, 1);
+
+    hXY_comp = new TH2F("histXY_comp", "histXZ_comp", binX, 0, maxX, binY, 0, maxY);
+    hXZ_comp = new TH2F("histXZ_comp", "histXZ_comp", binX, 0, maxX, binZ, 0, maxZ);
+    hYZ_comp = new TH2F("histYZ_comp", "histYZ_comp", binY, 0, maxY, binZ, 0, maxZ);
+
+    for (auto &it_lines : event->getLines())
+        for (auto &it_hits : it_lines.getPoints())
+        {
+            hXY_comp->Fill(it_hits.getX(), it_hits.getY());
+            hXZ_comp->Fill(it_hits.getX(), it_hits.getZ());
+            hYZ_comp->Fill(it_hits.getY(), it_hits.getZ());
+        }
+
+    for (auto &it_unfitPoints : event->getUnfittedPoints())
+    {
+        hXY_comp->Fill(it_unfitPoints.getX(), it_unfitPoints.getY());
+        hXZ_comp->Fill(it_unfitPoints.getX(), it_unfitPoints.getZ());
+        hYZ_comp->Fill(it_unfitPoints.getY(), it_unfitPoints.getZ());
+    }
+
+    canDrawComp->cd(1);
+    hXY_comp->Draw("colz");
+    canDrawComp->cd(2);
+    hXZ_comp->Draw("colz");
+    canDrawComp->cd(3);
+    hYZ_comp->Draw("colz");
+
+    if (wait)
+    {
+        canDrawComp->WaitPrimitive();
+    }
+    return;
+}
 
 template <class T>
 void cDrawEvents<T>::drawAll3D(const bool &wait)

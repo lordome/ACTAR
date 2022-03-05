@@ -164,6 +164,25 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
       ++iterations;
     }
 
+    if(beamTracks){
+      double minX = 1000;
+      double maxX = 0;
+
+      for(auto& it: bestInliers){
+        auto xPosition = it.getX();
+        if(xPosition < minX){
+          minX = xPosition;
+        }
+        if(xPosition > maxX){
+          maxX = xPosition;
+        }
+      }
+
+      if(minX > 10 || maxX < 110){
+        break;
+      }
+    }
+
     if (bestInliers.empty())
     {
       break;
@@ -201,10 +220,16 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
         bestInliers = temporary;
       }
 
-      if (bestInliers.size() < minSize)
-      {
-        break;
+      double tempEnergy = 0;
+      for(auto& i: bestInliers){
+        tempEnergy += i.getEnergy();
       }
+      bestEnergy = tempEnergy;
+    }
+
+    if (bestInliers.size() < minSize || bestEnergy < minEnergy)
+    {
+      break;
     }
 
     // Setting all the used points to -1, so they won't be used anymore.
