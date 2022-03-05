@@ -49,19 +49,19 @@ int fit(string inputFileName = "input_parameters.txt")
     map<string, double> parMap;
     getInputMap(inputFileName, parMap, dataFileName);
 
-    //TString dataFileName; = dataFileName;
+    // TString dataFileName; = dataFileName;
 
     // Setting Hyperparameters
     gROOT->SetBatch(kFALSE);
 
-    double threshold = parMap["tracksEnergyThreshold"];        // minimum energy requested for a single cluster.
-    double fenergy = parMap["beamEnergyThreshold"];            // energy threshold for a track in order to be considered a beam track.
-    double width = parMap["tracksWidth"];                      // maximum distance from model accepted in clustering
-    double fwidth = parMap["beamWidth"];                       // maximum distance from model accepted in clustering for beam tracks
+    double threshold = parMap["trackEnergyThreshold"];              // minimum energy requested for a single cluster.
+    double fenergy = parMap["beamEnergyThreshold"];                 // energy threshold for a track in order to be considered a beam track.
+    double width = parMap["tracksWidth"];                           // maximum distance from model accepted in clustering
+    double fwidth = parMap["beamWidth"];                            // maximum distance from model accepted in clustering for beam tracks
     double vertexWidthAcceptance = parMap["vertexWidthAcceptance"]; // maximum distance accepted between two different cluster
-    double loops = parMap["numberLoops"];                      // number of loops, i.e. number of random couples chosen.
-    double trsize = parMap["trackMinSize"];                    // min number of pads required in order to consider a cluster a real track
-    double besize = parMap["beamMinSize"];                     // min number of pads required in order to consider a cluster a real track FOR BEAM
+    double loops = parMap["numberLoops"];                           // number of loops, i.e. number of random couples chosen.
+    double trsize = parMap["trackMinSize"];                         // min number of pads required in order to consider a cluster a real track
+    double besize = parMap["beamMinSize"];                          // min number of pads required in order to consider a cluster a real track FOR BEAM
 
     bool oneEventOnly = parMap["oneEventOnly"];
     int toAnalyse = parMap["toAnalyse"];
@@ -93,6 +93,7 @@ int fit(string inputFileName = "input_parameters.txt")
         printf("Unable to open inputtree: ");
         return -1;
     }
+    
 
     cFittedEvent<cPhysicalHit> *fitEvt = new cFittedEvent<cPhysicalHit>();
 
@@ -104,9 +105,7 @@ int fit(string inputFileName = "input_parameters.txt")
     while (rdr.Next())
     {
 
-        auto start = std::chrono::steady_clock::now();
-
-        cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
+        //cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
 
         if ((!oneEventOnly || event->getEventNumber() == toAnalyse) && event->getEventNumber() > startFrom)
         {
@@ -148,11 +147,11 @@ int fit(string inputFileName = "input_parameters.txt")
             traC.Ransac(fenergy, besize, fwidth, beamTracks, beamOneSide, beamFittable);
 
             bool trackFittable = true;
-            bool trackOneSide = false;
+            bool trackOneSide = true;
             beamTracks = false;
+
             traC.Ransac(threshold, trsize, width, beamTracks, trackOneSide, trackFittable);
             // End Clustering
-
 
             // Fit the lines
             traC.fitLines();
@@ -176,19 +175,25 @@ int fit(string inputFileName = "input_parameters.txt")
             vrt.setMaxDist(vertexWidthAcceptance);
             vrt.findVertex(fitEvt);
 
-            auto end = std::chrono::steady_clock::now();
+            // for (auto &line : fitEvt->getLines())
+            // {
+            //     double energyCount = 0;
+            //     for (auto &pts : line.getPoints())
+            //     {
+            //         energyCount += pts.getEnergy();
+            //     }
+            // }
 
-            //cout << "Time FOR ONE RUN = " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << endl;
+            // Draw the analysed Event;
+            // cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
+            //     new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
 
-            //Draw the analysed Event;
-            cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
-                new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
+            // drawEvt->setEvent(fitEvt);
+            // drawEvt->drawComponents2D(false, 0, 0, 800, 500);
+            // drawEvt->drawColors2D(false, 0, 600, 800, 500);
+            // drawEvt->drawTracks3D(true, 800, 0, 1115, 1000);
 
-            drawEvt->setEvent(fitEvt);
-            drawEvt->drawColors2D(false);
-            drawEvt->drawTracks3D(true);
-
-            delete drawEvt;
+            // delete drawEvt;
         }
         else
         {
