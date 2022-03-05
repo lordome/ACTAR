@@ -479,6 +479,32 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b)
       }
     }
   }
+
+  if (!isLineFittable)
+  {
+    double minX = 1000;
+    double maxX = 0;
+
+    for (auto &it : lineCand)
+    {
+      auto xPosition = it.getX();
+      if (xPosition < minX)
+      {
+        minX = xPosition;
+      }
+      if (xPosition > maxX)
+      {
+        maxX = xPosition;
+      }
+    }
+    // cout << "isLineF: " << isLineFittable << " minX: " << minX << " maxX: " << maxX << endl;
+    if (minX > 5 || maxX < 110)
+    {
+      accumulator.insert(accumulator.end(), lineCand.begin(), lineCand.end());
+      return false;
+    }
+  }
+
   if (lineEnergy > minEnergy && minPoints < numberOfPoints)
   {
 
@@ -498,13 +524,11 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b)
   }
 }
 
-
 template <class T>
 void cTrackerFine<T>::fitLines()
 {
   trackLines(fittedLines);
 }
-
 
 template <class T>
 void cTrackerFine<T>::track(direction a, direction b)
