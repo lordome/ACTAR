@@ -68,19 +68,14 @@ int fit(TString inputFileName = "provaOutputcFittedEvent.root")
 
     int nent = rdr.GetEntries(false);
 
+    TH1F *h1 = new TH1F("histAng", "histAng", 270, 0, 90);
+
+    TH1F *hPosVertex = new TH1F("hPosVertex", "hPosVertex", 200, -120, 150);
+
+    TH2F *hAngEnergy = new TH2F("histAng", "histAng", 270, 0, 90, 500, 0, 300000);
+
     while (rdr.Next())
     {
-
-        // for (auto &line : fitEvt->getLines())
-        // {
-        //     double energyCount = 0;
-        //     for (auto &pts : line.getPoints())
-        //     {
-        //         energyCount += pts.getEnergy();
-        //     }
-        // }
-
-        // Draw the analysed Event;
 
         int binX = 128;
         int binY = 128;
@@ -93,12 +88,45 @@ int fit(TString inputFileName = "provaOutputcFittedEvent.root")
             new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
 
         drawEvt->setEvent(*fitEvt);
-        drawEvt->drawComponents2D(false, 0, 0, 800, 500);
-        drawEvt->drawColors2D(false, 0, 600, 800, 500);
-        drawEvt->drawTracks3D(true, 800, 0, 1115, 1000);
+        // drawEvt->drawComponents2D(false, 0, 0, 800, 500);
+        // drawEvt->drawColors2D(false, 0, 600, 800, 500);
+        // drawEvt->drawTracks3D(true, 800, 0, 1115, 1000);
 
         delete drawEvt;
+
+        for (auto &it_lines : fitEvt->getLines())
+        {
+            double ang = 0;
+            ang = fabs(it_lines.getDirection().Phi() * 180 / M_PI);
+            if (ang > 90)
+            {
+                ang = -1. * (ang - 180);
+            }
+
+            double encount = 0;
+            for (auto &it_hits : it_lines.getPoints())
+            {
+                encount += it_hits.getEnergy();
+            }
+            h1->Fill(ang);
+
+            hAngEnergy->Fill(ang, encount);
+        }
+
+        for (auto &it_ver : fitEvt->getVertex())
+        {
+            TVector3 vec = TVector3(it_ver);
+            hPosVertex->Fill(vec[0]);
+        }
     }
+
+    h1->Draw();
+
+    new TCanvas();
+    hAngEnergy->Draw("colz");
+
+    new TCanvas();
+    hPosVertex->Draw();
 
     return 0;
 }
