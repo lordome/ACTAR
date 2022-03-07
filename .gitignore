@@ -23,3 +23,5 @@ Ransac-ACTAR/RansacClassTreeFill_cpp_ACLiC_dict_rdict.pcm
 Ransac-ACTAR/provaOutputcFittedEvent.root
 *.root
 
+Hough/drawHough_cpp.d
+Hough/drawHough_cpp.so
