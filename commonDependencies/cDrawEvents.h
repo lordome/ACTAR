@@ -28,6 +28,8 @@ public:
     void drawAll3D(const bool &);
     void drawAll2D(const bool &);
 
+    void drawVertex(const bool &);
+
     void deAllocate();
 
 private:
@@ -41,6 +43,7 @@ private:
     TCanvas *canvasAll2D = NULL;
     TCanvas *canvasAll3D = NULL;
     TCanvas *canDrawComp = NULL;
+    TCanvas *canVertex = NULL;
 
     TH2F *h2D = NULL;
     TH3D *h3D = NULL;
@@ -57,6 +60,10 @@ private:
     TH2F *hXY_comp = NULL;
     TH2F *hXZ_comp = NULL;
     TH2F *hYZ_comp = NULL;
+
+    TH2F *hXY_vert = NULL;
+    TH2F *hXZ_vert = NULL;
+    TH2F *hYZ_vert = NULL;
 
     TH2F *hAll2D = NULL;
     TH3F *hAll3D = NULL;
@@ -112,6 +119,9 @@ cDrawEvents<T>::~cDrawEvents()
         delete canvasAll2D;
     if (canvasAll3D)
         delete canvasAll3D;
+    if (canVertex)
+        delete canVertex;
+
     if (h2D)
         delete h2D;
     if (h3D)
@@ -124,6 +134,13 @@ cDrawEvents<T>::~cDrawEvents()
         delete hYZ_comp;
     if (canDrawComp)
         delete canDrawComp;
+
+    if (hXY_vert)
+        delete hXY_vert;
+    if (hXZ_vert)
+        delete hXZ_vert;
+    if (hYZ_vert)
+        delete hYZ_vert;
 
     for (auto &it_vec : vec2D)
     {
@@ -425,44 +442,95 @@ void cDrawEvents<T>::drawComponents2D(const bool &wait, double x1, double y1, do
 }
 
 template <class T>
-void cDrawEvents<T>::drawAll3D(const bool &wait)
+void cDrawEvents<T>::drawVertex(const bool &wait)
 {
+    if (hXY_vert)
+        delete hXY_vert;
+    if (hXZ_vert)
+        delete hXZ_vert;
+    if (hYZ_vert)
+        delete hYZ_vert;
+    if (canVertex)
+        delete canVertex;
+    canVertex = new TCanvas("canVertex", "canVertex");
+    canVertex->Divide(3, 1);
 
-    if (hAll3D)
+    hXY_vert = new TH2F("histXY_vert", "histXZ_vert", binX, 0, maxX, binY, 0, maxY);
+    hXZ_vert = new TH2F("histXZ_vert", "histXZ_vert", binX, 0, maxX, binZ, 0, maxZ);
+    hYZ_vert = new TH2F("histYZ_vert", "histYZ_vert", binY, 0, maxY, binZ, 0, maxZ);
+
+    for (auto &it_vert : event->getVertex())
     {
-        delete hAll3D;
+        for (auto &it_lines : it_vert.getTracks())
+        {
+            for (auto &it_hits : it_lines.getPoints())
+            {
+                hXY_vert->Fill(it_hits.getX(), it_hits.getY());
+                hXZ_vert->Fill(it_hits.getX(), it_hits.getZ());
+                hYZ_vert->Fill(it_hits.getY(), it_hits.getZ());
+            }
+        }
     }
-    if (canvasAll3D)
+        // for (auto &it_unfitPoints : event->getUnfittedPoints())
+        // {
+        //     hXY_vert->Fill(it_unfitPoints.getX(), it_unfitPoints.getY());
+        //     hXZ_vert->Fill(it_unfitPoints.getX(), it_unfitPoints.getZ());
+        //     hYZ_vert->Fill(it_unfitPoints.getY(), it_unfitPoints.getZ());
+        // }
+
+        canVertex->cd(1);
+        hXY_vert->Draw("colz");
+        canVertex->cd(2);
+        hXZ_vert->Draw("colz");
+        canVertex->cd(3);
+        hYZ_vert->Draw("colz");
+
+        if (wait)
+        {
+            canVertex->WaitPrimitive();
+        }
+        return;
+    }
+
+    template <class T>
+    void cDrawEvents<T>::drawAll3D(const bool &wait)
     {
-        delete canvasAll3D;
+
+        if (hAll3D)
+        {
+            delete hAll3D;
+        }
+        if (canvasAll3D)
+        {
+            delete canvasAll3D;
+        }
+
+        canvasAll3D = new TCanvas("canvasAll3D", "canvasAll3D", 800, 600);
+        canvasAll3D->cd();
+
+        hAll3D = new TH3F("AllHits3D", "", binX, 0, maxX, binY, 0, maxY, binZ, 0, maxZ);
+        for (auto &it_lines : event->getLines())
+            for (auto &it_hits : it_lines.getPoints())
+                hAll3D->Fill(it_hits.getX(), it_hits.getY(), it_hits.getZ());
+
+        for (auto &it_unfitPoints : event->getUnfittedPoints())
+            hAll3D->Fill(it_unfitPoints.getX(), it_unfitPoints.getY(), it_unfitPoints.getZ());
+
+        hAll3D->Draw("lego");
+
+        if (wait)
+        {
+            canvasDivided3D->WaitPrimitive();
+        }
+        return;
     }
 
-    canvasAll3D = new TCanvas("canvasAll3D", "canvasAll3D", 800, 600);
-    canvasAll3D->cd();
+    // template<class T>
+    // TVector3 cDrawEvents<T>::getBasepoint(const std::vector<double>& par) const {
+    //   TVector3 xtil(-sin(par[0]), cos(par[0]) * cos(par[1]), cos(par[0]) * sin(par[1]));
+    //   TVector3 ytil(0, -sin(par[1]), cos(par[1]));
 
-    hAll3D = new TH3F("AllHits3D", "", binX, 0, maxX, binY, 0, maxY, binZ, 0, maxZ);
-    for (auto &it_lines : event->getLines())
-        for (auto &it_hits : it_lines.getPoints())
-            hAll3D->Fill(it_hits.getX(), it_hits.getY(), it_hits.getZ());
-
-    for (auto &it_unfitPoints : event->getUnfittedPoints())
-        hAll3D->Fill(it_unfitPoints.getX(), it_unfitPoints.getY(), it_unfitPoints.getZ());
-
-    hAll3D->Draw("lego");
-
-    if (wait)
-    {
-        canvasDivided3D->WaitPrimitive();
-    }
-    return;
-}
-
-// template<class T>
-// TVector3 cDrawEvents<T>::getBasepoint(const std::vector<double>& par) const {
-//   TVector3 xtil(-sin(par[0]), cos(par[0]) * cos(par[1]), cos(par[0]) * sin(par[1]));
-//   TVector3 ytil(0, -sin(par[1]), cos(par[1]));
-
-//   return xtil*par[2] + ytil*par[3];
-// }
+    //   return xtil*par[2] + ytil*par[3];
+    // }
 
 #endif
