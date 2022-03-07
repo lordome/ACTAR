@@ -65,7 +65,7 @@ public:
   std::list<cVertex<T>>& getVertex();
 
 
-  ClassDef(cFittedEvent, 1);
+  ClassDef(cFittedEvent, 2);
 };
 #include "cFittedEvent.hpp"
 #endif
