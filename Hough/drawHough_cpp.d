@@ -87,26 +87,47 @@
 ./drawHough_cpp.so: /home/lorenzo/root/include/TVectorDfwd.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TFitResultPtr.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TProofOutputFile.h
-./drawHough_cpp.so: ../root_e796/ARDA_extraClasses/cPhysicalHit.h
-./drawHough_cpp.so: ../root_e796/ARDA_extraClasses/cPhysicalEvent.h
-./drawHough_cpp.so: ../root_e796/ARDA_extraClasses/cPhysicalHit.h
-./drawHough_cpp.so: cTrackerFine.h /home/lorenzo/root/include/TH2.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixFBasefwd.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixDBasefwd.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TCanvas.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TPad.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TVirtualPad.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TAttPad.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TQObject.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TVirtualQConnection.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TInterpreter.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TInterpreterValue.h
+./drawHough_cpp.so: /home/lorenzo/root/include/GuiTypes.h
+./drawHough_cpp.so: /home/lorenzo/root/include/Buttons.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TAttBBox2D.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TAttCanvas.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TH3F.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TH3.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TAtt3D.h
+./drawHough_cpp.so: ../commonDependencies/cPhysicalHit.h
+./drawHough_cpp.so: ../commonDependencies/cPhysicalEvent.h
+./drawHough_cpp.so: ../commonDependencies/cPhysicalHit.h
+./drawHough_cpp.so: ../commonDependencies/cFittedEvent.h
+./drawHough_cpp.so: ../commonDependencies/cFittedLine.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TVector3.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TVector2.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TMatrix.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixF.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixT.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixTBase.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixFBasefwd.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixDBasefwd.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixTUtils.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixFfwd.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixFUtils.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TMatrixFUtilsfwd.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TMath.h cFittedLine.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TMath.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TPolyLine3D.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TAtt3D.h cFittedLine.hpp
-./drawHough_cpp.so: cTrackerFine.hpp cLine3DFCN.h
+./drawHough_cpp.so: ../commonDependencies/cFittedLine.hpp
+./drawHough_cpp.so: ../commonDependencies/cVertex.h
+./drawHough_cpp.so: ../commonDependencies/cFittedEvent.hpp
+./drawHough_cpp.so: ../commonDependencies/cTrackerFine.h
+./drawHough_cpp.so: /home/lorenzo/root/include/TH2.h
+./drawHough_cpp.so: ../commonDependencies/cTrackerFine.hpp
+./drawHough_cpp.so: ../commonDependencies/cLine3DFCN.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/Math/Functor.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/Math/IFunction.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/Math/IFunctionfwd.h
@@ -257,25 +278,17 @@
 ./drawHough_cpp.so: /home/lorenzo/root/include/Math/IParamFunction.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/Math/WrappedFunction.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/Math/IFunction.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TCanvas.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TPad.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TVirtualPad.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TAttPad.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TQObject.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TVirtualQConnection.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TInterpreter.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TInterpreterValue.h
-./drawHough_cpp.so: /home/lorenzo/root/include/GuiTypes.h
-./drawHough_cpp.so: /home/lorenzo/root/include/Buttons.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TAttBBox2D.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TAttCanvas.h cFittedEvent.h
-./drawHough_cpp.so: cVertex.h cFittedEvent.hpp cVertexFinder.h
-./drawHough_cpp.so: cVertexFinder.hpp /home/lorenzo/root/include/TH3F.h
-./drawHough_cpp.so: /home/lorenzo/root/include/TH3.h cDrawEvents.h
+./drawHough_cpp.so: ../commonDependencies/cTrackLines.h
+./drawHough_cpp.so: ../commonDependencies/cPhysicalEvent.h
+./drawHough_cpp.so: ../commonDependencies/cVertexFinder.h
+./drawHough_cpp.so: ../commonDependencies/cFittedEvent.h
+./drawHough_cpp.so: ../commonDependencies/cVertexFinder.hpp
+./drawHough_cpp.so: ../commonDependencies/cDrawEvents.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TSystem.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TInetAddress.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TTimer.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TSysEvtHandler.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/TTime.h
+./drawHough_cpp.so: ../commonDependencies/cUtils.h
 ./drawHough_cpp.so: /home/lorenzo/root/include/RVersion.h /home/lorenzo/root/include/RConfig.h /home/lorenzo/root/include/TClass.h /home/lorenzo/root/include/TDictAttributeMap.h /home/lorenzo/root/include/TInterpreter.h /home/lorenzo/root/include/TROOT.h /home/lorenzo/root/include/TBuffer.h /home/lorenzo/root/include/TMemberInspector.h /home/lorenzo/root/include/TError.h /home/lorenzo/root/include/RtypesImp.h /home/lorenzo/root/include/TIsAProxy.h /home/lorenzo/root/include/TFileMergeInfo.h /home/lorenzo/root/include/TCollectionProxyInfo.h /home/lorenzo/root/bin/rootcling
 drawHough_cpp__ROOTBUILDVERSION= 6.24/06

@@ -109,7 +109,7 @@ int fit(string inputFileName = "input_parameters_hough.txt")
 
     while (fReader.Next())
     {
-        cout << "\nConverting entry " << fReader.GetCurrentEntry() << " of " << nent << flush;
+        cout << "\rConverting entry " << fReader.GetCurrentEntry() << " of " << nent << flush;
 
         gSystem->ProcessEvents();
 
@@ -228,25 +228,25 @@ int fit(string inputFileName = "input_parameters_hough.txt")
             vrt.findVertex(fitEvt);
 
             // Draw Single Event
-            float energy = 0;
-            for (auto &it_lines : fitEvt->getLines())
-            {
-                energy = 0;
-                for (auto &it_points : it_lines.getPoints())
-                {
-                    energy += it_points.getEnergy();
-                }
-                // cout << "Size: " << it_lines.getPoints().size() << "  Energy " << energy << endl;
-            }
+            // float energy = 0;
+            // for (auto &it_lines : fitEvt->getLines())
+            // {
+            //     energy = 0;
+            //     for (auto &it_points : it_lines.getPoints())
+            //     {
+            //         energy += it_points.getEnergy();
+            //     }
+            //     // cout << "Size: " << it_lines.getPoints().size() << "  Energy " << energy << endl;
+            // }
 
             cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
                 new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
 
             drawEvt->setEvent(fitEvt);
-            drawEvt->drawColors2D(false);
-            // drawEvt->drawTracks3DandUnfitted(false);
-            drawEvt->drawTracks3D(true);
-
+            drawEvt->drawComponents2D(false, 0, 0, 800, 500);
+            drawEvt->drawColors2D(false, 0, 600, 800, 500);
+            drawEvt->drawTracks3D(true, 800, 0, 1115, 1000);
+ 
             delete drawEvt;
         }
         else
