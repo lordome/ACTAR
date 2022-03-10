@@ -24,17 +24,17 @@
 #include <utility>
 #include <map>
 #include <string>
-//include needed to avoid compile time issues. 
-//Remove it and use interpretation mode (ROOT 6.24)
+// include needed to avoid compile time issues.
+// Remove it and use interpretation mode (ROOT 6.24)
 #include "/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalEvent.h"
 using namespace std;
 
-int ardaDrawEvent(int dimensions = 2)
+int ardaDrawEvent(int dimensions = 3)
 {
     TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 
-    //input file in cPhysicalEvents
-    TString ifname = "/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/root_e796/outputPrecalibrator.root";
+    // input file in cPhysicalEvents
+    TString ifname = "../../ROOTFiles/outputPrecalibrator_run140.root";
 
     TFile *ifile = new TFile(ifname.Data(), "READ");
     if (ifile->IsZombie())
@@ -65,7 +65,6 @@ int ardaDrawEvent(int dimensions = 2)
     {
         list<cPhysicalHit> hitslist = event->getHits(); // picking up the list from the event and converting it into a vector.
 
-
         cout << event->getEventNumber() << endl;
         if (dimensions == 2)
         {
@@ -89,7 +88,11 @@ int ardaDrawEvent(int dimensions = 2)
             }
         }
 
-        h2->Draw("box");
+        if (dimensions == 2)
+            h2->Draw("box");
+        if (dimensions == 3)
+            h3->Draw("LEGO");
+
         canvas->WaitPrimitive();
         canvas->Update();
     }
