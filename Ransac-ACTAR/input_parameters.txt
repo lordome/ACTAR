@@ -1,17 +1,17 @@
-inputFile ../../ROOTFiles/outputPrecalibrator.root
+inputFile ../../ROOTFiles/outputPrecalibrator_run140.root
 
-trackEnergyThreshold 8000
-beamEnergyThreshold 20000
+trackEnergyThreshold 5000
+beamEnergyThreshold 100000
 tracksWidth 4.2
 beamWidth 3.5
 vertexWidthAcceptance 7
-numberLoops 1000
-trackMinSize 25  
-beamMinSize 80  
+numberLoops 200
+trackMinSize 20 
+beamMinSize 250  
 
 oneEventOnly 0
-toAnalyse  -1
-startFrom 35
+toAnalyse  -1 
+startFrom 140
 
 zRescaling 4
 zRescalingFit 1

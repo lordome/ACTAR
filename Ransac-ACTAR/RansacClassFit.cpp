@@ -35,6 +35,7 @@
 #include "../commonDependencies/cDrawEvents.h"
 #include "../commonDependencies/cTrackerRansac.h"
 #include "../commonDependencies/cUtils.h"
+#include "../commonDependencies/cVertex.h"
 
 #ifdef __CLING__
 #pragma link C++ class cTrackerRansac < cPhysicalHit> + ;
@@ -49,19 +50,19 @@ int fit(string inputFileName = "input_parameters.txt")
     map<string, double> parMap;
     getInputMap(inputFileName, parMap, dataFileName);
 
-    //TString dataFileName; = dataFileName;
+    // TString dataFileName; = dataFileName;
 
     // Setting Hyperparameters
     gROOT->SetBatch(kFALSE);
 
-    double threshold = parMap["tracksEnergyThreshold"];        // minimum energy requested for a single cluster.
-    double fenergy = parMap["beamEnergyThreshold"];            // energy threshold for a track in order to be considered a beam track.
-    double width = parMap["tracksWidth"];                      // maximum distance from model accepted in clustering
-    double fwidth = parMap["beamWidth"];                       // maximum distance from model accepted in clustering for beam tracks
+    double threshold = parMap["trackEnergyThreshold"];              // minimum energy requested for a single cluster.
+    double fenergy = parMap["beamEnergyThreshold"];                 // energy threshold for a track in order to be considered a beam track.
+    double width = parMap["tracksWidth"];                           // maximum distance from model accepted in clustering
+    double fwidth = parMap["beamWidth"];                            // maximum distance from model accepted in clustering for beam tracks
     double vertexWidthAcceptance = parMap["vertexWidthAcceptance"]; // maximum distance accepted between two different cluster
-    double loops = parMap["numberLoops"];                      // number of loops, i.e. number of random couples chosen.
-    double trsize = parMap["trackMinSize"];                    // min number of pads required in order to consider a cluster a real track
-    double besize = parMap["beamMinSize"];                     // min number of pads required in order to consider a cluster a real track FOR BEAM
+    double loops = parMap["numberLoops"];                           // number of loops, i.e. number of random couples chosen.
+    double trsize = parMap["trackMinSize"];                         // min number of pads required in order to consider a cluster a real track
+    double besize = parMap["beamMinSize"];                          // min number of pads required in order to consider a cluster a real track FOR BEAM
 
     bool oneEventOnly = parMap["oneEventOnly"];
     int toAnalyse = parMap["toAnalyse"];
@@ -103,8 +104,6 @@ int fit(string inputFileName = "input_parameters.txt")
 
     while (rdr.Next())
     {
-
-        auto start = std::chrono::steady_clock::now();
 
         cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
 
@@ -148,11 +147,11 @@ int fit(string inputFileName = "input_parameters.txt")
             traC.Ransac(fenergy, besize, fwidth, beamTracks, beamOneSide, beamFittable);
 
             bool trackFittable = true;
-            bool trackOneSide = false;
+            bool trackOneSide = true;
             beamTracks = false;
+
             traC.Ransac(threshold, trsize, width, beamTracks, trackOneSide, trackFittable);
             // End Clustering
-
 
             // Fit the lines
             traC.fitLines();
@@ -176,17 +175,25 @@ int fit(string inputFileName = "input_parameters.txt")
             vrt.setMaxDist(vertexWidthAcceptance);
             vrt.findVertex(fitEvt);
 
-            auto end = std::chrono::steady_clock::now();
+            for (auto &it_vert : fitEvt->getVertex())
+            {
+                std::cout << "  Vertex position. x: " << it_vert.getX() << "y: " << it_vert.getY()  << "z: " << it_vert.getZ() << endl;
+            }
 
-            //cout << "Time FOR ONE RUN = " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << endl;
 
-            //Draw the analysed Event;
+
+            // Draw the analysed Event;
             cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
                 new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
 
             drawEvt->setEvent(fitEvt);
-            drawEvt->drawColors2D(false);
-            drawEvt->drawTracks3D(true);
+            drawEvt->drawAll3D(false);
+            drawEvt->drawAll2D(false);
+            drawEvt->drawComponents2D(false, 0, 0, 800, 500);
+            drawEvt->drawColors2D(false, 0, 600, 800, 500);
+            drawEvt->drawVertex(false, 800, 0, 1115, 500);
+
+            drawEvt->drawTracks3D(true, 800, 600, 1115, 500);
 
             delete drawEvt;
         }

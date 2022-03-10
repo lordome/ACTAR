@@ -19,25 +19,39 @@
 #include "TProofOutputFile.h"
 #include "TTree.h"
 #include "TFile.h"
+#include "TVector3.h"
 
 // Headers needed by this particular selector
-//#include "../root_e796/LinkDef.h"
-#include "../root_e796/ARDA_extraClasses/cPhysicalHit.h"
-#include "../root_e796/ARDA_extraClasses/cPhysicalEvent.h"
-#include "cTrackerFine.h"
-#include "cFittedEvent.h"
-#include "cVertexFinder.h"
+#include "/home/lorenzo/Desktop/ACTAR_git/commonDependencies/LinkDef.h"
+#include "/home/lorenzo/Desktop/ACTAR_git/commonDependencies/cPhysicalEvent.h"
+#include "/home/lorenzo/Desktop/ACTAR_git/commonDependencies/cPhysicalEvent.h"
+#include "/home/lorenzo/Desktop/ACTAR_git/commonDependencies/cTrackerFine.h"
+#include "/home/lorenzo/Desktop/ACTAR_git/commonDependencies/cFittedEvent.h"
+#include "/home/lorenzo/Desktop/ACTAR_git/commonDependencies/cVertexFinder.h"
 
+#ifdef trackingSelector_h
+#pragma link C++ class std::list < cPhysicalHit> + ;
+#pragma link C++ class cFittedLine < cPhysicalHit> + ;
+#pragma link C++ class std::list < cFittedLine < cPhysicalHit>> + ;
+#pragma link C++ class std::list < TVector3> + ;
+#pragma link C++ class cFittedEvent < cPhysicalHit> + ;
+#pragma link C++ class cVertex < cPhysicalHit> + ;
+#pragma link C++ class std::list < cVertex < cPhysicalHit>> + ;
+#pragma link C++ class cFittedEvent < cPhysicalHit> + ;
+#pragma link C++ class cDrawEvents < cPhysicalHit> + ;
+#pragma link C++ class cTrackerRansac < cPhysicalHit> + ;
+#endif
 /*
 TProof::Open("workers=3")
 gSystem->AddIncludePath("/home/luca/uni/houghTrack/")
 gSystem->Load("/home/luca/uni/tesi/bin/libARDAlib.so");
 */
 
-class trackingSelector : public TSelector {
-public :
-   TTreeReader     fReader;  //!the tree reader
-   TTree          *fChain = 0;   //!pointer to the analyzed TTree or TChain
+class trackingSelector : public TSelector
+{
+public:
+   TTreeReader fReader; //! the tree reader
+   TTree *fChain = 0;   //! pointer to the analyzed TTree or TChain
 
    TProofOutputFile *fProofFile = 0;
    TTree *fOutTree = 0;
@@ -50,24 +64,23 @@ public :
    // Readers to access the data (delete the ones you do not need).
    TTreeReaderValue<cPhysicalEvent> event = {fReader, "event"};
 
-   trackingSelector(TTree * /*tree*/ =0) { }
+   trackingSelector(TTree * /*tree*/ = 0) {}
    virtual ~trackingSelector();
-   virtual Int_t   Version() const { return 2; }
-   virtual void    Begin(TTree *tree);
-   virtual void    SlaveBegin(TTree *tree);
-   virtual void    Init(TTree *tree);
-   virtual Bool_t  Notify();
-   virtual Bool_t  Process(Long64_t entry);
-   virtual Int_t   GetEntry(Long64_t entry, Int_t getall = 0) { return fChain ? fChain->GetTree()->GetEntry(entry, getall) : 0; }
-   virtual void    SetOption(const char *option) { fOption = option; }
-   virtual void    SetObject(TObject *obj) { fObject = obj; }
-   virtual void    SetInputList(TList *input) { fInput = input; }
-   virtual TList  *GetOutputList() const { return fOutput; }
-   virtual void    SlaveTerminate();
-   virtual void    Terminate();
+   virtual Int_t Version() const { return 2; }
+   virtual void Begin(TTree *tree);
+   virtual void SlaveBegin(TTree *tree);
+   virtual void Init(TTree *tree);
+   virtual Bool_t Notify();
+   virtual Bool_t Process(Long64_t entry);
+   virtual Int_t GetEntry(Long64_t entry, Int_t getall = 0) { return fChain ? fChain->GetTree()->GetEntry(entry, getall) : 0; }
+   virtual void SetOption(const char *option) { fOption = option; }
+   virtual void SetObject(TObject *obj) { fObject = obj; }
+   virtual void SetInputList(TList *input) { fInput = input; }
+   virtual TList *GetOutputList() const { return fOutput; }
+   virtual void SlaveTerminate();
+   virtual void Terminate();
 
-   ClassDef(trackingSelector,0);
-
+   ClassDef(trackingSelector, 0);
 };
 
 #endif
@@ -95,6 +108,5 @@ Bool_t trackingSelector::Notify()
 
    return kTRUE;
 }
-
 
 #endif // #ifdef trackingTest_cxx

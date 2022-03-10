@@ -9,9 +9,9 @@ using namespace std;
 void rootlogon()
 {
   // this is necessary for the codes to work
-  gSystem->Load("/home/lorenzo/Desktop/ARDAC/bin_root6.24.06/libMFM.so");
-  gSystem->Load("/home/lorenzo/Desktop/ARDAC/bin_root6.24.06/libpClasses.so");
-  gSystem->Load("/home/lorenzo/Desktop/ARDAC/bin_root6.24.06/libARDAlib.so");
+  gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libMFM.so");
+  gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libpClasses.so");
+  gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libARDAlib.so");
 
   ///gSystem->Load("/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/root_e796/cTrackerRansac_h.so");
 

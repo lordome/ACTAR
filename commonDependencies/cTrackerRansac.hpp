@@ -164,6 +164,34 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
       ++iterations;
     }
 
+    double minX = 1000;
+    double maxX = 0;
+    double minZ = 1000;
+    double maxZ = 0;
+    if (1)
+    {
+      for (auto &it : bestInliers)
+      {
+        auto xPosition = it.getX();
+        if (xPosition < minX)
+          minX = xPosition;
+
+        if (xPosition > maxX)
+          maxX = xPosition;
+
+        auto zPosition = it.getZ();
+        if (zPosition < minZ)
+          minZ = zPosition;
+
+        if (zPosition > maxZ)
+          maxZ = zPosition;
+      }
+      if (beamTracks && (minX > 10 || maxX < 110))
+      {
+        break;
+      }
+    }
+
     if (bestInliers.empty())
     {
       break;
@@ -185,13 +213,13 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
       {
         for (unsigned int i = 0; i < bestInliers.size(); i++)
         {
-          if (bestInliers[i].getY() > 60)
+          if (bestInliers[i].getY() > 64)
             temporary.push_back(bestInliers[i]);
         }
         bestInliers = temporary;
       }
 
-      if (averageY < 56)
+      if (averageY < 61)
       {
         for (unsigned int i = 0; i < bestInliers.size(); i++)
         {
@@ -201,10 +229,17 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
         bestInliers = temporary;
       }
 
-      if (bestInliers.size() < minSize)
+      double tempEnergy = 0;
+      for (auto &i : bestInliers)
       {
-        break;
+        tempEnergy += i.getEnergy();
       }
+      bestEnergy = tempEnergy;
+    }
+
+    if (bestInliers.size() < minSize || bestEnergy < minEnergy)
+    {
+      break;
     }
 
     // Setting all the used points to -1, so they won't be used anymore.
@@ -231,6 +266,11 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
     bestTrack.getPoints().insert(bestTrack.getPoints().begin(), list_i.begin(), list_i.end()); // setting bestTrack (conversion from vector to list)
     bestTrack.setFittable(isFittable);
 
+
+    if ((minX < 5 && maxX > 120) || (minZ < 30 && maxZ > 450))
+      bestTrack.setFittable(false);
+    else
+      bestTrack.setFittable(isFittable);
     // saving bestTrack into tracker, which is going to be saved into the output tree.
     lines.push_back(bestTrack);
 

@@ -56,7 +56,7 @@ void trackingSelector::SlaveBegin(TTree * /*tree*/)
 
     TString option = GetOption();
 
-    fProofFile = new TProofOutputFile("outTrack.root", "M");
+    fProofFile = new TProofOutputFile("outTrack.root", "RENAME");
     fProofFile->SetTitle("outTrack.root"); // File name
 
     fFile = fProofFile->OpenFile("RECREATE");
@@ -119,7 +119,7 @@ Bool_t trackingSelector::Process(Long64_t entry)
     trcC.setMinPoints(10);
     trcC.points.clear();
     trcC.accumulator.clear();
-    trcC.lines.clear();
+    // trcC.fittedLines.clear();
     trcC.fittedLines.clear();
 
     // In this cycle we want to select all the hits in a given
@@ -194,6 +194,8 @@ Bool_t trackingSelector::Process(Long64_t entry)
     vrt.setMaxDist(sqrt(55.));
     vrt.findVertex(fitEvt);
 
+
+    std::cout << "filling" << std::endl;
     fOutTree->Fill();
 
     return kTRUE;

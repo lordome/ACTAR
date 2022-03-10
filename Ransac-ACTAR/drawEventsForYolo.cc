@@ -29,9 +29,13 @@
 #include "/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalEvent.h"
 using namespace std;
 
-int ardaDrawEvent(int dimensions = 3)
+int fitYoloDraw()
 {
-    TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
+
+    int iteration = 0;
+
+    int dimensions = 3;
+    TCanvas *canvas = NULL;
 
     // input file in cPhysicalEvents
     TString ifname = "../../ROOTFiles/outputPrecalibrator_run140.root";
@@ -63,38 +67,40 @@ int ardaDrawEvent(int dimensions = 3)
 
     while (rdr.Next())
     {
+        iteration += 1;
+
         list<cPhysicalHit> hitslist = event->getHits(); // picking up the list from the event and converting it into a vector.
 
         cout << event->getEventNumber() << endl;
-        if (dimensions == 2)
-        {
-            delete h2;
-            h2 = new TH2F("histo2D", "histo2D", 128, 0, 128, 128, 0, 128);
-        }
-        else if (dimensions == 3)
-        {
-            delete h3;
-            h3 = new TH3F("histo3D", "histo3D", 128, 0, 128, 128, 0, 128, 100, 0, 500);
-        }
+
+        canvas = new TCanvas("canvas", "canvas", 800, 600);
+
+        h3 = new TH3F("histo3D", "", 128, 0, 128, 128, 0, 128, 100, 0, 500);
+
         for (auto &i : hitslist)
         {
-            if (dimensions == 2)
-            {
-                h2->Fill(i[0], i[1], i.getEnergy());
-            }
-            else if (dimensions == 3)
-            {
-                h3->Fill(i[0], i[1], i[2]);
-            }
+            h3->Fill(i[0], i[1], i[2]);
         }
 
-        if (dimensions == 2)
-            h2->Draw("box");
-        if (dimensions == 3)
-            h3->Draw("LEGO");
+        h3->Draw("LEGO");
 
-        canvas->WaitPrimitive();
-        canvas->Update();
+        h3->GetXaxis()->SetLabelOffset(999);
+        h3->GetYaxis()->SetLabelOffset(999);
+        h3->GetZaxis()->SetLabelOffset(999);
+
+        h3->GetXaxis()->SetAxisColor(0);
+        h3->GetYaxis()->SetAxisColor(0);
+        h3->GetZaxis()->SetAxisColor(0);
+        
+        // canvas->WaitPrimitive();
+        // canvas->Update();
+
+        string title = "Images/picture_" + to_string(iteration) + ".jpg";
+        canvas->SaveAs(title.c_str());
+
+
+        delete canvas;
+        delete h3;
     }
 
     return 1;
