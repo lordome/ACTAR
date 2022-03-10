@@ -35,6 +35,7 @@
 #include "../commonDependencies/cDrawEvents.h"
 #include "../commonDependencies/cTrackerRansac.h"
 #include "../commonDependencies/cUtils.h"
+#include "../commonDependencies/cVertex.h"
 
 #ifdef __CLING__
 #pragma link C++ class cTrackerRansac < cPhysicalHit> + ;
@@ -93,7 +94,6 @@ int fit(string inputFileName = "input_parameters.txt")
         printf("Unable to open inputtree: ");
         return -1;
     }
-    
 
     cFittedEvent<cPhysicalHit> *fitEvt = new cFittedEvent<cPhysicalHit>();
 
@@ -105,7 +105,7 @@ int fit(string inputFileName = "input_parameters.txt")
     while (rdr.Next())
     {
 
-        //cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
+        cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
 
         if ((!oneEventOnly || event->getEventNumber() == toAnalyse) && event->getEventNumber() > startFrom)
         {
@@ -175,25 +175,27 @@ int fit(string inputFileName = "input_parameters.txt")
             vrt.setMaxDist(vertexWidthAcceptance);
             vrt.findVertex(fitEvt);
 
-            // for (auto &line : fitEvt->getLines())
-            // {
-            //     double energyCount = 0;
-            //     for (auto &pts : line.getPoints())
-            //     {
-            //         energyCount += pts.getEnergy();
-            //     }
-            // }
+            for (auto &it_vert : fitEvt->getVertex())
+            {
+                std::cout << "  Vertex position. x: " << it_vert.getX() << "y: " << it_vert.getY()  << "z: " << it_vert.getZ() << endl;
+            }
+
+
 
             // Draw the analysed Event;
-            // cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
-            //     new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
+            cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
+                new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
 
-            // drawEvt->setEvent(fitEvt);
-            // drawEvt->drawComponents2D(false, 0, 0, 800, 500);
-            // drawEvt->drawColors2D(false, 0, 600, 800, 500);
-            // drawEvt->drawTracks3D(true, 800, 0, 1115, 1000);
+            drawEvt->setEvent(fitEvt);
+            drawEvt->drawAll3D(false);
+            drawEvt->drawAll2D(false);
+            drawEvt->drawComponents2D(false, 0, 0, 800, 500);
+            drawEvt->drawColors2D(false, 0, 600, 800, 500);
+            drawEvt->drawVertex(false, 800, 0, 1115, 500);
 
-            // delete drawEvt;
+            drawEvt->drawTracks3D(true, 800, 600, 1115, 500);
+
+            delete drawEvt;
         }
         else
         {

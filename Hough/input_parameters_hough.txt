@@ -4,14 +4,14 @@ AngularSteps 200.
 DistanceSteps 200. 
 MaxDistance 500.
 
-MinimumEnergy 8000. 
+MinimumEnergy 6000. 
 PointDistance 4.5
-MinPoints 25
+MinPoints 20
 
 xRescaling 1.
 yRescaling 1.
 zRescaling 0.5
-zRescalingBeam 0.1
+zRescalingBeam 0.5
 
 beamEnergyThreshold 70000
 beamWidth          3.7
@@ -19,12 +19,12 @@ beamMinSize        180
 
 binX 128
 binY 128
-binZ 100
+binZ 50
 maxX 128.
 maxY 128.
 maxZ 500.
 
-skip 1258
+skip 204
 
 trcC.setAngularSteps(44);   // 50Ti 44
 trcC.setDistanceSteps(44.); // 50Ti 44
