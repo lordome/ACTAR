@@ -75,6 +75,8 @@ public:
     double beamMinSize;
     double zRescaling = 1.;
 
+    bool longTracksEqualBeam = false;
+
     std::list<T> points;
     // std::list<T> unfittedPoints;
     std::list<cFittedLine<T>> lines;
@@ -88,6 +90,7 @@ public:
 
     // Fits each line contained in lines
     void fitLines();
+
 
     // Function for the user to start the tracking
     void track(direction, direction);

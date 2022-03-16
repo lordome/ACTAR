@@ -168,6 +168,8 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
     double maxX = 0;
     double minZ = 1000;
     double maxZ = 0;
+    
+
     if (1)
     {
       for (auto &it : bestInliers)
@@ -267,7 +269,7 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
     bestTrack.setFittable(isFittable);
 
 
-    if ((minX < 5 && maxX > 120) || (minZ < 30 && maxZ > 450))
+    if (longTracksEqualBeam && (minX < 5 && maxX > 120) || (minZ < 150 && maxZ > 350))
       bestTrack.setFittable(false);
     else
       bestTrack.setFittable(isFittable);
