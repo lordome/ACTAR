@@ -7,7 +7,8 @@
 #include <list>
 #include "cVertex.h"
 
-#ifdef __CLING__
+#ifndef pragma_linkdef
+#define pragma_linkdef
 #pragma link C++ class std::list<cPhysicalHit>+;
 #pragma link C++ class cFittedLine<cPhysicalHit>+;
 #pragma link C++ class std::list<cFittedLine<cPhysicalHit>>+;
