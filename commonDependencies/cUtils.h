@@ -26,7 +26,7 @@ void getInputMap(std::string &inputFileName, std::map<std::string, double> &parM
     while (inFile >> varName >> varValue)
     {
         parMap.insert(make_pair(varName, varValue));
-        std::cout << varName << "  " << varValue << std::endl;
+        //std::cout << varName << "  " << varValue << std::endl;
     }
 
     inFile.close();
