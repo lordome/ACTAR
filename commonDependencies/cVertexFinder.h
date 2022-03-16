@@ -26,6 +26,8 @@ public:
 
   double operator()(const double *);
 
+  bool getMinDistance(std::list<T> l1, std::list<T> l2, const double target);
+
 private:
   double minZ = 0.;
   double maxZ = 0.;
