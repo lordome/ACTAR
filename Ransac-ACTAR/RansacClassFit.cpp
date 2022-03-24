@@ -141,14 +141,14 @@ int fit(string inputFileName = "input_parameters.txt")
                 traC.addPoint(h);
             }
 
-            bool beamFittable = false;
-            bool beamOneSide = false;
-            bool beamTracks = true;
-            traC.Ransac(fenergy, besize, fwidth, beamTracks, beamOneSide, beamFittable);
+            // bool beamFittable = false;
+            // bool beamOneSide = false;
+            // bool beamTracks = true;
+            // traC.Ransac(fenergy, besize, fwidth, beamTracks, beamOneSide, beamFittable);
 
             bool trackFittable = true;
             bool trackOneSide = true;
-            beamTracks = false;
+            bool beamTracks = false;
 
             traC.Ransac(threshold, trsize, width, beamTracks, trackOneSide, trackFittable);
             // End Clustering
@@ -175,27 +175,25 @@ int fit(string inputFileName = "input_parameters.txt")
             vrt.setMaxDist(vertexWidthAcceptance);
             vrt.findVertex(fitEvt);
 
-            for (auto &it_vert : fitEvt->getVertex())
-            {
-                std::cout << "  Vertex position. x: " << it_vert.getX() << "y: " << it_vert.getY()  << "z: " << it_vert.getZ() << endl;
-            }
-
-
+            // for (auto &it_vert : fitEvt->getVertex())
+            // {
+            // std::cout << "  Vertex position. x: " << it_vert.getX() << "y: " << it_vert.getY() << "z: " << it_vert.getZ() << endl;
 
             // Draw the analysed Event;
             cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
                 new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
 
             drawEvt->setEvent(fitEvt);
-            drawEvt->drawAll3D(false);
-            drawEvt->drawAll2D(false);
+            // drawEvt->drawAll3D(false);
+            // drawEvt->drawAll2D(false);
             drawEvt->drawComponents2D(false, 0, 0, 800, 500);
-            drawEvt->drawColors2D(false, 0, 600, 800, 500);
-            drawEvt->drawVertex(false, 800, 0, 1115, 500);
+            drawEvt->drawColors2D(false, 1000, 600, 800, 500);
+            drawEvt->drawTracks3D(false, 800, 600, 1115, 500);
 
-            drawEvt->drawTracks3D(true, 800, 600, 1115, 500);
+            drawEvt->drawVertex(true, 800, 0, 1115, 500);
 
             delete drawEvt;
+            // }
         }
         else
         {

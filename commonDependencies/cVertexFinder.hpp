@@ -14,11 +14,13 @@ void cVertexFinder<T>::findVertex(cFittedEvent<T> *event)
   std::list<cFittedLine<T>> maybeTracks;
   bestTracks.clear();
 
-  auto linesList = event->getLines();
+  std::list<cFittedLine<T>> linesList = event->getLines();
 
+  int it = 0;
   for (auto i = linesList.begin(); i != linesList.end(); i++)
   {
-
+    it++;
+    cout << it << endl;
     if (!i->isFittable())
       continue;
 
@@ -34,6 +36,8 @@ void cVertexFinder<T>::findVertex(cFittedEvent<T> *event)
       if (i->getBasepoint() == j->getBasepoint() || !j->isFittable())
         continue;
 
+      bool pBack = false;
+
       for (auto &h : j->getPoints())
       {
         TVector3 v(h[0], h[1], h[2]);
@@ -43,9 +47,10 @@ void cVertexFinder<T>::findVertex(cFittedEvent<T> *event)
           // cout << "CoordBase: " << modelB[0] << "  " << modelB[1] << "  " << modelB[2] << "  coordDir: " << modelD[0] << "  " << modelD[1] << "  " << modelD[2] << endl;
           cout << "isDistanceOK? " << getMinDistance(i->getPoints(), j->getPoints(), 20) << "  " << modelB[0] << "  " << j->getBasepoint()[0] << endl;
 
-          if (getMinDistance(i->getPoints(), j->getPoints(), 30))
+          if (getMinDistance(i->getPoints(), j->getPoints(), 20))
           {
             cout << "pushingBack" << maybeTracks.size() << endl;
+            pBack = true;
             maybeTracks.push_back(*i);
             i = linesList.erase(i);
             i--;
@@ -53,8 +58,10 @@ void cVertexFinder<T>::findVertex(cFittedEvent<T> *event)
           }
         }
       }
-      
+      if (pBack)
+        break;
     }
+
     if (maybeTracks.size() > bestTracks.size() && maybeTracks.size() > 1)
     {
       bestTracks = maybeTracks;
@@ -214,9 +221,10 @@ bool cVertexFinder<T>::getMinDistance(std::list<T> l1, std::list<T> l2, const do
   {
     for (auto &it_l2 : l2)
     {
-      double actDistSquared = pow((it_l1[0] - it_l1[0]), 2) + pow((it_l1[1] - it_l1[1]), 2) + pow((it_l1[2] - it_l1[2]), 2);
+      double actDistSquared = pow((it_l1[0] - it_l2[0]), 2) + pow((it_l1[1] - it_l2[1]), 2) + pow((it_l1[2] - it_l2[2]), 2);
       if (actDistSquared < (minDist * minDist))
       {
+        cout << "points: " << it_l1[0] << "  " << it_l1[1] << "  " << it_l1[2] << "  " << it_l2[0] << "  " << it_l2[1] << "  " << it_l2[2] << "  " << endl;
         minDist = actDistSquared;
       }
     }

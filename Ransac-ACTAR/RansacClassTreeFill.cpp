@@ -198,30 +198,6 @@ int fit(string inputFileName = "input_parameters.txt")
 
         fOutTree->Fill();
 
-        // for (auto &line : fitEvt->getLines())
-        // {
-        //     double energyCount = 0;
-        //     for (auto &pts : line.getPoints())
-        //     {
-        //         energyCount += pts.getEnergy();
-        //     }
-        // }
-
-        // Draw the analysed Event;
-        // cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
-        //     new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
-
-        // drawEvt->setEvent(fitEvt);
-        // drawEvt->drawComponents2D(false, 0, 0, 800, 500);
-        // drawEvt->drawColors2D(false, 0, 600, 800, 500);
-        // drawEvt->drawTracks3D(true, 800, 0, 1115, 1000);
-
-        // delete drawEvt;
-        // }
-        // else
-        // {
-        //     continue;
-        // }
     }
 
     fOutTree->Write();

@@ -42,7 +42,7 @@
 
 using namespace std;
 
-int fit(TString inputFileName = "provaOutputcFittedEvent.root")
+int fit(TString inputFileName = "run140Analysed.root")
 {
     // Opening the input file.
     TFile *ifile = new TFile(inputFileName.Data(), "READ");
@@ -74,8 +74,19 @@ int fit(TString inputFileName = "provaOutputcFittedEvent.root")
 
     TH2F *hAngEnergy = new TH2F("histAng", "histAng", 270, 0, 90, 500, 0, 300000);
 
+    int it_count = 0;
+
+    int verOneHundredCount = 0;
+
     while (rdr.Next())
     {
+
+        //  if (rdr.GetCurrentEntry() >= it_count)
+        // {
+        //     it_count += 100;
+        // }
+
+        cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
 
         int binX = 128;
         int binY = 128;
@@ -116,7 +127,12 @@ int fit(TString inputFileName = "provaOutputcFittedEvent.root")
         for (auto &it_ver : fitEvt->getVertex())
         {
             TVector3 vec = TVector3(it_ver);
+
             hPosVertex->Fill(vec[0]);
+            if (vec[0] < -99.)
+            {
+                cout << "Entry = " << rdr.GetCurrentEntry() << "  xPos = " << vec[0] << endl;
+            }
         }
     }
 
