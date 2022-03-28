@@ -106,6 +106,7 @@ int fit(string inputFileName = "input_parameters.txt")
     {
 
         cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
+        cout << endl;
 
         if ((!oneEventOnly || event->getEventNumber() == toAnalyse) && event->getEventNumber() > startFrom)
         {
@@ -179,6 +180,38 @@ int fit(string inputFileName = "input_parameters.txt")
             // {
             // std::cout << "  Vertex position. x: " << it_vert.getX() << "y: " << it_vert.getY() << "z: " << it_vert.getZ() << endl;
 
+            auto listTracks = fitEvt->getLines();
+
+            int itTracks = 0;
+            for (auto &it : listTracks)
+            {
+                cout << "Track " << itTracks << " Fittable" << it.isFittable() << " zBasePoint " << it.getBasepoint().z() << " Direction: " << it.getDirection().x() << " " << it.getDirection().y() << " " << it.getDirection().z() << endl;
+                itTracks++;
+            }
+
+            itTracks = 0;
+            for (auto &it : listTracks)
+            {
+                double minZ = DBL_MAX;
+                double maxZ = -100;
+                double minX = DBL_MAX;
+                double max = -100;
+                for (auto &pts : it.getPoints())
+                {
+                    if (pts.getZ() < minZ)
+                        minZ = pts.getZ();
+                    if (pts.getZ() > maxZ)
+                        maxZ = pts.getZ();
+                    if (pts.getX() < minX)
+                        minX = pts.getX();
+                    if (pts.getX() > maxX)
+                        maxX = pts.getX();
+                }
+
+                cout << "Track " << itTracks << "  " << minX << "  " << maxX << "  " << minZ << "  " << maxZ << endl;
+                itTracks++;
+            }
+
             // Draw the analysed Event;
             cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
                 new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
@@ -189,11 +222,12 @@ int fit(string inputFileName = "input_parameters.txt")
             drawEvt->drawComponents2D(false, 0, 0, 800, 500);
             drawEvt->drawColors2D(false, 1000, 600, 800, 500);
             drawEvt->drawTracks3D(false, 800, 600, 1115, 500);
-
             drawEvt->drawVertex(true, 800, 0, 1115, 500);
 
             delete drawEvt;
             // }
+
+            // Coding for finding informations on tracks;
         }
         else
         {
