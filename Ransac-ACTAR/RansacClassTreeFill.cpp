@@ -95,7 +95,7 @@ int fit(string inputFileName = "input_parameters.txt")
     }
 
     // Open output file
-    TString filename = "provaOutputcFittedEvent.root";
+    TString filename = "fittedOutputHighNonFittable.root";
     TFile fout(filename.Data(), "RECREATE");
     if (fout.IsZombie())
     {
@@ -162,14 +162,14 @@ int fit(string inputFileName = "input_parameters.txt")
             traC.addPoint(h);
         }
 
-        bool beamFittable = false;
-        bool beamOneSide = false;
-        bool beamTracks = true;
-        traC.Ransac(fenergy, besize, fwidth, beamTracks, beamOneSide, beamFittable);
+        // bool beamFittable = false;
+        // bool beamOneSide = false;
+        // bool beamTracks = true;
+        // traC.Ransac(fenergy, besize, fwidth, beamTracks, beamOneSide, beamFittable);
 
         bool trackFittable = true;
         bool trackOneSide = true;
-        beamTracks = false;
+        bool beamTracks = false;
 
         traC.Ransac(threshold, trsize, width, beamTracks, trackOneSide, trackFittable);
         // End Clustering
@@ -197,7 +197,6 @@ int fit(string inputFileName = "input_parameters.txt")
         vrt.findVertex(fitEvt);
 
         fOutTree->Fill();
-
     }
 
     fOutTree->Write();
