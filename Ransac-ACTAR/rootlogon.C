@@ -1,5 +1,5 @@
 #include <iostream>
-#include <TString.h>
+#include "TString.h"
 #include "TSystem.h"
 #include "TROOT.h"
 #include "TStyle.h"
@@ -9,15 +9,18 @@ using namespace std;
 void rootlogon()
 {
   // this is necessary for the codes to work
-  gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libMFM.so");
-  gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libpClasses.so");
-  gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libARDAlib.so");
+  // gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libMFM.so");
+  // gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libpClasses.so");
+  // gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libARDAlib.so");
 
-  ///gSystem->Load("/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/root_e796/cTrackerRansac_h.so");
+  gSystem->Load("/home/garfield/Desktop/ARDADWL/bin/libMFM.so");
+  gSystem->Load("/home/garfield/Desktop/ARDADWL/bin/libpClasses.so");
+  gSystem->Load("/home/garfield/Desktop/ARDADWL/bin/libARDAlib.so");
+
+  /// gSystem->Load("/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/root_e796/cTrackerRansac_h.so");
 
   // automatically load scripts
   gSystem->SetFlagsOpt("-O2 -std=c++11");
-
 
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/ACTAR_git/commonDependencies/\"");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/inc/\"");
