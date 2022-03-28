@@ -164,11 +164,10 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
       ++iterations;
     }
 
-    double minX = 1000;
-    double maxX = 0;
-    double minZ = 1000;
-    double maxZ = 0;
-    
+    double minX = DBL_MAX;
+    double maxX = -100;
+    double minZ = DBL_MAX;
+    double maxZ = -100;
 
     if (1)
     {
@@ -268,8 +267,7 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
     bestTrack.getPoints().insert(bestTrack.getPoints().begin(), list_i.begin(), list_i.end()); // setting bestTrack (conversion from vector to list)
     bestTrack.setFittable(isFittable);
 
-
-    if (longTracksEqualBeam && (minX < 5 && maxX > 120) || (minZ < 150 && maxZ > 350))
+    if ((longTracksEqualBeam && (minX < 5 && maxX > 120)) || (int)(minZ > 295 || maxZ < 230))
       bestTrack.setFittable(false);
     else
       bestTrack.setFittable(isFittable);
