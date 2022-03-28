@@ -20,7 +20,7 @@ void cVertexFinder<T>::findVertex(cFittedEvent<T> *event)
   for (auto i = linesList.begin(); i != linesList.end(); i++)
   {
     it++;
-    cout << it << endl;
+    // cout << it << endl;
     if (!i->isFittable())
       continue;
 
@@ -43,13 +43,13 @@ void cVertexFinder<T>::findVertex(cFittedEvent<T> *event)
         TVector3 v(h[0], h[1], h[2]);
         if (getError(modelB, modelD, v) < (maxDist * maxDist))
         {
-          cout << "ERROR: " << getError(modelB, modelD, v) << " coord: " << h[0] << "  " << h[1] << "  " << h[2] << endl;
-          // cout << "CoordBase: " << modelB[0] << "  " << modelB[1] << "  " << modelB[2] << "  coordDir: " << modelD[0] << "  " << modelD[1] << "  " << modelD[2] << endl;
-          cout << "isDistanceOK? " << getMinDistance(i->getPoints(), j->getPoints(), 20) << "  " << modelB[0] << "  " << j->getBasepoint()[0] << endl;
+          // cout << "ERROR: " << getError(modelB, modelD, v) << " coord: " << h[0] << "  " << h[1] << "  " << h[2] << endl;
+          //  cout << "CoordBase: " << modelB[0] << "  " << modelB[1] << "  " << modelB[2] << "  coordDir: " << modelD[0] << "  " << modelD[1] << "  " << modelD[2] << endl;
+          // cout << "isDistanceOK? " << getMinDistance(i->getPoints(), j->getPoints(), 20) << "  " << modelB[0] << "  " << j->getBasepoint()[0] << endl;
 
           if (getMinDistance(i->getPoints(), j->getPoints(), 20))
           {
-            cout << "pushingBack" << maybeTracks.size() << endl;
+            // cout << "pushingBack" << maybeTracks.size() << endl;
             pBack = true;
             maybeTracks.push_back(*i);
             i = linesList.erase(i);
@@ -68,7 +68,7 @@ void cVertexFinder<T>::findVertex(cFittedEvent<T> *event)
     }
   }
 
-  cout << "bestTracks.size()" << bestTracks.size() << endl;
+  // cout << "bestTracks.size()" << bestTracks.size() << endl;
   if (bestTracks.size() < 2)
     return;
 
@@ -102,7 +102,7 @@ void cVertexFinder<T>::findVertex(cFittedEvent<T> *event)
 
   cVertex<T> v(ver);
   v.getTracks() = bestTracks;
-  cout << bestTracks.size() << " size" << endl;
+  // cout << bestTracks.size() << " size" << endl;
 
   event->getVertex().push_back(v);
 }
@@ -221,11 +221,11 @@ bool cVertexFinder<T>::getMinDistance(std::list<T> l1, std::list<T> l2, const do
   {
     for (auto &it_l2 : l2)
     {
-      double actDistSquared = pow((it_l1[0] - it_l2[0]), 2) + pow((it_l1[1] - it_l2[1]), 2) + pow((it_l1[2] - it_l2[2]), 2);
-      if (actDistSquared < (minDist * minDist))
+      double actDist = sqrt(pow((it_l1[0] - it_l2[0]), 2) + pow((it_l1[1] - it_l2[1]), 2) + pow((it_l1[2] - it_l2[2]), 2));
+      if (actDist < minDist)
       {
-        cout << "points: " << it_l1[0] << "  " << it_l1[1] << "  " << it_l1[2] << "  " << it_l2[0] << "  " << it_l2[1] << "  " << it_l2[2] << "  " << endl;
-        minDist = actDistSquared;
+        // cout << "points: " << it_l1[0] << "  " << it_l1[1] << "  " << it_l1[2] << "  " << it_l2[0] << "  " << it_l2[1] << "  " << it_l2[2] << "  " << endl;
+        minDist = actDist;
       }
     }
     if (minDist < target)
