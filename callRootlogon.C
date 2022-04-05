@@ -8,16 +8,9 @@ using namespace std;
 
 void callRootlogon()
 {
-  // this is necessary for the codes to work
-  // gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libMFM.so");
-  // gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libpClasses.so");
-  // gSystem->Load("/home/lorenzo/Desktop/fromNuclex1/ARDADOWNLOAD/bin6.24/libARDAlib.so");
-
-  gSystem->Load("/home/garfield/Desktop/ARDADWL/bin/libMFM.so");
-  gSystem->Load("/home/garfield/Desktop/ARDADWL/bin/libpClasses.so");
-  gSystem->Load("/home/garfield/Desktop/ARDADWL/bin/libARDAlib.so");
-
-  /// gSystem->Load("/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/root_e796/cTrackerRansac_h.so");
+  gSystem->Load("/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/bin_root6.24.06/libMFM.so");
+  gSystem->Load("/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/bin_root6.24.06/libpClasses.so");
+  gSystem->Load("/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/bin_root6.24.06/libARDAlib.so");
 
   // automatically load scripts
   gSystem->SetFlagsOpt("-O2 -std=c++11");
@@ -27,12 +20,6 @@ void callRootlogon()
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/MFMlib-JDF/install/include/mfmlib/\"");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/utils/reduction/include/\"");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/utils/GFFT/src/\"");
-
-  // gROOT->ProcessLine(".L /home/lorenzo/Desktop/Ganil_Actar/MFMlib-JDF/install/lib/libmfm.so");
-  // gROOT->ProcessLine(".L /home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/libACTARshared.so");
-  // gROOT->ProcessLine(".L MTrack.cpp+g");
-  // gROOT->ProcessLine(".L Utils.cpp+g");
-  // gROOT->ProcessLine(".L TreeRead.C+g");
 
   // nicer style
   gROOT->SetStyle("Plain");
