@@ -50,6 +50,8 @@ int fit(string inputFileName = "input_parameters_draw.txt")
     float maxY = parMap["maxY"];
     float maxZ = parMap["maxZ"];
 
+    int startFrom = parMap["startFrom"];
+
     // Opening the input file.
     TFile *ifile = new TFile(dataFileName.Data(), "READ");
     if (ifile->IsZombie())
@@ -75,7 +77,7 @@ int fit(string inputFileName = "input_parameters_draw.txt")
     while (rdr.Next())
     {
 
-        if (rdr.GetCurrentEntry() > 1099)
+        if (rdr.GetCurrentEntry() > startFrom)
         {
             cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
 
