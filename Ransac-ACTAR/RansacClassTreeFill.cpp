@@ -95,8 +95,8 @@ int fit(string inputFileName = "input_parameters.txt")
     }
 
     // Open output file
-    TString filename = "fittedOutputHighNonFittable.root";
-    TFile fout(filename.Data(), "RECREATE");
+    TString filename = "prova.root";
+    TFile fout(filename.Data(), "CREATE");
     if (fout.IsZombie())
     {
         cout << "Output file creation failed" << endl;
@@ -107,9 +107,14 @@ int fit(string inputFileName = "input_parameters.txt")
     cFittedEvent<cPhysicalHit> *fitEvt = new cFittedEvent<cPhysicalHit>();
 
     TTree *fOutTree = new TTree("trackTree", "trackTree");
-    fOutTree->Branch("Full_event", &fitEvt);
+    auto evtBranch = fOutTree->Branch("fullEvent", &fitEvt);
+    auto parBranch = fOutTree->Branch("parameters", &parMap);
+    auto fNmBranch = fOutTree->Branch("inputFile", &dataFileName);
     fOutTree->SetDirectory(&fout);
     fOutTree->AutoSave();
+
+    parBranch->Fill();
+    fNmBranch->Fill();
 
     TTreeReader rdr(physicalEventTree);
     TTreeReaderValue<cPhysicalEvent> event(rdr, "event"); // reading input file
@@ -125,6 +130,10 @@ int fit(string inputFileName = "input_parameters.txt")
         {
             cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
             it_count += 100;
+        }
+
+        if(it_count > 300){
+            break;
         }
         // cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
 
@@ -196,7 +205,7 @@ int fit(string inputFileName = "input_parameters.txt")
         vrt.setMaxDist(vertexWidthAcceptance);
         vrt.findVertex(fitEvt);
 
-        fOutTree->Fill();
+        evtBranch->Fill();
     }
 
     fOutTree->Write();
