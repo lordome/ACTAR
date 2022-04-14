@@ -219,9 +219,9 @@ int fit(string inputFileName = "input_parameters.txt")
             drawEvt->setEvent(fitEvt);
             // drawEvt->drawAll3D(false);
             // drawEvt->drawAll2D(false);
-            drawEvt->drawComponents2D(false, 0, 0, 800, 500);
+            //drawEvt->drawComponents2D(false, 0, 0, 800, 500);
             drawEvt->drawColors2D(false, 1000, 600, 800, 500);
-            drawEvt->drawTracks3D(false, 800, 600, 1115, 500);
+            //drawEvt->drawTracks3D(false, 800, 600, 1115, 500);
             drawEvt->drawVertex(true, 800, 0, 1115, 500);
 
             delete drawEvt;

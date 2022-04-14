@@ -4,14 +4,14 @@ trackEnergyThreshold 5000
 beamEnergyThreshold 100000
 tracksWidth 4.2
 beamWidth 3.5
-vertexWidthAcceptance 10
+vertexWidthAcceptance 40    
 numberLoops 200
 trackMinSize 20 
 beamMinSize 250  
 
 oneEventOnly 0
 toAnalyse  -1 
-startFrom 10
+startFrom 90
 
 zRescaling 4
 zRescalingFit 1
