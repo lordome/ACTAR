@@ -37,3 +37,4 @@ Ransac-ACTAR/drawFittedEvents_cpp.d
 Ransac-ACTAR/drawAnalysedEvent_cpp.so
 Ransac-ACTAR/drawAnalysedEvent_cpp.d
 Ransac-ACTAR/drawAnalysedEvent_cpp_ACLiC_dict_rdict.pcm
+.vscode/c_cpp_properties.json
