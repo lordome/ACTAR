@@ -8,5 +8,6 @@ using namespace std;
 
 void rootlogon()
 {
+  gSystem->Load("loader_C.so");
   gROOT->ProcessLine(".x ../callRootlogon.C");
 }

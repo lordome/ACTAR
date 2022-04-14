@@ -17,14 +17,12 @@
 #include "TEnv.h"
 #include "TTree.h"
 #include "TVector3.h"
-#include "TCanvas.h"
 #include "TPolyLine3D.h"
 #include "TTreeReader.h"
 #include "TRandom3.h"
 #include "TSystem.h"
 #include "TROOT.h"
 #include "TGraph.h"
-#include "TCanvas.h"
 #include "TH3F.h"
 
 // #include "../commonDependencies/cPhysicalHit.h"
@@ -36,6 +34,10 @@
 #include "../commonDependencies/cDrawEvents.h"
 #include "../commonDependencies/cTrackerRansac.h"
 #include "../commonDependencies/cUtils.h"
+
+#ifndef __loaderVEC__
+#pragma link C++ class vector < vector < vector < double>>> + ;
+#endif
 
 #ifdef __CLING__
 #pragma link C++ class cTrackerRansac < cPhysicalHit> + ;
@@ -80,7 +82,7 @@ int fit(TString inputFileName = "run140Analysed.root")
     }
     fout.cd();
 
-    std::vector<std::vector<double>> grid(128, std::vector<double>(128, 0));
+    std::vector<std::vector<std::vector<double>>> grid(3, std::vector<std::vector<double>>(128, std::vector<double>(128, 0)));
 
     TTree *fOutTree = new TTree("trackTree", "trackTree");
     fOutTree->Branch("grid", &grid);
@@ -88,11 +90,21 @@ int fit(TString inputFileName = "run140Analysed.root")
     fOutTree->AutoSave();
 
     std::vector<int> vertexSize;
-
+    int counter = 0;
     while (rdr.Next())
     {
+        counter++;
+        if (counter > 10000)
+        {
+            continue;
+        }
+        grid = std::vector<std::vector<std::vector<double>>>(3, std::vector<std::vector<double>>(128, std::vector<double>(128, 0)));
 
-        std::vector<std::vector<double>> tmp_grid(128, std::vector<double>(128, 0));
+        std::vector<std::vector<double>> xy_grid(128, std::vector<double>(128, 0));
+        std::vector<std::vector<double>> xz_grid(128, std::vector<double>(128, 0));
+        std::vector<std::vector<double>> yz_grid(128, std::vector<double>(128, 0));
+
+        std::vector<std::vector<std::vector<double>>> tmp_grid(3, std::vector<std::vector<double>>(128, std::vector<double>(128, 0)));
 
         cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
 
@@ -100,11 +112,12 @@ int fit(TString inputFileName = "run140Analysed.root")
         {
             for (auto &it_hits : it_lines.getPoints())
             {
-                tmp_grid[(int)it_hits.getX()][(int)it_hits.getY()] += it_hits.getEnergy();
+                grid[0][(int)it_hits.getX()][(int)it_hits.getY()] += it_hits.getEnergy();
+                grid[1][(int)it_hits.getX()][(int)(it_hits.getZ() / 4.)] += it_hits.getEnergy();
+                grid[2][(int)it_hits.getY()][(int)(it_hits.getZ() / 4.)] += it_hits.getEnergy();
             }
         }
-
-        grid = tmp_grid;
+        // grid = tmp_grid;
         fOutTree->Fill();
 
         vertexSize.push_back(fitEvt->getVertex().size());
@@ -112,9 +125,9 @@ int fit(TString inputFileName = "run140Analysed.root")
 
     fOutTree->Write();
 
-    std::ofstream output_file("./vertSize.txt");
+    std::ofstream output_file("./vertSize_10000evt.txt");
     std::ostream_iterator<int> output_iterator(output_file, "\n");
     std::copy(vertexSize.begin(), vertexSize.end(), output_iterator);
-    
+
     return 0;
 }
