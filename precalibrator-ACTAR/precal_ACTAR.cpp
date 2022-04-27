@@ -82,6 +82,8 @@ using namespace std;
 #include "/home/lorenzo/Desktop/ARDAC/ARDA/inc/cLookupTable.h"
 #include "/home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawEvent.h"
 
+#include <chrono>
+
 // gSystem->AddIncludePath("home/lorenzo/Desktop/ARDAC/ARDA/inc")
 
 struct calCoeff
@@ -92,55 +94,6 @@ struct calCoeff
 
 int preCal(int run_f, int run_l)
 {
-    // if (argc < 3)
-    // {
-    //     cout << "Usage: precalibrator input1.root input2.root [...] output.root" << endl;
-    //     return 0;
-    // }
-
-    // Loading oscar calibration
-    /* map<int, calCoeff> oscarCal;
-        TEnv foscal("oscal.cal");
-        for (int i = 21000; i < 21400; i++)
-        {
-            string mname = to_string(i) + "m";
-            string qname = to_string(i) + "q";
-
-            if (foscal.Defined(mname.data()) && foscal.Defined(qname.data()))
-            {
-                calCoeff val;
-                val.m = foscal.GetValue(mname.data(), val.m);
-                val.q = foscal.GetValue(qname.data(), val.q);
-
-                oscarCal.emplace(i, val);
-            }
-        }*/
-
-    // Loading pad calibration
-    /* map<int, calCoeff> padCal;
-        TEnv fpadcal("padcal.cal");
-        for (int i = 0; i < 20000; i++)
-        {
-            string mname = to_string(i) + "m";
-            string qname = to_string(i) + "q";
-
-            if (fpadcal.Defined(mname.data()) && fpadcal.Defined(qname.data()))
-            {
-                calCoeff val;
-                val.m = fpadcal.GetValue(mname.data(), val.m);
-                val.q = fpadcal.GetValue(qname.data(), val.q);
-
-                padCal.emplace(i, val);
-            }
-        }*/
-
-    // Load conversion from ADC sample to distance
-    /* TVector3 velocity;
-    TEnv velDat("velocity.cal");
-    velocity[0] = velDat.GetValue("x", velocity[0]);
-    velocity[1] = velDat.GetValue("y", velocity[1]);
-    velocity[2] = velDat.GetValue("z", velocity[2]);
-    */
 
     int TABLE[6][NB_COBO * NB_ASAD * NB_AGET * NB_CHANNEL];
     int TABLE_INV[128][128][4];
@@ -283,27 +236,10 @@ int preCal(int run_f, int run_l)
 
     Tree->SetBranchAddress("data", &EvtRed);
 
-    // TTree *inTree = (TTree *)fin.Get("rawEventTree");
-    // if (!inTree)
-    // {
-    //     std::cout << "Unable to open TTree in file " << argv[argi] << std::endl;
-    // }
-
-    // Retrieve lookup table
-    // cLookupTable *lt = (cLookupTable *)fin.Get("lookupTable");
-    // if (!lt)
-    // {
-    //     cout << "Unable to open cLookupTable in file " << argv[argi] << endl;
-    // }
-
     // Now I cicle all the events in the input TTree
     long int EntryTotal = Tree->GetEntries();
     cout << "Treating " << Tree->GetEntries() << " entries" << endl;
     long int ENTRIES[8] = {32, 38, 45, 60, 62, 63, 79, 81};
-
-    // TTreeReader rdr(inTree);
-    // TTreeReaderValue<cRawEvent> event(rdr, "event");
-    // Long64_t nent = rdr.GetEntries(false);
 
     for (long int entry = 0; entry < EntryTotal; entry++)
     // 	for(int ent=0;ent<8;ent++)
@@ -333,7 +269,7 @@ int preCal(int run_f, int run_l)
             ch = EvtRed->CoboAsad[it].globalchannelid - (co << 11) - (as << 9) - (ag << 7);
             int where = co * NB_ASAD * NB_AGET * NB_CHANNEL + as * NB_AGET * NB_CHANNEL + ag * NB_CHANNEL + ch;
 
-            //cout << "To check if where and gID are the same... " << where << "   " << EvtRed->CoboAsad[it].globalchannelid << endl;
+            cout << "To check if where and gID are the same... " << where << "   " << EvtRed->CoboAsad[it].globalchannelid << endl;
 
             float Qpad = 0;
             if (co != 31 && co != 16)
@@ -357,68 +293,6 @@ int preCal(int run_f, int run_l)
         }
 
         outTree.Fill();
-        /*
-               // while (rdr.Next())
-               // {
-               //     if (rdr.GetCurrentEntry() % 10 == 0)
-               //     {
-               //         cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
-               //     }
-
-               //     // WRITING SINGLE EVENT
-               //     delete phEvt;
-               //     phEvt = new cPhysicalEvent;
-
-               //     phEvt->setEventNumber(event->getEventNumber());
-               //     phEvt->setTimestamp(event->getTimestamp());
-
-               // SET RUNNUMBER!!!!
-
-               // for (auto &hit : event->getHits())
-               // {
-               //     // WRITING SINGLE HIT
-               //     int gid = hit.getGlobalChannelId();
-               //     // HIT ON PADPLANE
-               //     if (padCal.count(gid))
-               //     {
-               //         cPhysicalHit phHit;
-               //         phHit.setGlobalChannelId(gid);
-               //         phHit[0] = lt->getTable()[gid].getCol() * velocity[0];
-               //         phHit[1] = lt->getTable()[gid].getRow() * velocity[1];
-               //         phHit[2] = hit.getPeakTime() * velocity[2];
-               //         phHit.setEnergy(hit.getPeakHeight() * padCal[gid].m + padCal[gid].q);
-               //         phHit.setTrackable(true);
-
-               //         // Noisy channels not to use for tracking
-               //         if (gid >= 100 && gid < 200)
-               //             phHit.setTrackable(false);
-
-               //         // The hits on the beam are noisier, so it is better to add a cut
-               //         if (phHit[1] >= 26. && phHit[1] <= 36. && phHit.GetEnergy() <= 60.)
-               //             phHit.setTrackable(false);
-
-               //         phEvt->getHits().push_back(phHit);
-               //     }
-
-               //     // HIT ON OSCAR
-               //     if (gid >= 21000 && gid < 21500)
-               //     {
-               //         if (oscarCal.count(gid) == 1)
-               //         {
-               //             cPhysicalHit phHit;
-               //             phHit.setGlobalChannelId(gid);
-
-               //             phHit.setEnergy(hit.getPeakHeight() * oscarCal[gid].m + oscarCal[gid].q);
-               //             phHit.setTrackable(false);
-
-               //             phEvt->getHits().push_back(phHit);
-               //         }
-               //     }
-               // }
-
-               // outTree.Fill();
-
-       */
     }
 
     fout.cd();
@@ -428,3 +302,132 @@ int preCal(int run_f, int run_l)
 
     return 0;
 }
+// if (argc < 3)
+// {
+//     cout << "Usage: precalibrator input1.root input2.root [...] output.root" << endl;
+//     return 0;
+// }
+
+// Loading oscar calibration
+/* map<int, calCoeff> oscarCal;
+    TEnv foscal("oscal.cal");
+    for (int i = 21000; i < 21400; i++)
+    {
+        string mname = to_string(i) + "m";
+        string qname = to_string(i) + "q";
+
+        if (foscal.Defined(mname.data()) && foscal.Defined(qname.data()))
+        {
+            calCoeff val;
+            val.m = foscal.GetValue(mname.data(), val.m);
+            val.q = foscal.GetValue(qname.data(), val.q);
+
+            oscarCal.emplace(i, val);
+        }
+    }*/
+
+// Loading pad calibration
+/* map<int, calCoeff> padCal;
+    TEnv fpadcal("padcal.cal");
+    for (int i = 0; i < 20000; i++)
+    {
+        string mname = to_string(i) + "m";
+        string qname = to_string(i) + "q";
+
+        if (fpadcal.Defined(mname.data()) && fpadcal.Defined(qname.data()))
+        {
+            calCoeff val;
+            val.m = fpadcal.GetValue(mname.data(), val.m);
+            val.q = fpadcal.GetValue(qname.data(), val.q);
+
+            padCal.emplace(i, val);
+        }
+    }*/
+
+// Load conversion from ADC sample to distance
+/* TVector3 velocity;
+TEnv velDat("velocity.cal");
+velocity[0] = velDat.GetValue("x", velocity[0]);
+velocity[1] = velDat.GetValue("y", velocity[1]);
+velocity[2] = velDat.GetValue("z", velocity[2]);
+*/
+
+// TTree *inTree = (TTree *)fin.Get("rawEventTree");
+// if (!inTree)
+// {
+//     std::cout << "Unable to open TTree in file " << argv[argi] << std::endl;
+// }
+
+// Retrieve lookup table
+// cLookupTable *lt = (cLookupTable *)fin.Get("lookupTable");
+// if (!lt)
+// {
+//     cout << "Unable to open cLookupTable in file " << argv[argi] << endl;
+// }
+
+// TTreeReader rdr(inTree);
+// TTreeReaderValue<cRawEvent> event(rdr, "event");
+// Long64_t nent = rdr.GetEntries(false);
+
+/*
+    // while (rdr.Next())
+    // {
+    //     if (rdr.GetCurrentEntry() % 10 == 0)
+    //     {
+    //         cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
+    //     }
+
+    //     // WRITING SINGLE EVENT
+    //     delete phEvt;
+    //     phEvt = new cPhysicalEvent;
+
+    //     phEvt->setEventNumber(event->getEventNumber());
+    //     phEvt->setTimestamp(event->getTimestamp());
+
+    // SET RUNNUMBER!!!!
+
+    // for (auto &hit : event->getHits())
+    // {
+    //     // WRITING SINGLE HIT
+    //     int gid = hit.getGlobalChannelId();
+    //     // HIT ON PADPLANE
+    //     if (padCal.count(gid))
+    //     {
+    //         cPhysicalHit phHit;
+    //         phHit.setGlobalChannelId(gid);
+    //         phHit[0] = lt->getTable()[gid].getCol() * velocity[0];
+    //         phHit[1] = lt->getTable()[gid].getRow() * velocity[1];
+    //         phHit[2] = hit.getPeakTime() * velocity[2];
+    //         phHit.setEnergy(hit.getPeakHeight() * padCal[gid].m + padCal[gid].q);
+    //         phHit.setTrackable(true);
+
+    //         // Noisy channels not to use for tracking
+    //         if (gid >= 100 && gid < 200)
+    //             phHit.setTrackable(false);
+
+    //         // The hits on the beam are noisier, so it is better to add a cut
+    //         if (phHit[1] >= 26. && phHit[1] <= 36. && phHit.GetEnergy() <= 60.)
+    //             phHit.setTrackable(false);
+
+    //         phEvt->getHits().push_back(phHit);
+    //     }
+
+    //     // HIT ON OSCAR
+    //     if (gid >= 21000 && gid < 21500)
+    //     {
+    //         if (oscarCal.count(gid) == 1)
+    //         {
+    //             cPhysicalHit phHit;
+    //             phHit.setGlobalChannelId(gid);
+
+    //             phHit.setEnergy(hit.getPeakHeight() * oscarCal[gid].m + oscarCal[gid].q);
+    //             phHit.setTrackable(false);
+
+    //             phEvt->getHits().push_back(phHit);
+    //         }
+    //     }
+    // }
+
+    // outTree.Fill();
+
+*/
