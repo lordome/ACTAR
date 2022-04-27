@@ -34,7 +34,8 @@ int ardaDrawEvent(int dimensions = 3)
     TCanvas *canvas = new TCanvas("canvas", "canvas", 800, 600);
 
     // input file in cPhysicalEvents
-    TString ifname = "../../ROOTFiles/outputPrecalibrator_run140.root";
+    // TString ifname = "/home/lorenzo/Desktop/ACTAR_git/precalibrator-ACTAR/pyOutputPrecal.root";
+    TString ifname = "/home/lorenzo/Desktop/ACTAR_git/Ransac-ACTAR/prova100.root";
 
     TFile *ifile = new TFile(ifname.Data(), "READ");
     if (ifile->IsZombie())
@@ -49,6 +50,7 @@ int ardaDrawEvent(int dimensions = 3)
         return -1;
     }
 
+    
     TTreeReader rdr(physicalEventTree);
     TTreeReaderValue<cPhysicalEvent> event(rdr, "event"); // reading input file
 
@@ -61,6 +63,8 @@ int ardaDrawEvent(int dimensions = 3)
         return -1;
     }
 
+
+    std::cout << rdr.GetEntries() << std::endl;
     while (rdr.Next())
     {
         list<cPhysicalHit> hitslist = event->getHits(); // picking up the list from the event and converting it into a vector.
