@@ -39,3 +39,8 @@ Ransac-ACTAR/drawAnalysedEvent_cpp.d
 Ransac-ACTAR/drawAnalysedEvent_cpp_ACLiC_dict_rdict.pcm
 .vscode/c_cpp_properties.json
 .vscode/settings.json
+precalibrator-ACTAR/precal_ACTAR_cpp_ACLiC_dict_rdict.pcm
+precalibrator-ACTAR/precal_ACTAR_cpp.d
+precalibrator-ACTAR/precal_ACTAR_cpp.so
+precalibrator-ACTAR/Utils_cpp.d
+precalibrator-ACTAR/.ipynb_checkpoints/tryPrecalibrator-checkpoint.ipynb
