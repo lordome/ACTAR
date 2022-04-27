@@ -5,9 +5,10 @@ beamEnergyThreshold 100000
 tracksWidth 4.2
 beamWidth 3.5
 vertexWidthAcceptance 10000  
-numberLoops 200
 trackMinSize 20 
 beamMinSize 250  
+
+numberMaximumLoops 1000
 
 oneEventOnly 0
 toAnalyse  -1 
