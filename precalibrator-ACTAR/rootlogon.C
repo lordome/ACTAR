@@ -9,24 +9,27 @@ using namespace std;
 void rootlogon()
 {
   // this is necessary for the codes to work
-  gSystem->Load("/home/lorenzo/Desktop/ARDAC/bin_root6.24.06/libMFM.so");
-  gSystem->Load("/home/lorenzo/Desktop/ARDAC/bin_root6.24.06/libpClasses.so");
-  gSystem->Load("/home/lorenzo/Desktop/ARDAC/bin_root6.24.06/libARDAlib.so");
+  gSystem->Load("/home/lorenzo/Desktop/ARDAC/_OLD/bin_root6.24.06/libMFM.so");
+  gSystem->Load("/home/lorenzo/Desktop/ARDAC/_OLD/bin_root6.24.06/libpClasses.so");
+  gSystem->Load("/home/lorenzo/Desktop/ARDAC/_OLD/bin_root6.24.06/libARDAlib.so");
 
-  ///gSystem->Load("/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/root_e796/cTrackerRansac_h.so");
+  /// gSystem->Load("/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/root_e796/cTrackerRansac_h.so");
 
   // automatically load scripts
   gSystem->SetFlagsOpt("-O2 -std=c++11");
 
-
+  // gSystem->Load("/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/libACTARshared.so");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/ACTAR_git/commonDependencies/\"");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/inc/\"");
+  gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/\"");
+  gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/bkp/\"");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/MFMlib-JDF/install/include/mfmlib/\"");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/utils/reduction/include/\"");
   gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/utils/GFFT/src/\"");
+  gSystem->AddIncludePath("-I\"/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/utils/GFFT/include/\"");
 
-  // gROOT->ProcessLine(".L /home/lorenzo/Desktop/Ganil_Actar/MFMlib-JDF/install/lib/libmfm.so");
-  // gROOT->ProcessLine(".L /home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/libACTARshared.so");
+  gROOT->ProcessLine(".L /home/lorenzo/Desktop/Ganil_Actar/MFMlib-JDF/install/lib/libmfm.so");
+  gROOT->ProcessLine(".L /home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/libACTARshared.so");
   // gROOT->ProcessLine(".L MTrack.cpp+g");
   // gROOT->ProcessLine(".L Utils.cpp+g");
   // gROOT->ProcessLine(".L TreeRead.C+g");
@@ -54,3 +57,4 @@ void rootlogon()
 
   cout << "ARDA ENVIRONMENT LOADED" << endl;
 }
+
