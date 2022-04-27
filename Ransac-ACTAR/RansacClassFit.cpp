@@ -101,12 +101,13 @@ int fit(string inputFileName = "input_parameters.txt")
     TTreeReaderValue<cPhysicalEvent> event(rdr, "event"); // reading input file
 
     int nent = rdr.GetEntries(false);
+    std::cout << nent << std::endl;
 
     while (rdr.Next())
     {
 
         cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
-        cout << endl;
+
 
         if ((!oneEventOnly || event->getEventNumber() == toAnalyse) && event->getEventNumber() > startFrom)
         {
@@ -185,7 +186,7 @@ int fit(string inputFileName = "input_parameters.txt")
             int itTracks = 0;
             for (auto &it : listTracks)
             {
-                cout << "Track " << itTracks << " Fittable" << it.isFittable() << " zBasePoint " << it.getBasepoint().z() << " Direction: " << it.getDirection().x() << " " << it.getDirection().y() << " " << it.getDirection().z() << endl;
+                //cout << "Track " << itTracks << " Fittable" << it.isFittable() << " zBasePoint " << it.getBasepoint().z() << " Direction: " << it.getDirection().x() << " " << it.getDirection().y() << " " << it.getDirection().z() << endl;
                 itTracks++;
             }
 
@@ -208,7 +209,7 @@ int fit(string inputFileName = "input_parameters.txt")
                         maxX = pts.getX();
                 }
 
-                cout << "Track " << itTracks << "  " << minX << "  " << maxX << "  " << minZ << "  " << maxZ << endl;
+                //cout << "Track " << itTracks << "  " << minX << "  " << maxX << "  " << minZ << "  " << maxZ << endl;
                 itTracks++;
             }
 
