@@ -1,0 +1,37 @@
+inputFile /home/lorenzo/Desktop/ROOTFiles/100SelectedEvents.root
+
+trackEnergyThreshold 5000
+beamEnergyThreshold 100000
+tracksWidth 4.2
+beamWidth 3.5
+vertexWidthAcceptance 10000  
+trackMinSize 20 
+beamMinSize 250  
+
+numberMaximumLoops 1000
+loopsSteps 40
+
+oneEventOnly 0
+toAnalyse  -1 
+startFrom 0
+
+zRescaling 4
+zRescalingFit 1
+
+
+minMinuitVal -100
+numx 128
+numy 128
+numz 500
+
+energyWeightInFitting 1
+
+binX 128
+binY 128
+binZ 100
+maxX 128.
+maxY 128.
+maxZ 500.
+
+
+

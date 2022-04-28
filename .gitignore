@@ -51,3 +51,6 @@ Ransac-ACTAR/input_parameters.txt
 Ransac-ACTAR/parametersAnalysis/anaRansacParams_cpp_ACLiC_dict_rdict.pcm
 Ransac-ACTAR/parametersAnalysis/anaRansacParams_cpp.d
 Ransac-ACTAR/parametersAnalysis/anaRansacParams_cpp.so
+Ransac-ACTAR/parametersAnalysis/anaRansacZRescaling_cpp_ACLiC_dict_rdict.pcm
+Ransac-ACTAR/parametersAnalysis/anaRansacZRescaling_cpp.d
+Ransac-ACTAR/parametersAnalysis/anaRansacZRescaling_cpp.so
