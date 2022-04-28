@@ -8,6 +8,8 @@
 #include <string>
 #include <list>
 #include <time.h>
+#include <numeric>
+#include <functional>
 
 #include "TFile.h"
 #include "TH2F.h"
@@ -43,7 +45,7 @@
 
 using namespace std;
 
-int fit(string inputFileName = "input_parameters.txt")
+int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
 {
 
     TString dataFileName;
@@ -60,16 +62,16 @@ int fit(string inputFileName = "input_parameters.txt")
     double width = parMap["tracksWidth"];                           // maximum distance from model accepted in clustering
     double fwidth = parMap["beamWidth"];                            // maximum distance from model accepted in clustering for beam tracks
     double vertexWidthAcceptance = parMap["vertexWidthAcceptance"]; // maximum distance accepted between two different cluster
-    double loops = parMap["numberLoops"];                           // number of loops, i.e. number of random couples chosen.
     double trsize = parMap["trackMinSize"];                         // min number of pads required in order to consider a cluster a real track
     double besize = parMap["beamMinSize"];                          // min number of pads required in order to consider a cluster a real track FOR BEAM
 
     bool oneEventOnly = parMap["oneEventOnly"];
     int toAnalyse = parMap["toAnalyse"];
     int startFrom = parMap["startFrom"];
-
     double zRescaling = parMap["zRescaling"];
 
+    double numberMaxLoops = parMap["numberMaximumLoops"]; // number of loops, i.e. number of random couples chosen.
+    int loopsSteps  = parMap["loopsSteps"];
     // Drawing parameters
     int binX = parMap["binX"];
     int binY = parMap["binY"];
@@ -103,14 +105,38 @@ int fit(string inputFileName = "input_parameters.txt")
     int nent = rdr.GetEntries(false);
     std::cout << nent << std::endl;
 
+    std::vector<std::vector<double>> energiesResultsLoops;
+    std::vector<std::vector<double>> numPtsResultsLoops;
+    std::vector<std::vector<std::vector<double>>> lengthTracksResultsLoops;
+    std::vector<std::vector<std::vector<double>>> energyTracksResultsLoops;
+
+    std::vector<double> vecLoops;
+
+    for (int i = 1; i < numberMaxLoops; i += loopsSteps)
+    {
+        vecLoops.push_back(i);
+    }
+
+    vecLoops.push_back(1000);
+
     while (rdr.Next())
     {
+        std::vector<double> numPtsLoops;
+        std::vector<double> energiesLoops;
+        std::vector<std::vector<double>> lengthTracksLoops;
+        std::vector<std::vector<double>> energyTracksLoops;
 
-        cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
-
-
-        if ((!oneEventOnly || event->getEventNumber() == toAnalyse) && event->getEventNumber() > startFrom)
+        if (rdr.GetCurrentEntry() > 10)
         {
+            break;
+        }
+
+        std::cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << std::endl;
+
+        for (auto &loops : vecLoops)
+        {
+
+            // std::cout << "\rloops: " << loops << std::flush;
             delete fitEvt;
             fitEvt = new cFittedEvent<cPhysicalHit>();
             fitEvt->setEventNumber(event->getEventNumber());
@@ -138,24 +164,16 @@ int fit(string inputFileName = "input_parameters.txt")
                     fitEvt->getUnfittedPoints().push_back(h);
                     continue;
                 }
-
                 // The remaining points are good to be tracked
                 traC.addPoint(h);
             }
-
-            // bool beamFittable = false;
-            // bool beamOneSide = false;
-            // bool beamTracks = true;
-            // traC.Ransac(fenergy, besize, fwidth, beamTracks, beamOneSide, beamFittable);
 
             bool trackFittable = true;
             bool trackOneSide = true;
             bool beamTracks = false;
 
+            // Cluster and FitLiness
             traC.Ransac(threshold, trsize, width, beamTracks, trackOneSide, trackFittable);
-            // End Clustering
-
-            // Fit the lines
             traC.fitLines();
 
             for (auto &it_line : traC.lines)
@@ -177,64 +195,170 @@ int fit(string inputFileName = "input_parameters.txt")
             vrt.setMaxDist(vertexWidthAcceptance);
             vrt.findVertex(fitEvt);
 
-            // for (auto &it_vert : fitEvt->getVertex())
-            // {
-            // std::cout << "  Vertex position. x: " << it_vert.getX() << "y: " << it_vert.getY() << "z: " << it_vert.getZ() << endl;
+            double tmpEnergy = 0;
+            double tmpNumPts = 0;
+            std::vector<double> tmpLength;
+            std::vector<double> tmpTracksEnergy;
 
-            auto listTracks = fitEvt->getLines();
-
-            int itTracks = 0;
-            for (auto &it : listTracks)
+            for (auto &itLines : traC.lines)
             {
-                //cout << "Track " << itTracks << " Fittable" << it.isFittable() << " zBasePoint " << it.getBasepoint().z() << " Direction: " << it.getDirection().x() << " " << it.getDirection().y() << " " << it.getDirection().z() << endl;
-                itTracks++;
-            }
-
-            itTracks = 0;
-            for (auto &it : listTracks)
-            {
-                double minZ = DBL_MAX;
-                double maxZ = -100;
-                double minX = DBL_MAX;
-                double max = -100;
-                for (auto &pts : it.getPoints())
+                double trackEnergy = 0;
+                for (auto &itPts : itLines.getPoints())
                 {
-                    if (pts.getZ() < minZ)
-                        minZ = pts.getZ();
-                    if (pts.getZ() > maxZ)
-                        maxZ = pts.getZ();
-                    if (pts.getX() < minX)
-                        minX = pts.getX();
-                    if (pts.getX() > maxX)
-                        maxX = pts.getX();
+                    trackEnergy += itPts.getEnergy();
                 }
+                tmpEnergy += trackEnergy;
+                tmpNumPts += itLines.getPoints().size();
 
-                //cout << "Track " << itTracks << "  " << minX << "  " << maxX << "  " << minZ << "  " << maxZ << endl;
-                itTracks++;
+                tmpTracksEnergy.push_back(trackEnergy);
+                tmpLength.push_back(itLines.getPoints().size());
             }
+            energiesLoops.push_back(tmpEnergy);
+            numPtsLoops.push_back(tmpNumPts);
 
-            // Draw the analysed Event;
-            cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
-                new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
-
-            drawEvt->setEvent(fitEvt);
-            // drawEvt->drawAll3D(false);
-            // drawEvt->drawAll2D(false);
-            //drawEvt->drawComponents2D(false, 0, 0, 800, 500);
-            drawEvt->drawColors2D(false, 1000, 600, 800, 500);
-            //drawEvt->drawTracks3D(false, 800, 600, 1115, 500);
-            drawEvt->drawVertex(true, 800, 0, 1115, 500);
-
-            delete drawEvt;
-            // }
-
-            // Coding for finding informations on tracks;
+            std::sort(tmpLength.begin(), tmpLength.end(), std::greater<double>());
+            lengthTracksLoops.push_back(tmpLength);
+            std::sort(tmpTracksEnergy.begin(), tmpTracksEnergy.end(), std::greater<double>());
+            energyTracksLoops.push_back(tmpTracksEnergy);
         }
-        else
+
+        // Coding for finding informations on tracks;
+
+        double enEnd = energiesLoops.back();
+        for (auto &itEne : energiesLoops)
         {
-            continue;
+            itEne /= enEnd;
+        }
+        double ptsEnd = numPtsLoops.back();
+        for (auto &itPts : numPtsLoops)
+        {
+            itPts /= ptsEnd;
+        }
+
+        energiesResultsLoops.push_back(energiesLoops);
+        numPtsResultsLoops.push_back(numPtsLoops);
+        lengthTracksResultsLoops.push_back(lengthTracksLoops);
+        energyTracksResultsLoops.push_back(energyTracksLoops);
+    }
+
+    // ANALYSE TRACKS AND VECTORS FOUND
+    std::vector<double> energiesGraph;
+    std::vector<double> numPtsGraph;
+    std::vector<double> mseLenghtsGraph;
+    std::vector<double> mseEnergiesGraph;
+
+    vecLoops.pop_back();
+
+    for (unsigned int i = 0; i < vecLoops.size(); ++i)
+    {
+        double tmpSumEnergy = 0;
+        double tmpSumNumPts = 0;
+
+        for (unsigned int j = 0; j < energiesResultsLoops.size() - 1; ++j)
+        {
+            tmpSumEnergy += energiesResultsLoops[j][i];
+            tmpSumNumPts += numPtsResultsLoops[j][i];
+        }
+
+        energiesGraph.push_back(tmpSumEnergy);
+        numPtsGraph.push_back(tmpSumNumPts);
+    }
+
+    for (auto &itEne : energiesGraph)
+    {
+        itEne /= energiesResultsLoops.size();
+    }
+    for (auto &itPts : numPtsGraph)
+    {
+        itPts /= numPtsGraph.size();
+    }
+
+    for (auto &itResults : lengthTracksResultsLoops)
+    {
+        std::vector<double> lengthLastLoop = itResults.back();
+
+        double mseCumul = 0.0;
+        int mseCount = 0;
+
+        for (auto &itLoops : itResults)
+        {
+
+            for (auto &itSingle : itLoops)
+            {
+                cout << itSingle << " ";
+            }
+            std::cout << "\n";
+
+            int totalPts = std::accumulate(lengthLastLoop.begin(), lengthLastLoop.end(), 0.);
+            for (unsigned int i = 0; i < itLoops.size() && i < lengthLastLoop.size(); ++i)
+            {
+                mseCumul += pow((itLoops[i] - lengthLastLoop[i]), 2);
+                ++mseCount;
+            }
+            mseLenghtsGraph.push_back(sqrt(mseCumul / (1.0 * mseCount))/totalPts);
         }
     }
 
+    for (auto &itResults : energyTracksResultsLoops)
+    {
+        std::vector<double> energyLastLoop = itResults.back();
+
+        double mseCumul = 0.0;
+        int mseCount = 0;
+
+        for (auto &itLoops : itResults)
+        {
+
+            for (auto &itSingle : itLoops)
+            {
+                cout << itSingle << " ";
+            }
+            std::cout << "\n";
+
+            double totalEnergy = std::accumulate(energyLastLoop.begin(), energyLastLoop.end(), 0);
+            for (unsigned int i = 0; i < itLoops.size() && i < energyLastLoop.size(); ++i)
+            {
+                mseCumul += pow((itLoops[i] - energyLastLoop[i]), 2);
+                ++mseCount;
+            }
+            mseEnergiesGraph.push_back(sqrt(mseCumul / (1.0 * mseCount))/totalEnergy);
+        }
+    }
+
+    // DRAW AND PRINT RESULTS
+    TCanvas *c1 = new TCanvas("c1", "c1", 200, 10, 500, 300);
+    TGraph *gr = new TGraph();
+    for (unsigned int i = 0; i < vecLoops.size(); i++)
+    {
+        gr->SetPoint(i, vecLoops[i], energiesGraph[i]);
+    }
+    gr->Draw("AC*");
+
+    TCanvas *c2 = new TCanvas("c2", "c2", 200, 10, 500, 300);
+    TGraph *gr2 = new TGraph();
+    for (unsigned int i = 0; i < vecLoops.size(); i++)
+    {
+        gr2->SetPoint(i, vecLoops[i], numPtsGraph[i]);
+    }
+    gr2->Draw("AC*");
+
+    TCanvas *c3 = new TCanvas("c3", "c3", 200, 10, 500, 300);
+    TGraph *gr3 = new TGraph();
+    for (unsigned int i = 0; i < vecLoops.size(); i++)
+    {
+        cout << vecLoops[i] << "  " << mseLenghtsGraph[i] << "\n";
+        gr3->SetPoint(i, vecLoops[i], mseLenghtsGraph[i]);
+    }
+    gr3->Draw("AC*");
+
+    TCanvas *c4 = new TCanvas("c4", "c4", 200, 10, 500, 300);
+    TGraph *gr4 = new TGraph();
+    for (unsigned int i = 0; i < vecLoops.size(); i++)
+    {
+        cout << vecLoops[i] << "  " << mseEnergiesGraph[i] << "\n";
+        gr4->SetPoint(i, vecLoops[i], mseEnergiesGraph[i]);
+    }
+    gr4->Draw("AC*");
     return 0;
 }
+
