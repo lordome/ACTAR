@@ -144,7 +144,6 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
             fitEvt->getLines().clear();
 
             list<cPhysicalHit> hitslist = event->getHits(); // picking up the list from the event and converting it into a vector.
-
             cTrackerRansac<cPhysicalHit> traC;
 
             traC.setTracksEnergyThreshold(threshold);
@@ -223,7 +222,6 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
         }
 
         // Coding for finding informations on tracks;
-
         double enEnd = energiesLoops.back();
         for (auto &itEne : energiesLoops)
         {
@@ -315,12 +313,8 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
 
         for (auto &itLoops : itResults)
         {
-
-            // for (auto &itSingle : itLoops)
-            // {
-            //     cout << itSingle << " ";
-            // }
-            // std::cout << "\n";
+            double mseCumul = 0.0;
+            int mseCount = 0;
 
             double totalEnergy = std::accumulate(energyLastLoop.begin(), energyLastLoop.end(), 0);
 
@@ -336,7 +330,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
     }
 
     // DRAW AND PRINT RESULTS
-    TCanvas *c1 = new TCanvas("c1", "c1", 200, 10, 500, 300);
+    TCanvas *c1 = new TCanvas("c1", "relativeEnergy", 200, 10, 500, 300);
     TGraph *gr = new TGraph();
     for (unsigned int i = 0; i < vecZRescales.size(); i++)
     {
@@ -344,7 +338,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
     }
     gr->Draw("AC*");
 
-    TCanvas *c2 = new TCanvas("c2", "c2", 700, 10, 500, 300);
+    TCanvas *c2 = new TCanvas("c2", "relativeNumPts", 700, 10, 500, 300);
     TGraph *gr2 = new TGraph();
     for (unsigned int i = 0; i < vecZRescales.size(); i++)
     {
@@ -352,7 +346,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
     }
     gr2->Draw("AC*");
 
-    TCanvas *c3 = new TCanvas("c3", "Lenghts", 200, 400, 500, 300);
+    TCanvas *c3 = new TCanvas("c3", "meLengths", 200, 400, 500, 300);
     TGraph *gr3 = new TGraph();
     for (unsigned int i = 0; i < vecZRescales.size(); i++)
     {
@@ -361,7 +355,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
     }
     gr3->Draw("AC*");
 
-    TCanvas *c4 = new TCanvas("c4", "Energies", 700, 400, 500, 300);
+    TCanvas *c4 = new TCanvas("c4", "meEnergies", 700, 400, 500, 300);
     TGraph *gr4 = new TGraph();
     for (unsigned int i = 0; i < vecZRescales.size(); i++)
     {

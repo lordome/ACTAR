@@ -54,3 +54,9 @@ Ransac-ACTAR/parametersAnalysis/anaRansacParams_cpp.so
 Ransac-ACTAR/parametersAnalysis/anaRansacZRescaling_cpp_ACLiC_dict_rdict.pcm
 Ransac-ACTAR/parametersAnalysis/anaRansacZRescaling_cpp.d
 Ransac-ACTAR/parametersAnalysis/anaRansacZRescaling_cpp.so
+Ransac-ACTAR/parametersAnalysis/anaLoops/anaRansacParams_cpp_ACLiC_dict_rdict.pcm
+Ransac-ACTAR/parametersAnalysis/anaLoops/anaRansacParams_cpp.d
+Ransac-ACTAR/parametersAnalysis/anaZResc/anaRansacZRescaling_cpp_ACLiC_dict_rdict.pcm
+Ransac-ACTAR/parametersAnalysis/anaZResc/anaRansacZRescaling_cpp.d
+Ransac-ACTAR/parametersAnalysis/anaZResc/anaRansacZRescaling_cpp.so
+Ransac-ACTAR/parametersAnalysis/anaLoops/anaRansacParams_cpp.so
