@@ -86,7 +86,7 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
 
   cFittedLine<T> bestTrack;
 
-  TRandom3 *rnd = new TRandom3;
+  TRandom3 *rnd = new TRandom3(1234567);
 
   std::vector<T> hits = std::vector<T>(points.begin(), points.end());
 
