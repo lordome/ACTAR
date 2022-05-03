@@ -45,12 +45,14 @@
 
 using namespace std;
 
-int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
+int fit(string inputFileName = "inputParametersTrSizeAnalysis.txt")
 {
 
     TString dataFileName;
     map<string, double> parMap;
     getInputMap(inputFileName, parMap, dataFileName);
+
+    cout << inputFileName << endl;
 
     // TString dataFileName; = dataFileName;
 
@@ -72,6 +74,8 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
 
     double maximumTrackMinSize = parMap["maximumTrackMinSize"]; // min number of pads required in order to consider a cluster a real track
     int trackMinSizeSteps = parMap["trackMinSteps"];
+
+    cout << maximumTrackMinSize << "    " << trackMinSizeSteps << endl;
 
     // Drawing parameters
     int binX = parMap["binX"];
@@ -108,6 +112,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
 
     std::vector<std::vector<double>> energiesResultsLoops;
     std::vector<std::vector<double>> numPtsResultsLoops;
+    std::vector<std::vector<double>> numTracksResultsLoops;
     std::vector<std::vector<std::vector<double>>> lengthTracksResultsLoops;
     std::vector<std::vector<std::vector<double>>> energyTracksResultsLoops;
 
@@ -123,6 +128,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
     {
         std::vector<double> numPtsLoops;
         std::vector<double> energiesLoops;
+        std::vector<double> numTracksLoops;
         std::vector<std::vector<double>> lengthTracksLoops;
         std::vector<std::vector<double>> energyTracksLoops;
 
@@ -136,7 +142,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
         for (auto &trsize : vecLoops)
         {
 
-            // std::cout << "\rloops: " << loops << std::flush;
+            std::cout << "\r trsize: " << trsize << std::flush;
             delete fitEvt;
             fitEvt = new cFittedEvent<cPhysicalHit>();
             fitEvt->setEventNumber(event->getEventNumber());
@@ -215,6 +221,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
             }
             energiesLoops.push_back(tmpEnergy);
             numPtsLoops.push_back(tmpNumPts);
+            numTracksLoops.push_back(traC.lines.size());
 
             std::sort(tmpLength.begin(), tmpLength.end(), std::greater<double>());
             lengthTracksLoops.push_back(tmpLength);
@@ -227,6 +234,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
         double enEnd = energiesLoops.back();
         for (auto &itEne : energiesLoops)
         {
+            cout << "itEne:" << itEne << "   " << enEnd << "   " << itEne/enEnd <<  "\n";
             itEne /= enEnd;
         }
         double ptsEnd = numPtsLoops.back();
@@ -239,13 +247,14 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
         numPtsResultsLoops.push_back(numPtsLoops);
         lengthTracksResultsLoops.push_back(lengthTracksLoops);
         energyTracksResultsLoops.push_back(energyTracksLoops);
+
+        numTracksResultsLoops.push_back(numTracksLoops);
     }
 
     // ANALYSE TRACKS AND VECTORS FOUND
     std::vector<double> energiesGraph;
     std::vector<double> numPtsGraph;
-    std::vector<double> mseLenghtsGraph;
-    std::vector<double> mseEnergiesGraph;
+    std::vector<double> numTracksGraph(vecLoops.size(), 0.);
 
     vecLoops.pop_back();
 
@@ -264,64 +273,23 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
         numPtsGraph.push_back(tmpSumNumPts);
     }
 
+
     for (auto &itEne : energiesGraph)
     {
-        itEne /= energiesResultsLoops.size();
+        itEne /= (energiesResultsLoops.size() - 1);
     }
     for (auto &itPts : numPtsGraph)
     {
-        itPts /= numPtsGraph.size();
+        itPts /= (energiesResultsLoops.size() - 1);
     }
 
-    for (auto &itResults : lengthTracksResultsLoops)
+    for (auto &itTracks : numTracksResultsLoops)
     {
-        std::vector<double> lengthLastLoop = itResults.back();
 
-        double mseCumul = 0.0;
-        int mseCount = 0;
-
-        for (auto &itLoops : itResults)
+        cout << itTracks.size() << "   " << numTracksGraph.size() << "\n";
+        for (unsigned int i = 0; i < itTracks.size(); ++i)
         {
-
-            for (auto &itSingle : itLoops)
-            {
-                cout << itSingle << " ";
-            }
-            std::cout << "\n";
-
-            int totalPts = std::accumulate(lengthLastLoop.begin(), lengthLastLoop.end(), 0.);
-            for (unsigned int i = 0; i < itLoops.size() && i < lengthLastLoop.size(); ++i)
-            {
-                mseCumul += pow((itLoops[i] - lengthLastLoop[i]), 2);
-                ++mseCount;
-            }
-            mseLenghtsGraph.push_back(sqrt(mseCumul / (1.0 * mseCount)) / totalPts);
-        }
-    }
-
-    for (auto &itResults : energyTracksResultsLoops)
-    {
-        std::vector<double> energyLastLoop = itResults.back();
-
-        double mseCumul = 0.0;
-        int mseCount = 0;
-
-        for (auto &itLoops : itResults)
-        {
-
-            for (auto &itSingle : itLoops)
-            {
-                cout << itSingle << " ";
-            }
-            std::cout << "\n";
-
-            double totalEnergy = std::accumulate(energyLastLoop.begin(), energyLastLoop.end(), 0);
-            for (unsigned int i = 0; i < itLoops.size() && i < energyLastLoop.size(); ++i)
-            {
-                mseCumul += pow((itLoops[i] - energyLastLoop[i]), 2);
-                ++mseCount;
-            }
-            mseEnergiesGraph.push_back(sqrt(mseCumul / (1.0 * mseCount)) / totalEnergy);
+            numTracksGraph[i] += itTracks[i];
         }
     }
 
@@ -342,22 +310,13 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
     }
     gr2->Draw("AC*");
 
-    TCanvas *c3 = new TCanvas("c3", "c3", 200, 10, 500, 300);
-    TGraph *gr3 = new TGraph();
+    TCanvas *c5 = new TCanvas("c5", "c5", 200, 10, 500, 300);
+    TGraph *gr5 = new TGraph();
     for (unsigned int i = 0; i < vecLoops.size(); i++)
     {
-        cout << vecLoops[i] << "  " << mseLenghtsGraph[i] << "\n";
-        gr3->SetPoint(i, vecLoops[i], mseLenghtsGraph[i]);
+        cout << vecLoops[i] << "  " << numTracksGraph[i] << "\n";
+        gr5->SetPoint(i, vecLoops[i], numTracksGraph[i]);
     }
-    gr3->Draw("AC*");
-
-    TCanvas *c4 = new TCanvas("c4", "c4", 200, 10, 500, 300);
-    TGraph *gr4 = new TGraph();
-    for (unsigned int i = 0; i < vecLoops.size(); i++)
-    {
-        cout << vecLoops[i] << "  " << mseEnergiesGraph[i] << "\n";
-        gr4->SetPoint(i, vecLoops[i], mseEnergiesGraph[i]);
-    }
-    gr4->Draw("AC*");
+    gr5->Draw("AC*");
     return 0;
 }
