@@ -71,7 +71,8 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
     double zRescaling = parMap["zRescaling"];
 
     double numberMaxLoops = parMap["numberMaximumLoops"]; // number of loops, i.e. number of random couples chosen.
-    int loopsSteps  = parMap["loopsSteps"];
+    int loopsSteps = parMap["loopsSteps"];
+
     // Drawing parameters
     int binX = parMap["binX"];
     int binY = parMap["binY"];
@@ -295,7 +296,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
                 mseCumul += pow((itLoops[i] - lengthLastLoop[i]), 2);
                 ++mseCount;
             }
-            mseLenghtsGraph.push_back(sqrt(mseCumul / (1.0 * mseCount))/totalPts);
+            mseLenghtsGraph.push_back(sqrt(mseCumul / (1.0 * mseCount)) / totalPts);
         }
     }
 
@@ -321,7 +322,7 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
                 mseCumul += pow((itLoops[i] - energyLastLoop[i]), 2);
                 ++mseCount;
             }
-            mseEnergiesGraph.push_back(sqrt(mseCumul / (1.0 * mseCount))/totalEnergy);
+            mseEnergiesGraph.push_back(sqrt(mseCumul / (1.0 * mseCount)) / totalEnergy);
         }
     }
 
@@ -361,4 +362,3 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
     gr4->Draw("AC*");
     return 0;
 }
-
