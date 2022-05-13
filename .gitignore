@@ -63,3 +63,4 @@ Ransac-ACTAR/parametersAnalysis/anaLoops/anaRansacParams_cpp.so
 *.d
 *cpp.so
 *.pcm
+.ipynb_checkpoints/CalcoloVariazioneFinestra-checkpoint.ipynb
