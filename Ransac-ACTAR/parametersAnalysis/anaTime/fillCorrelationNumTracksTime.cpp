@@ -120,6 +120,8 @@ int fit(string inputFileName = "inputParametersFillDurationAnalysis.txt")
     TTree *fOutTree = new TTree("trackTree", "trackTree");
     fOutTree->Branch("numberLoops", &numberLoops);
     fOutTree->Branch("numTracks", &numTracks);
+        fOutTree->Branch("numVertexTracks", &numVertexTracks);
+
     fOutTree->Branch("durationTimeTotal", &durationTimeTotal);
     fOutTree->Branch("durationTimeClustering", &durationTimeClustering);
     fOutTree->Branch("durationTimeFitting", &durationTimeFitting);
