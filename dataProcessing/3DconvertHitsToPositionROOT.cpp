@@ -90,23 +90,25 @@ int fit(TString inputFileName = "run140Analysed.root")
     fOutTree->AutoSave();
 
     std::vector<int> vertexSize;
-    int counter = 0;
+    std::vector<int> countVertexTracks;
+
+    // int counter = 0;
     while (rdr.Next())
     {
-        counter++;
-        if (counter > 10000)
-        {
-            continue;
-        }
-        grid = std::vector<std::vector<std::vector<double>>>(3, std::vector<std::vector<double>>(128, std::vector<double>(128, 0)));
 
-        std::vector<std::vector<double>> xy_grid(128, std::vector<double>(128, 0));
-        std::vector<std::vector<double>> xz_grid(128, std::vector<double>(128, 0));
-        std::vector<std::vector<double>> yz_grid(128, std::vector<double>(128, 0));
+        // if (rdr.GetCurrentEntry() > 10000)
+        // {
+        //     continue;
+        // }
+        // grid = std::vector<std::vector<std::vector<double>>>(3, std::vector<std::vector<double>>(128, std::vector<double>(128, 0)));
 
-        std::vector<std::vector<std::vector<double>>> tmp_grid(3, std::vector<std::vector<double>>(128, std::vector<double>(128, 0)));
+        // std::vector<std::vector<double>> xy_grid(128, std::vector<double>(128, 0));
+        // std::vector<std::vector<double>> xz_grid(128, std::vector<double>(128, 0));
+        // std::vector<std::vector<double>> yz_grid(128, std::vector<double>(128, 0));
+        // std::vector<std::vector<std::vector<double>>> tmp_grid(3, std::vector<std::vector<double>>(128, std::vector<double>(128, 0)));
 
-        cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
+        if (rdr.GetCurrentEntry() % 100 == 0)
+            cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
 
         for (auto &it_lines : fitEvt->getLines())
         {
@@ -117,17 +119,41 @@ int fit(TString inputFileName = "run140Analysed.root")
                 grid[2][(int)it_hits.getY()][(int)(it_hits.getZ() / 4.)] += it_hits.getEnergy();
             }
         }
-        // grid = tmp_grid;
+
+        for (auto &itUnfitted : fitEvt->getUnfittedPoints())
+        {
+            grid[0][(int)itUnfitted.getX()][(int)itUnfitted.getY()] += itUnfitted.getEnergy();
+            grid[1][(int)itUnfitted.getX()][(int)(itUnfitted.getZ() / 4.)] += itUnfitted.getEnergy();
+            grid[2][(int)itUnfitted.getY()][(int)(itUnfitted.getZ() / 4.)] += itUnfitted.getEnergy();
+        }
+
         fOutTree->Fill();
 
         vertexSize.push_back(fitEvt->getVertex().size());
+
+        if (fitEvt->getVertex().size() > 0)
+        {
+            for (auto &itVertex : fitEvt->getVertex())
+            {
+                countVertexTracks.push_back(itVertex.getTracks().size());
+                break;
+            }
+        }
+        else
+        {
+            countVertexTracks.push_back(0);
+        }
     }
 
-    fOutTree->Write();
+    // fOutTree->Write();
 
-    std::ofstream output_file("./vertSize_10000evt.txt");
-    std::ostream_iterator<int> output_iterator(output_file, "\n");
-    std::copy(vertexSize.begin(), vertexSize.end(), output_iterator);
+    // std::ofstream output_file("./DELETE_vertSize_10000evt.txt");
+    // std::ostream_iterator<int> output_iterator(output_file, "\n");
+    // std::copy(vertexSize.begin(), vertexSize.end(), output_iterator);
+
+    std::ofstream outputCountVertexTracks("./countVertexTracks.txt");
+    std::ostream_iterator<int> outputCountIterator(outputCountVertexTracks, "\n");
+    std::copy(countVertexTracks.begin(), countVertexTracks.end(), outputCountIterator);
 
     return 0;
 }
