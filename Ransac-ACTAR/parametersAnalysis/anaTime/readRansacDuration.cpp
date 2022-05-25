@@ -258,8 +258,6 @@ int fit(string inputFileName = "inputParametersDurationAnalysis.txt")
     cCorr2->cd();
     gCorrVerNum->Draw("AP*");
     return 1000;
-    // ANALYSE TRACKS AND VECTORS FOUND
-    //
 }
 
 // std::vector<double> numPtsLoops;
@@ -285,7 +283,7 @@ int fit(string inputFileName = "inputParametersDurationAnalysis.txt")
 // lengthTracksResultsLoops.push_back(lengthTracksLoops);
 // energyTracksResultsLoops.push_back(energyTracksLoops);
 
-std::vector<double> energiesGraph;
+// std::vector<double> energiesGraph;
 // std::vector<double> numPtsGraph;
 // std::vector<double> mseLenghtsGraph;
 // std::vector<double> mseEnergiesGraph;
