@@ -234,7 +234,7 @@ int fit(string inputFileName = "inputParametersTrSizeAnalysis.txt")
         double enEnd = energiesLoops.back();
         for (auto &itEne : energiesLoops)
         {
-            cout << "itEne:" << itEne << "   " << enEnd << "   " << itEne/enEnd <<  "\n";
+            cout << "itEne:" << itEne << "   " << enEnd << "   " << itEne / enEnd << "\n";
             itEne /= enEnd;
         }
         double ptsEnd = numPtsLoops.back();
@@ -273,7 +273,6 @@ int fit(string inputFileName = "inputParametersTrSizeAnalysis.txt")
         numPtsGraph.push_back(tmpSumNumPts);
     }
 
-
     for (auto &itEne : energiesGraph)
     {
         itEne /= (energiesResultsLoops.size() - 1);
@@ -294,29 +293,41 @@ int fit(string inputFileName = "inputParametersTrSizeAnalysis.txt")
     }
 
     // DRAW AND PRINT RESULTS
-    TCanvas *c1 = new TCanvas("c1", "c1", 200, 10, 500, 300);
+    TCanvas *c1 = new TCanvas("c1_trsize", "c1_trsize", 200, 10, 500, 300);
     TGraph *gr = new TGraph();
+    gr->GetXaxis()->SetTitle("Minimum track size");
+    gr->GetYaxis()->SetTitle("Total energy reconstructed");
+    gr->SetMarkerSize(2);
+
     for (unsigned int i = 0; i < vecLoops.size(); i++)
     {
         gr->SetPoint(i, vecLoops[i], energiesGraph[i]);
     }
-    gr->Draw("AC*");
+    gr->Draw("AP*");
 
-    TCanvas *c2 = new TCanvas("c2", "c2", 200, 10, 500, 300);
+    TCanvas *c2 = new TCanvas("c2_trsize", "c2_trsize", 200, 10, 500, 300);
     TGraph *gr2 = new TGraph();
+    gr2->GetXaxis()->SetTitle("Minimum track size");
+    gr2->GetYaxis()->SetTitle("Number of points included");
+    gr2->SetMarkerSize(2);
+
     for (unsigned int i = 0; i < vecLoops.size(); i++)
     {
         gr2->SetPoint(i, vecLoops[i], numPtsGraph[i]);
     }
-    gr2->Draw("AC*");
+    gr2->Draw("AP*");
 
-    TCanvas *c5 = new TCanvas("c5", "c5", 200, 10, 500, 300);
+    TCanvas *c5 = new TCanvas("c5_trsize", "c5_trsize", 200, 10, 500, 300);
     TGraph *gr5 = new TGraph();
+    gr5->GetXaxis()->SetTitle("Minimum track size");
+    gr5->GetYaxis()->SetTitle("Total number of tracks");
+    gr5->SetMarkerSize(2);
+
     for (unsigned int i = 0; i < vecLoops.size(); i++)
     {
         cout << vecLoops[i] << "  " << numTracksGraph[i] << "\n";
         gr5->SetPoint(i, vecLoops[i], numTracksGraph[i]);
     }
-    gr5->Draw("AC*");
+    gr5->Draw("AP*");
     return 0;
 }
