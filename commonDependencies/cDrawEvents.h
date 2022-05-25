@@ -22,8 +22,8 @@ public:
 
     void drawEvent2D(const bool &);
     void drawEvent3D(const bool &);
-    void drawComponents2D(const bool &, double, double, double, double);
-    void drawColors2D(const bool &, double, double, double, double);
+    void drawComponents2D(const bool &, double, double, double, double, std::string);
+    void drawColors2D(const bool &, double, double, double, double, std::string);
     void drawTracks3D(const bool &, double, double, double, double);
     void drawAll3D(const bool &);
     void drawAll2D(const bool &);
@@ -244,7 +244,7 @@ void cDrawEvents<T>::drawEvent3D(const bool &wait)
 };
 
 template <class T>
-void cDrawEvents<T>::drawColors2D(const bool &wait, double x1, double y1, double x_w, double y_w)
+void cDrawEvents<T>::drawColors2D(const bool &wait, double x1, double y1, double x_w, double y_w, std::string canvasName)
 {
 
     for (auto &it_vec : vec2D)
@@ -262,14 +262,14 @@ void cDrawEvents<T>::drawColors2D(const bool &wait, double x1, double y1, double
         delete canvasColor2D;
     }
 
-    canvasColor2D = new TCanvas("canvasColor2D", "canvasColor2D", x1, y1, x_w, y_w);
+    canvasColor2D = new TCanvas(canvasName.c_str(), canvasName.c_str(), x1, y1, x_w, y_w);
     canvasColor2D->Divide(3);
     canvasColor2D->cd();
 
     string titles[3];
-    string titlesRoots[3] = {"vHisto2DXY",
-                             "vHisto2DXZ",
-                             "vHisto2DYZ"};
+    string titlesRoots[3] = {"vHisto2DXY" + canvasName,
+                             "vHisto2DXZ" + canvasName,
+                             "vHisto2DYZ" + canvasName};
     int it_count = 0;
     for (auto &it_lines : event->getLines())
     {
@@ -394,7 +394,7 @@ void cDrawEvents<T>::drawTracks3D(const bool &wait, double x1, double y1, double
 };
 
 template <class T>
-void cDrawEvents<T>::drawComponents2D(const bool &wait, double x1, double y1, double x_w, double y_w)
+void cDrawEvents<T>::drawComponents2D(const bool &wait, double x1, double y1, double x_w, double y_w, std::string canvasName)
 {
 
     if (hXY_comp)
@@ -408,9 +408,9 @@ void cDrawEvents<T>::drawComponents2D(const bool &wait, double x1, double y1, do
     canDrawComp = new TCanvas("components2D", "components2D", x1, y1, x_w, y_w);
     canDrawComp->Divide(3, 1);
 
-    hXY_comp = new TH2F("histXY_comp", "histXZ_comp", binX, 0, maxX, binY, 0, maxY);
-    hXZ_comp = new TH2F("histXZ_comp", "histXZ_comp", binX, 0, maxX, binZ, 0, maxZ);
-    hYZ_comp = new TH2F("histYZ_comp", "histYZ_comp", binY, 0, maxY, binZ, 0, maxZ);
+    hXY_comp = new TH2F(("histXY_comp" + canvasName).c_str(), ("histXY_comp" + canvasName).c_str(), binX, 0, maxX, binY, 0, maxY);
+    hXZ_comp = new TH2F(("histXZ_comp" + canvasName).c_str(), ("histXZ_comp" + canvasName).c_str(), binX, 0, maxX, binZ, 0, maxZ);
+    hYZ_comp = new TH2F(("histYZ_comp" + canvasName).c_str(), ("histYZ_comp" + canvasName).c_str(), binY, 0, maxY, binZ, 0, maxZ);
 
     for (auto &it_lines : event->getLines())
         for (auto &it_hits : it_lines.getPoints())
