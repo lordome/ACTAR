@@ -90,7 +90,7 @@ int fit(string inputFileName = "input_parameters_hough.txt")
     }
 
     // Open output file
-    TString filename = "durationTreeWithParameters.root";
+    TString filename = "durationSeparatedTreeWithParameters.root";
     TFile fout(filename.Data(), "CREATE");
     if (fout.IsZombie())
     {
@@ -101,20 +101,31 @@ int fit(string inputFileName = "input_parameters_hough.txt")
 
     cFittedEvent<cPhysicalHit> *fitEvt = 0;
     cTrackerFine<cPhysicalHit> *trcC = 0;
-    double durationTime = 0.;
+    double durationTimeFitting = 0.;
+    double durationTimeClustering = 0.;
+    double durationTimeTotal = 0.;
 
     double angularSteps = 0.;
     double distanceSteps = 0.;
 
+    // Output TTree definition
     TTree *fOutTree = new TTree("trackTree", "trackTree");
-    fOutTree->Branch("durationTime", &durationTime);
+
+    // Branch initialization
+    fOutTree->Branch("durationTimeFitting", &durationTimeFitting);
+    fOutTree->Branch("durationTimeClustering", &durationTimeClustering);
+    fOutTree->Branch("durationTimeTotal", &durationTimeTotal);
+
     fOutTree->Branch("angularSteps", &angularSteps);
     fOutTree->Branch("distanceSteps", &distanceSteps);
 
     fOutTree->Branch("Full_event", &fitEvt);
+
+    // Directory set
     fOutTree->SetDirectory(&fout);
     fOutTree->AutoSave();
 
+    // Readers definitions
     TTreeReader fReader(physicalEventTree);
     TTreeReaderValue<cPhysicalEvent> event(fReader, "event"); // reading input file
 
@@ -158,7 +169,7 @@ int fit(string inputFileName = "input_parameters_hough.txt")
 
         for (unsigned int i = 0; i < vecParams.size(); ++i)
         {
-
+            auto end = chrono::steady_clock::now();
             auto start = chrono::steady_clock::now();
 
             delete trcC;
@@ -218,13 +229,16 @@ int fit(string inputFileName = "input_parameters_hough.txt")
             trcC->setMultFactor(multFactor);
             trcC->track(cTrackerFine<cPhysicalHit>::direction::x, cTrackerFine<cPhysicalHit>::direction::z);
 
-            auto end = chrono::steady_clock::now();
+            end = chrono::steady_clock::now();
 
-            durationTime = chrono::duration_cast<chrono::microseconds>(end - start).count();
+            durationTimeClustering = chrono::duration_cast<chrono::microseconds>(end - start).count();
 
-
-            // Fit the lines
+            // Fit the linesf
             trcC->fitLines();
+
+            end = chrono::steady_clock::now();
+
+            durationTimeClustering = chrono::duration_cast<chrono::microseconds>(end - start).count();
 
             // Save the fitted lines and the unfitted points in the final event
             for (auto &l : trcC->fittedLines)
@@ -248,6 +262,9 @@ int fit(string inputFileName = "input_parameters_hough.txt")
             vrt.setMaxZ(rangeHigh);
             vrt.setMaxDist(maxDistance);
             vrt.findVertex(fitEvt);
+
+            end = chrono::steady_clock::now();
+            durationTimeTotal = chrono::duration_cast<chrono::microseconds>(end - start).count();
 
             double totalEn = 0.;
             double countPts = 0.;
