@@ -45,7 +45,7 @@
 
 using namespace std;
 
-int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
+int fit(string inputFileName = "inputParametersLoopsAnalysis.txt")
 {
 
     TString dataFileName;
@@ -267,11 +267,11 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
 
     for (auto &itEne : energiesGraph)
     {
-        itEne /= energiesResultsLoops.size();
+        itEne /= (energiesResultsLoops.size() - 1);
     }
     for (auto &itPts : numPtsGraph)
     {
-        itPts /= numPtsGraph.size();
+        itPts /= (energiesResultsLoops.size() - 1);
     }
 
     for (auto &itResults : lengthTracksResultsLoops)
@@ -327,38 +327,50 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
     }
 
     // DRAW AND PRINT RESULTS
-    TCanvas *c1 = new TCanvas("c1", "c1", 200, 10, 500, 300);
+    TCanvas *c1 = new TCanvas("c1_numberLoops", "c1_numberLoops", 200, 10, 500, 300);
     TGraph *gr = new TGraph();
+    gr->GetXaxis()->SetTitle("number of Loops");
+    gr->GetYaxis()->SetTitle("Total energy reconstructed");
+
     for (unsigned int i = 0; i < vecLoops.size(); i++)
     {
         gr->SetPoint(i, vecLoops[i], energiesGraph[i]);
     }
-    gr->Draw("AC*");
+    gr->Draw("AP*");
 
-    TCanvas *c2 = new TCanvas("c2", "c2", 200, 10, 500, 300);
+    TCanvas *c2 = new TCanvas("c2_numberLoops", "c2_numberLoops", 200, 10, 500, 300);
     TGraph *gr2 = new TGraph();
+    gr2->GetXaxis()->SetTitle("Number of Loops");
+    gr2->GetYaxis()->SetTitle("Number of points");
+
     for (unsigned int i = 0; i < vecLoops.size(); i++)
     {
         gr2->SetPoint(i, vecLoops[i], numPtsGraph[i]);
     }
-    gr2->Draw("AC*");
+    gr2->Draw("AP*");
 
-    TCanvas *c3 = new TCanvas("c3", "c3", 200, 10, 500, 300);
+    TCanvas *c3 = new TCanvas("c3_numberLoops", "c3_numberLoops", 200, 10, 500, 300);
     TGraph *gr3 = new TGraph();
+    gr3->GetXaxis()->SetTitle("Number of Loops");
+    gr3->GetYaxis()->SetTitle("MSE in number of points");
+
     for (unsigned int i = 0; i < vecLoops.size(); i++)
     {
         cout << vecLoops[i] << "  " << mseLenghtsGraph[i] << "\n";
         gr3->SetPoint(i, vecLoops[i], mseLenghtsGraph[i]);
     }
-    gr3->Draw("AC*");
+    gr3->Draw("AP*");
 
-    TCanvas *c4 = new TCanvas("c4", "c4", 200, 10, 500, 300);
+    TCanvas *c4 = new TCanvas("c4_numberLoops", "c4_numberLoops", 200, 10, 500, 300);
     TGraph *gr4 = new TGraph();
+    gr4->GetXaxis()->SetTitle("Number of Loops");
+    gr4->GetYaxis()->SetTitle("MSE in energy of single trakcsts");
+
     for (unsigned int i = 0; i < vecLoops.size(); i++)
     {
         cout << vecLoops[i] << "  " << mseEnergiesGraph[i] << "\n";
         gr4->SetPoint(i, vecLoops[i], mseEnergiesGraph[i]);
     }
-    gr4->Draw("AC*");
+    gr4->Draw("AP*");
     return 0;
 }
