@@ -332,36 +332,48 @@ int fit(string inputFileName = "inputParametersZRescalingAnalysis.txt")
     // DRAW AND PRINT RESULTS
     TCanvas *c1 = new TCanvas("c1", "relativeEnergy", 200, 10, 500, 300);
     TGraph *gr = new TGraph();
+    gr->GetXaxis()->SetTitle("ZRescaling factor");
+    gr->GetYaxis()->SetTitle("Normalized total energy ");
+    gr->SetMarkerSize(2);
     for (unsigned int i = 0; i < vecZRescales.size(); i++)
     {
         gr->SetPoint(i, vecZRescales[i], energiesGraph[i]);
     }
-    gr->Draw("AC*");
+    gr->Draw("AP*");
 
     TCanvas *c2 = new TCanvas("c2", "relativeNumPts", 700, 10, 500, 300);
     TGraph *gr2 = new TGraph();
+    gr2->GetXaxis()->SetTitle("ZRescaling factor");
+    gr2->GetYaxis()->SetTitle("Normalized total numPts");
+    gr2->SetMarkerSize(2);
     for (unsigned int i = 0; i < vecZRescales.size(); i++)
     {
         gr2->SetPoint(i, vecZRescales[i], numPtsGraph[i]);
     }
-    gr2->Draw("AC*");
+    gr2->Draw("AP*");
 
     TCanvas *c3 = new TCanvas("c3", "meLengths", 200, 400, 500, 300);
     TGraph *gr3 = new TGraph();
+    gr3->GetXaxis()->SetTitle("ZRescaling factor");
+    gr3->GetYaxis()->SetTitle("MSE lenghts tracks");
+    gr3->SetMarkerSize(2);
     for (unsigned int i = 0; i < vecZRescales.size(); i++)
     {
         // cout << vecZRescales[i] << "  " << mseLenghtsGraph[i] << "\n";
         gr3->SetPoint(i, vecZRescales[i], mseLenghtsGraph[i]);
     }
-    gr3->Draw("AC*");
+    gr3->Draw("AP*");
 
     TCanvas *c4 = new TCanvas("c4", "meEnergies", 700, 400, 500, 300);
     TGraph *gr4 = new TGraph();
+    gr4->GetXaxis()->SetTitle("ZRescaling factor");
+    gr4->GetYaxis()->SetTitle("MSE Energies graph");
+    gr4->SetMarkerSize(2);
     for (unsigned int i = 0; i < vecZRescales.size(); i++)
     {
         // cout << vecZRescales[i] << "  " << mseEnergiesGraph[i] << "\n";
         gr4->SetPoint(i, vecZRescales[i], mseEnergiesGraph[i]);
     }
-    gr4->Draw("AC*");
+    gr4->Draw("AP*");
     return 0;
 }
