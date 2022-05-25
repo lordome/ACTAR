@@ -1,4 +1,4 @@
-inputFile  /home/lorenzo/Desktop/ACTAR_git/Ransac-ACTAR/parametersAnalysis/anaTime/prova100events.root
+inputFile  /home/lorenzo/Desktop/ACTAR_git/Ransac-ACTAR/parametersAnalysis/anaTime/prova100Events.root
 
 
 trackEnergyThreshold 5000
