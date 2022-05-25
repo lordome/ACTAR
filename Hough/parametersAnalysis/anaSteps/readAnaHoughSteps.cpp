@@ -30,7 +30,7 @@
 
 using namespace std;
 
-int fit(TString inputFileName = "durationTreeWithParameters.root")
+int fit(TString inputFileName = "durationSeparatedTreeWithParameters.root")
 {
 
     TString dataFileName;
@@ -61,12 +61,16 @@ int fit(TString inputFileName = "durationTreeWithParameters.root")
         return -1;
     }
 
+    // READING INPUT FILE
     TTreeReader rdr(trackTree);
-    TTreeReaderValue<cFittedEvent<cPhysicalHit>> fitEvt(rdr, "Full_event"); // reading input file
-    TTreeReaderValue<double> durationTime(rdr, "durationTime");             // reading input file
+    TTreeReaderValue<cFittedEvent<cPhysicalHit>> fitEvt(rdr, "Full_event");
+    TTreeReaderValue<double> durationTime(rdr, "durationTimeTotal");
 
-    TTreeReaderValue<double> readAngularSteps(rdr, "angularSteps");   // reading input file
-    TTreeReaderValue<double> readDistanceSteps(rdr, "distanceSteps"); // reading input file
+    TTreeReaderValue<double> durationTimeClustering(rdr, "durationTimeClustering");
+    TTreeReaderValue<double> durationTimeFitting(rdr, "durationTimeFitting");
+
+    TTreeReaderValue<double> readAngularSteps(rdr, "angularSteps");
+    TTreeReaderValue<double> readDistanceSteps(rdr, "distanceSteps");
 
     // DEFINITION OF GRID OF PARAMETERS
     std::vector<std::pair<double, double>> vecParams;
@@ -117,6 +121,14 @@ int fit(TString inputFileName = "durationTreeWithParameters.root")
     h2DTime->GetXaxis()->SetTitle("angularSteps");
     h2DTime->GetYaxis()->SetTitle("distanceSteps");
 
+    TH2 *h2DTimeClustering = new TH2F("h2DTimeClustering", "ExecutionClusteringTime vs Steps [us]", 10, 0, 500, 10, 0, 500);
+    h2DTimeClustering->GetXaxis()->SetTitle("angularSteps");
+    h2DTimeClustering->GetYaxis()->SetTitle("distanceSteps");
+
+    TH2 *h2DTimeFitting = new TH2F("h2DTimeFitting", "ExecutionFittingTime vs Steps [us]", 10, 0, 500, 10, 0, 500);
+    h2DTimeFitting->GetXaxis()->SetTitle("angularSteps");
+    h2DTimeFitting->GetYaxis()->SetTitle("distanceSteps");
+
     while (rdr.Next())
     {
         // sum energies for every track and store it in the right spot in the vector.
@@ -143,9 +155,12 @@ int fit(TString inputFileName = "durationTreeWithParameters.root")
 
         h->Fill(*durationTime);
         h2DTime->Fill(*readAngularSteps, *readDistanceSteps, *durationTime);
-    }
+        h2DTimeClustering->Fill(*readAngularSteps, *readDistanceSteps, *durationTimeClustering);
+        h2DTimeFitting->Fill(*readAngularSteps, *readDistanceSteps, *durationTimeFitting);
+        cout << "durationTimeFitting" << *readAngularSteps << "  " << *readDistanceSteps << "  " << *durationTimeFitting << endl;
+            }
 
-    cout << "start analysing" << endl;
+    std::cout << "start analysing" << std::endl;
     // ANALYSE TRACKS AND VECTORS FOUND
     // std::vector<double> energiesGraph;
     std::vector<double> numPtsGraph;
@@ -178,7 +193,7 @@ int fit(TString inputFileName = "durationTreeWithParameters.root")
     {
         unsigned int inde = int(vecParams[i].first / 50 - 1);
         unsigned int j = int(vecParams[i].second / 50 - 1);
-        cout << i << vecParams[i].first << "  " << vecParams[i].second << "  " << sumAvgTrackLength[inde][j] << endl;
+        // std::cout << i << vecParams[i].first << "  " << vecParams[i].second << "  " << sumAvgTrackLength[inde][j] << endl;
         h2d_2->Fill(vecParams[i].first, vecParams[i].second, sumAvgTrackLength[inde][j]);
     }
     h2d_2->Draw("colz");
@@ -243,11 +258,17 @@ int fit(TString inputFileName = "durationTreeWithParameters.root")
                      std::accumulate(itBegin, itEnd, 0.0) / vecSize);
         secondCounter++;
     }
-    cout << secondCounter << endl;
+    // std::cout << secondCounter << endl;
     g2->Draw("AP*");
 
     TCanvas *c5 = new TCanvas("c5", "Canvas Time analysis", 200, 310, 500, 300);
     h2DTime->Draw("colz");
+
+    TCanvas *c6 = new TCanvas("c6", "Canvas Clustering Time analysis", 700, 610, 500, 300);
+    h2DTimeClustering->Draw("colz");
+
+    TCanvas *c7 = new TCanvas("c7", "Canvas Fitting Time analysis", 700, 610, 500, 300);
+    h2DTimeFitting->Draw("colz");
 
     return 0;
 }
