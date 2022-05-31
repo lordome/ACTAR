@@ -198,6 +198,8 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
       break;
     }
 
+    cout << "hitsSize before oneSidedTracks: " << hits.size() << endl;
+
     if (oneSidedTracks)
     {
       double averageY = 0;
@@ -205,11 +207,9 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
       {
         averageY += bestInliers[i].getY();
       }
-
       averageY /= bestInliers.size();
 
       std::vector<T> temporary;
-
       if (averageY > 68)
       {
         for (unsigned int i = 0; i < bestInliers.size(); i++)
@@ -217,7 +217,6 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
           if (bestInliers[i].getY() > 64)
             temporary.push_back(bestInliers[i]);
         }
-        bestInliers = temporary;
       }
 
       if (averageY < 61)
@@ -227,8 +226,9 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
           if (bestInliers[i].getY() < 64)
             temporary.push_back(bestInliers[i]);
         }
-        bestInliers = temporary;
       }
+
+      bestInliers = temporary;
 
       double tempEnergy = 0;
       for (auto &i : bestInliers)
@@ -236,25 +236,63 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
         tempEnergy += i.getEnergy();
       }
       bestEnergy = tempEnergy;
-    }
 
-    if (bestInliers.size() < minSize || bestEnergy < minEnergy)
-    {
-      break;
-    }
-
-    // Setting all the used points to -1, so they won't be used anymore.
-    for (auto it_hits = hits.begin(); it_hits != hits.end(); it_hits++)
-    {
-
-      T p = *it_hits;
-      std::array<double_t, 4> samplex = {p.getX(), p.getY(), p.getZ(), p.getEnergy()};
-
-      if (GetError(bestModel, samplex, zRescaling) < pow(widthTrack, 2) && p.isTrackable())
+      if (bestInliers.size() < minSize || bestEnergy < minEnergy)
       {
-        // Remove the point from the point list
-        it_hits = hits.erase(it_hits);
-        it_hits--;
+        break;
+      }
+
+      if (averageY > 68)
+      {
+        for (auto it_hits = hits.begin(); it_hits != hits.end(); it_hits++)
+        {
+          T p = *it_hits;
+          std::array<double_t, 4> samplex = {p.getX(), p.getY(), p.getZ(), p.getEnergy()};
+
+          if (GetError(bestModel, samplex, zRescaling) < pow(widthTrack, 2) && p.isTrackable() && p.getY() > 64)
+          {
+            // Remove the point from the point list
+            it_hits = hits.erase(it_hits);
+            it_hits--;
+          }
+        }
+      }
+
+      if (averageY < 61)
+      {
+        for (auto it_hits = hits.begin(); it_hits != hits.end(); it_hits++)
+        {
+          T p = *it_hits;
+          std::array<double_t, 4> samplex = {p.getX(), p.getY(), p.getZ(), p.getEnergy()};
+
+          if (GetError(bestModel, samplex, zRescaling) < pow(widthTrack, 2) && p.isTrackable() && p.getY() < 64)
+          {
+            // Remove the point from the point list
+            it_hits = hits.erase(it_hits);
+            it_hits--;
+          }
+        }
+      }
+    }
+    else
+    {
+      if (bestInliers.size() < minSize || bestEnergy < minEnergy)
+      {
+        break;
+      }
+
+      for (auto it_hits = hits.begin(); it_hits != hits.end(); it_hits++)
+      {
+
+        T p = *it_hits;
+        std::array<double_t, 4> samplex = {p.getX(), p.getY(), p.getZ(), p.getEnergy()};
+
+        if (GetError(bestModel, samplex, zRescaling) < pow(widthTrack, 2) && p.isTrackable())
+        {
+          // Remove the point from the point list
+          it_hits = hits.erase(it_hits);
+          it_hits--;
+        }
       }
     }
 
@@ -271,10 +309,10 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
       bestTrack.setFittable(false);
     else
       bestTrack.setFittable(isFittable);
-    // saving bestTrack into tracker, which is going to be saved into the output tree.
-    lines.push_back(bestTrack);
 
-  } // end while (1){
+    // saving bestTrack into the lines array
+    lines.push_back(bestTrack);
+  }
 
   points = std::list<T>(hits.begin(), hits.end());
 
