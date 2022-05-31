@@ -64,7 +64,7 @@ int fit(string inputFileName = "inputParametersFill.txt")
     double referenceVertexWidthAcceptance = parMap["vertexWidthAcceptance"]; // maximum distance accepted between two different cluster
     double referenceTrsize = parMap["trackMinSize"];                         // min number of pads required in order to consider a cluster a real track
     double referenceBesize = parMap["beamMinSize"];                          // min number of pads required in order to consider a cluster a real track FOR BEAM
-    double referenceLoops = parMap["refeenceRansacLoops"];                   // number of loops, i.e. number of random couples chosen.
+    double referenceLoops = parMap["referenceLoops"];                        // number of loops, i.e. number of random couples chosen.
     double referenceZRescaling = parMap["referenceZRescaling"];
 
     double threshold = parMap["trackEnergyThreshold"];              // minimum energy requested for a single cluster.
@@ -123,7 +123,6 @@ int fit(string inputFileName = "inputParametersFill.txt")
 
         if (rdr.GetCurrentEntry() == 8)
         {
-            cout << "numeroOTTO" << endl;
             std::cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << std::endl;
 
             list<cPhysicalHit> hitslist = event->getHits(); // picking up the list from the event and converting it into a vector.
@@ -144,7 +143,7 @@ int fit(string inputFileName = "inputParametersFill.txt")
             referenceTraC.setLoopsNumber(referenceLoops);
             referenceTraC.setTrackMinSize(referenceTrsize);
             referenceTraC.setBeamMinSize(referenceBesize);
-            referenceTraC.zRescaling = zRescaling;
+            referenceTraC.zRescaling = referenceZRescaling;
 
             for (auto &h : hitslist)
             {
@@ -162,8 +161,10 @@ int fit(string inputFileName = "inputParametersFill.txt")
             bool referenceTrackOneSide = true;
             bool referenceBeamTracks = false;
 
-            referenceTraC.Ransac(threshold, trsize, width, referenceBeamTracks, referenceTrackOneSide, referenceTrackFittable);
+            referenceTraC.Ransac(referenceThreshold, referenceTrsize, referenceWidth, referenceBeamTracks, referenceTrackOneSide, referenceTrackFittable);
 
+            cout << "loops:" << referenceLoops << endl;
+            cout << "energy: " << referenceThreshold << endl;
             // Cluster and FitLiness
             referenceTraC.fitLines();
 
@@ -247,18 +248,15 @@ int fit(string inputFileName = "inputParametersFill.txt")
             vrt.setMaxDist(vertexWidthAcceptance);
             vrt.findVertex(fitEvt);
 
-            cout << "fino a qui??" << endl;
             cDrawEvents<cFittedEvent<cPhysicalHit>> *referenceDrawEvt = new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
             referenceDrawEvt->setEvent(*referenceFitEvt);
             referenceDrawEvt->drawColors2D(false, 0, 600, 800, 500, "referenceCanvasColors");
-            referenceDrawEvt->drawComponents2D(false, 800, 600, 800, 500);
-
-            cout << "fino a qui??" << endl;
+            referenceDrawEvt->drawComponents2D(false, 800, 600, 800, 500, "referenceComponents");
 
             cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt = new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
             drawEvt->setEvent(*fitEvt);
             drawEvt->drawColors2D(false, 0, 0, 800, 500, "CanvasColors");
-            drawEvt->drawComponents2D(true, 800, 0, 800, 500);
+            drawEvt->drawComponents2D(true, 800, 0, 800, 500, " components2D");
         }
     }
 
