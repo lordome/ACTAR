@@ -405,7 +405,7 @@ void cDrawEvents<T>::drawComponents2D(const bool &wait, double x1, double y1, do
         delete hYZ_comp;
     if (canDrawComp)
         delete canDrawComp;
-    canDrawComp = new TCanvas("components2D", "components2D", x1, y1, x_w, y_w);
+    canDrawComp = new TCanvas(canvasName.c_str(), canvasName.c_str(), x1, y1, x_w, y_w);
     canDrawComp->Divide(3, 1);
 
     hXY_comp = new TH2F(("histXY_comp" + canvasName).c_str(), ("histXY_comp" + canvasName).c_str(), binX, 0, maxX, binY, 0, maxY);
