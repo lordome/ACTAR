@@ -198,8 +198,6 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
       break;
     }
 
-    cout << "hitsSize before oneSidedTracks: " << hits.size() << endl;
-
     if (oneSidedTracks)
     {
       double averageY = 0;
