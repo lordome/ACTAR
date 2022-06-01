@@ -432,8 +432,8 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b)
 
     if (TMath::Abs(mDist - xtil) < pointDistance)
     {
-      i = accumulator.erase(i);
-      i--;
+      // i = accumulator.erase(i);
+      // i--;
 
       // Add the point to the accumulator, for it to be used later
       lineCand.push_back(p);
@@ -447,7 +447,6 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b)
   if (oneSidedTracks)
   {
     Float_t averageY = 0;
-
     for (auto &p : lineCand)
     {
       averageY += p.getY();
@@ -465,8 +464,30 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b)
           it_hits--;
         }
       }
+
+      // Remove from accumulator the points that are contained into the final track.
+      for (typename pointList::iterator i = accumulator.begin(); i != accumulator.end(); i++)
+      {
+
+        T p = *i;
+        // Create a vector corresponding to the point
+        TVector3 pv(p[0] * multFactor[0], p[1] * multFactor[1], p[2] * multFactor[2]);
+
+        // Project the point along the new x axis
+        Float_t xproj = pv * x;
+
+        // Project the point along the new y axis
+        Float_t yproj = pv * y;
+
+        Float_t xtil = -xproj * sin + yproj * cos;
+        if (TMath::Abs(mDist - xtil) < pointDistance && p.getY() > 64)
+        {
+          i = accumulator.erase(i);
+          i--;
+        }
+      }
     }
-    if (averageY < 61.)
+    else if (averageY < 61.)
     {
       for (auto it_hits = lineCand.begin(); it_hits != lineCand.end(); it_hits++)
       {
@@ -475,6 +496,48 @@ bool cTrackerFine<T>::loadPointsInLine(direction a, direction b)
         {
           it_hits = lineCand.erase(it_hits);
           it_hits--;
+        }
+      }
+
+      for (typename pointList::iterator i = accumulator.begin(); i != accumulator.end(); i++)
+      {
+        T p = *i;
+        // Create a vector corresponding to the point
+        TVector3 pv(p[0] * multFactor[0], p[1] * multFactor[1], p[2] * multFactor[2]);
+
+        // Project the point along the new x axis
+        Float_t xproj = pv * x;
+
+        // Project the point along the new y axis
+        Float_t yproj = pv * y;
+
+        Float_t xtil = -xproj * sin + yproj * cos;
+        if (TMath::Abs(mDist - xtil) < pointDistance && p.getY() < 64)
+        {
+          i = accumulator.erase(i);
+          i--;
+        }
+      }
+    }
+    else
+    {
+      for (typename pointList::iterator i = accumulator.begin(); i != accumulator.end(); i++)
+      {
+        T p = *i;
+        // Create a vector corresponding to the point
+        TVector3 pv(p[0] * multFactor[0], p[1] * multFactor[1], p[2] * multFactor[2]);
+
+        // Project the point along the new x axis
+        Float_t xproj = pv * x;
+
+        // Project the point along the new y axis
+        Float_t yproj = pv * y;
+
+        Float_t xtil = -xproj * sin + yproj * cos;
+        if (TMath::Abs(mDist - xtil) < pointDistance)
+        {
+          i = accumulator.erase(i);
+          i--;
         }
       }
     }
