@@ -138,10 +138,11 @@ int fit(string inputFileName = "inputNMIHough.txt")
 
     int nent = rdr.GetEntries(false);
 
-    vector<double> numLoops = {5, 10, 15, 30, 50, 80, 100, 200, 500};
+    // vector<double> vecAngSteps = {10, 20, 50, 100, 200, 300, 500, 1000};
+    // vector<double> vecDisSteps = {10, 20, 50, 100, 200, 300, 500, 1000};
 
-    vector<double> vecAngSteps = {10, 20, 50, 100, 200, 300, 500, 1000};
-    vector<double> vecDisSteps = {10, 20, 50, 100, 200, 300, 500, 1000};
+    vector<double> vecAngSteps = {500, 1000};
+    vector<double> vecDisSteps = {500, 1000};
 
     while (rdr.Next())
     {
@@ -257,6 +258,11 @@ int fit(string inputFileName = "inputNMIHough.txt")
 
                     identificationMap.clear();
                     evtNum = -1;
+
+                    cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt = new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
+                    drawEvt->setEvent(*fitEvt);
+                    drawEvt->drawColors2D(false, 0, 0, 800, 500, "CanvasColors");
+                    drawEvt->drawComponents2D(true, 800, 0, 800, 500, " components2D");
                 }
             }
         }
