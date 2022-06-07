@@ -194,9 +194,7 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
     }
 
     if (bestInliers.empty())
-    {
       break;
-    }
 
     if (oneSidedTracks)
     {
@@ -215,6 +213,7 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
           if (bestInliers[i].getY() > 64)
             temporary.push_back(bestInliers[i]);
         }
+        bestInliers = temporary;
       }
 
       if (averageY < 61)
@@ -224,9 +223,8 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
           if (bestInliers[i].getY() < 64)
             temporary.push_back(bestInliers[i]);
         }
+        bestInliers = temporary;
       }
-
-      bestInliers = temporary;
 
       double tempEnergy = 0;
       for (auto &i : bestInliers)
@@ -255,8 +253,7 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
           }
         }
       }
-
-      if (averageY < 61)
+      else if (averageY < 61)
       {
         for (auto it_hits = hits.begin(); it_hits != hits.end(); it_hits++)
         {
@@ -264,6 +261,21 @@ void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &width
           std::array<double_t, 4> samplex = {p.getX(), p.getY(), p.getZ(), p.getEnergy()};
 
           if (GetError(bestModel, samplex, zRescaling) < pow(widthTrack, 2) && p.isTrackable() && p.getY() < 64)
+          {
+            // Remove the point from the point list
+            it_hits = hits.erase(it_hits);
+            it_hits--;
+          }
+        }
+      }
+      else if (averageY >= 61 && averageY <= 68)
+      {
+        for (auto it_hits = hits.begin(); it_hits != hits.end(); it_hits++)
+        {
+          T p = *it_hits;
+          std::array<double_t, 4> samplex = {p.getX(), p.getY(), p.getZ(), p.getEnergy()};
+
+          if (GetError(bestModel, samplex, zRescaling) < pow(widthTrack, 2) && p.isTrackable())
           {
             // Remove the point from the point list
             it_hits = hits.erase(it_hits);
