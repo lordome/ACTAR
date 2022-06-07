@@ -40,7 +40,7 @@ std::vector<int> decode(int value)
     return std::vector<int>({value, y, z});
 }
 
-int fit(TString inputFileName = "100EventsHough.root")
+int fit(TString inputFileName = "prova.root")
 {
     // Opening the input file.
     TFile *ifile = new TFile(inputFileName.Data(), "READ");
@@ -62,7 +62,7 @@ int fit(TString inputFileName = "100EventsHough.root")
     // READING INPUT FILE
     TTreeReader rdr(trackTree);
     TTreeReaderValue<double> eventNum(rdr, "eventNum");
-    TTreeReaderValue<double> executionTime(rdr, "executionTime");
+    // TTreeReaderValue<double> executionTime(rdr, "executionTime");
 
     TTreeReaderValue<map<string, double>> parMap(rdr, "parameters");
     TTreeReaderValue<TString> inputFile(rdr, "inputFile");
