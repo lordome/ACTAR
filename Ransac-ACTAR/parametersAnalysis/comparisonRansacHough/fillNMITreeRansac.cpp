@@ -97,7 +97,7 @@ int fit(string inputFileName = "inputParametersFill.txt")
     cFittedEvent<cPhysicalHit> *referenceFitEvt = 0;
 
     // Open output file
-    TString filename = "prova.root";
+    TString filename = "provaRansacFill.root";
     TFile fout(filename.Data(), "CREATE");
     if (fout.IsZombie())
     {
@@ -134,6 +134,7 @@ int fit(string inputFileName = "inputParametersFill.txt")
         {
             for (auto &itLoops : numLoops)
             {
+
                 auto startTime = chrono::steady_clock::now();
                 delete fitEvt;
                 fitEvt = new cFittedEvent<cPhysicalHit>();
