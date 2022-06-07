@@ -1,17 +1,17 @@
-inputFile prova100.root
+inputFile ../../ROOTFiles/100SelectedEvents.root
 
-trackEnergyThreshold 5000
+trackEnergyThreshold 4000
 beamEnergyThreshold 100000
 tracksWidth 4.2
 beamWidth 3.5
 vertexWidthAcceptance 10000  
 numberLoops 200
-trackMinSize 20 
+trackMinSize 15 
 beamMinSize 250  
 
 oneEventOnly 0
 toAnalyse  -1 
-startFrom 0
+startFrom 5
 
 zRescaling 4
 zRescalingFit 1
