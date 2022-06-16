@@ -45,17 +45,39 @@ public:
     // SQUARE! of the distance between the point and the line
     Double_t GetError_noscale(std::array<TVector3, 2> model, std::array<Double_t, 4> p);
     // SQUARE! of the distance between the point and the line
-    Double_t GetError(std::array<TVector3, 2> model, std::array<Double_t, 4>  p, double zScale);
+    Double_t GetError(std::array<TVector3, 2> model, std::array<Double_t, 4> p, double zScale);
     // function used to test the clusters.
     Double_t ClusterTest(double &sumvalue, double &totalenergy, std::vector<T> &inliers);
 
-    // double getTracksEnergyThreshold() const;
-    // double getBeamEnergyThreshold  () const;
-    // double getTracksWidth          () const;
-    // double getBeamWidth            () const;
-    // double getLoopsNumber          () const;
-    // double getTrackMinSize         () const;
-    // double getBeamMinSize          () const;
+    // GET functions - as copies
+    double getTracksEnergyThreshold() const
+    {
+        return tracksEnergyThreshold;
+    };
+    double getBeamEnergyThreshold() const
+    {
+        return beamEnergyThreshold;
+    };
+    double getTracksWidth() const
+    {
+        return tracksWidth;
+    };
+    double getBeamWidth() const
+    {
+        return beamWidth;
+    };
+    double getLoopsNumber() const
+    {
+        return loopsNumber;
+    };
+    double getTrackMinSize() const
+    {
+        return trackMinSize;
+    };
+    double getBeamMinSize() const
+    {
+        return beamMinSize;
+    };
 
     enum class direction
     {
@@ -83,14 +105,13 @@ public:
     std::list<cFittedLine<T>> fittedLines;
 
     // Function for running Ransac
-    void Ransac(double &minEnergy, double &minSize, double &widthTrack, bool&  beamTracks, bool &oneSidedTracks, bool &isFittable);
+    void Ransac(double &minEnergy, double &minSize, double &widthTrack, bool &beamTracks, bool &oneSidedTracks, bool &isFittable);
 
     // Load points in the maximum as a line, returns true if a line is found
     // bool loadPointsInLine(direction, direction);
 
     // Fits each line contained in lines
     void fitLines();
-
 
     // Function for the user to start the tracking
     void track(direction, direction);
