@@ -43,7 +43,7 @@
 
 using namespace std;
 
-int fit(string inputFileName = "input_parameters.txt")
+int fit(string inputFileName = "inputParameters_E823.txt")
 {
 
     TString dataFileName;
@@ -105,12 +105,14 @@ int fit(string inputFileName = "input_parameters.txt")
 
     cout << startFrom << " startFrom" << endl;
 
+    TH1D *h1 = new TH1D("histo", "Histo run 69", 200, 100000, 800000);
+
     while (rdr.Next())
     {
 
         cout << "\rConverting entry " << rdr.GetCurrentEntry() << " of " << nent << flush;
 
-        if ((!oneEventOnly || event->getEventNumber() == toAnalyse) && rdr.GetCurrentEntry() > startFrom)
+        if ((!oneEventOnly || event->getEventNumber() == toAnalyse) && rdr.GetCurrentEntry() > startFrom && rdr.GetCurrentEntry() < 1000)
         {
             delete fitEvt;
             fitEvt = new cFittedEvent<cPhysicalHit>();
@@ -144,16 +146,15 @@ int fit(string inputFileName = "input_parameters.txt")
                 traC.addPoint(h);
             }
 
-            // bool beamFittable = false;
-            // bool beamOneSide = false;
-            // bool beamTracks = true;
-            // traC.Ransac(fenergy, besize, fwidth, beamTracks, beamOneSide, beamFittable);
+            bool beamFittable = false;
+            bool beamOneSide = false;
+            bool beamTracks = true;
+            traC.Ransac(beamTracks, beamOneSide, beamFittable);
 
-            bool trackFittable = true;
-            bool trackOneSide = true;
-            bool beamTracks = false;
-
-            traC.Ransac(beamTracks, trackOneSide, trackFittable);
+            // bool trackFittable = true;
+            // bool trackOneSide = true;
+            // bool beamTracks = false;
+            // traC.Ransac(beamTracks, trackOneSide, trackFittable);
 
             // traC.Ransac(threshold, trsize, width, beamTracks, trackOneSide, trackFittable);
             // End Clustering
@@ -180,15 +181,11 @@ int fit(string inputFileName = "input_parameters.txt")
             vrt.setMaxDist(vertexWidthAcceptance);
             vrt.findVertex(fitEvt);
 
-            auto listTracks = fitEvt->getLines();
-
             bool verbose = true;
-
-            cout << "verbose:" << verbose << endl;
             if (verbose)
             {
-
-                cout << "verbose inside loop:" << verbose << endl;
+                auto listTracks = fitEvt->getLines();
+                // cout << "verbose inside loop:" << verbose << endl;
 
                 int itTracks = 0;
                 for (auto &it : listTracks)
@@ -212,26 +209,13 @@ int fit(string inputFileName = "input_parameters.txt")
                             maxX = pts.getX();
                     }
 
-                    cout << "Track " << itTracks << " Energy: " << totalEnergy << "  Size: " << it.getPoints().size() << endl;
+                    // cout << "Track " << itTracks << " Energy: " << totalEnergy << "  Size: " << it.getPoints().size() << endl;
+
+                    h1->Fill(totalEnergy);
                     // cout << "Track " << itTracks << "  " << minX << "  " << maxX << "  " << minZ << "  " << maxZ << endl;
                     itTracks++;
                 }
             }
-
-            // Draw the analysed event;
-            cDrawEvents<cFittedEvent<cPhysicalHit>> *drawEvt =
-                new cDrawEvents<cFittedEvent<cPhysicalHit>>(binX, binY, binZ, maxX, maxY, maxZ);
-
-            drawEvt->setEvent(fitEvt);
-            // drawEvt->drawAll3D(false);
-            // drawEvt->drawAll2D(false);
-            drawEvt->drawComponents2D(false, 0, 0, 800, 500, " ");
-            drawEvt->drawColors2D(true, 800, 0, 800, 500, "  ");
-            // drawEvt->drawTracks3D(false, 800, 600, 1115, 500);
-            //  drawEvt->drawVertex(true, 800, 0, 1115, 500);
-
-            delete drawEvt;
-            // }
 
             // Coding for finding informations on tracks;
         }
@@ -240,6 +224,8 @@ int fit(string inputFileName = "input_parameters.txt")
             continue;
         }
     }
+
+    h1->Draw();
 
     return 0;
 }

@@ -65,9 +65,23 @@ std::array<TVector3, 2> cTrackerRansac<T>::GetParamWithSample(std::array<Double_
 };
 
 template <class T>
-void cTrackerRansac<T>::Ransac(double &minEnergy, double &minSize, double &widthTrack, bool &beamTracks, bool &oneSidedTracks, bool &isFittable)
+void cTrackerRansac<T>::Ransac(bool &beamTracks, bool &oneSidedTracks, bool &isFittable)
 {
-  // points index into the hits vector
+
+  double minEnergy = -1, minSize = -1, widthTrack = -1;
+  if (beamTracks)
+  {
+    minEnergy = beamEnergyThreshold;
+    minSize = beamMinSize;
+    widthTrack = beamWidth;
+  }
+  else if (!beamTracks)
+  {
+    minEnergy = tracksEnergyThreshold;
+    minSize = trackMinSize;
+    widthTrack = tracksWidth;
+  }
+
   int rndpoint1 = 0;
   int rndpoint2 = 0;
 

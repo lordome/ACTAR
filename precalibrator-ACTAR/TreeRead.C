@@ -2,7 +2,6 @@
 // Commetuasdegrandesdents
 #include "Parameters.h"
 
-
 #ifndef NPADX
 #define NPADX 128
 #endif
@@ -80,8 +79,6 @@
 
 //#define Vdrift 1.178 // runs 72-74
 #define Vdrift 1.0 // runs dummy
-
-
 
 #include "TFile.h"
 #include "TEnv.h"

@@ -35,7 +35,7 @@ int ardaDrawEvent(int dimensions = 3)
 
     // input file in cPhysicalEvents
     // TString ifname = "/home/lorenzo/Desktop/ACTAR_git/precalibrator-ACTAR/pyOutputPrecal.root";
-    TString ifname = "/home/lorenzo/Desktop/ACTAR_git/Ransac-ACTAR/prova100.root";
+    TString ifname = "/home/lorenzo/Desktop/ROOTFiles/preCalE823_run0069.root"; // preCalE823_run0033.root
 
     TFile *ifile = new TFile(ifname.Data(), "READ");
     if (ifile->IsZombie())
@@ -50,7 +50,6 @@ int ardaDrawEvent(int dimensions = 3)
         return -1;
     }
 
-    
     TTreeReader rdr(physicalEventTree);
     TTreeReaderValue<cPhysicalEvent> event(rdr, "event"); // reading input file
 
@@ -63,17 +62,19 @@ int ardaDrawEvent(int dimensions = 3)
         return -1;
     }
 
-
     std::cout << rdr.GetEntries() << std::endl;
     while (rdr.Next())
     {
         list<cPhysicalHit> hitslist = event->getHits(); // picking up the list from the event and converting it into a vector.
 
+        // if (event->getEventNumber() != 331)
+        //     continue;
+
         cout << event->getEventNumber() << endl;
         if (dimensions == 2)
         {
             delete h2;
-            h2 = new TH2F("histo2D", "histo2D", 128, 0, 128, 128, 0, 128);
+            h2 = new TH2F("histo2D", "", 128, 0, 128, 128, 0, 128);
         }
         else if (dimensions == 3)
         {
@@ -84,7 +85,12 @@ int ardaDrawEvent(int dimensions = 3)
         {
             if (dimensions == 2)
             {
+
+                // box dimension is energy
                 h2->Fill(i[0], i[1], i.getEnergy());
+
+                // same box dimension
+                // h2->Fill(i[0], i[1]);
             }
             else if (dimensions == 3)
             {
@@ -93,7 +99,12 @@ int ardaDrawEvent(int dimensions = 3)
         }
 
         if (dimensions == 2)
-            h2->Draw("box");
+        {
+            h2->GetXaxis()->SetTitle("Asse x [mm/2]");
+            h2->GetYaxis()->SetTitle("Asse y [mm/2]");
+            h2->Draw("COLZ");
+        }
+
         if (dimensions == 3)
             h3->Draw("LEGO");
 

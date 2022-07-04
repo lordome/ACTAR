@@ -50,34 +50,13 @@ public:
     Double_t ClusterTest(double &sumvalue, double &totalenergy, std::vector<T> &inliers);
 
     // GET functions - as copies
-    double getTracksEnergyThreshold() const
-    {
-        return tracksEnergyThreshold;
-    };
-    double getBeamEnergyThreshold() const
-    {
-        return beamEnergyThreshold;
-    };
-    double getTracksWidth() const
-    {
-        return tracksWidth;
-    };
-    double getBeamWidth() const
-    {
-        return beamWidth;
-    };
-    double getLoopsNumber() const
-    {
-        return loopsNumber;
-    };
-    double getTrackMinSize() const
-    {
-        return trackMinSize;
-    };
-    double getBeamMinSize() const
-    {
-        return beamMinSize;
-    };
+    double getTracksEnergyThreshold() const { return tracksEnergyThreshold; };
+    double getBeamEnergyThreshold() const { return beamEnergyThreshold; };
+    double getTracksWidth() const { return tracksWidth; };
+    double getBeamWidth() const { return beamWidth; };
+    double getLoopsNumber() const { return loopsNumber; };
+    double getTrackMinSize() const { return trackMinSize; };
+    double getBeamMinSize() const { return beamMinSize; };
 
     enum class direction
     {
@@ -105,7 +84,9 @@ public:
     std::list<cFittedLine<T>> fittedLines;
 
     // Function for running Ransac
-    void Ransac(double &minEnergy, double &minSize, double &widthTrack, bool &beamTracks, bool &oneSidedTracks, bool &isFittable);
+    void Ransac(bool &beamTracks, bool &oneSidedTracks, bool &isFittable);
+
+    // void Ransac(double &minEnergy, double &minSize, double &widthTrack, bool &beamTracks, bool &oneSidedTracks, bool &isFittable);
 
     // Load points in the maximum as a line, returns true if a line is found
     // bool loadPointsInLine(direction, direction);

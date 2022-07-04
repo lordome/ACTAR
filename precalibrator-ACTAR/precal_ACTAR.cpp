@@ -76,15 +76,8 @@ using namespace std;
 
 #include "DataParameters.h"
 
-#include "/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalHit.h"
-#include "/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalEvent.h"
-#include "/home/lorenzo/Desktop/ARDAC/ARDA/inc/cUserInput.h"
-#include "/home/lorenzo/Desktop/ARDAC/ARDA/inc/cLookupTable.h"
-#include "/home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawEvent.h"
-
+#include "/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalEvent.h"
 #include <chrono>
-
-// gSystem->AddIncludePath("home/lorenzo/Desktop/ARDAC/ARDA/inc")
 
 struct calCoeff
 {
@@ -99,7 +92,7 @@ int preCal(int run_f, int run_l)
     int TABLE_INV[128][128][4];
 
     // 	FILE* fTable=fopen("LT_GANIL_NewCF.dat","r");
-    FILE *fTable = fopen("../dat/LT.dat", "r");
+    FILE *fTable = fopen("./LT.dat", "r");
     if (fTable != NULL)
     {
         cout << "Using LookupTable from: "
@@ -223,11 +216,13 @@ int preCal(int run_f, int run_l)
     {
         TString RunFile;
 
-        // 		RunFile.Form("/home/roger/Desktop/E690_FROM_HOME/1st_LEVEL/root_test/fc_deconv_60/Tree_Run_%04d.root",run); // Deconv physics runs
-        // 		RunFile.Form("/media/roger/ACTAR_USB_2/E690_root/root_integral_20200324/Tree_Run_%04d.root",run); // Intg no deconv physics runs
-        // 		RunFile.Form("/home/roger/Desktop/E690_FROM_HOME/1st_LEVEL/root_calib2020/Tree_Run_%04d_Merged.root",run); // test physics runs
-        // 		RunFile.Form("/home/roger/Bureau/ANALYSIS_E690/1st_LEVEL/root_calib_deconv_max_20200408/Tree_Run_%04d.root",run); // Calib runs
-        RunFile.Form("/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/root_e796/Tree_Run_%04d_Merged.root", run); // test physics runs
+        // RunFile.Form("/home/roger/Desktop/E690_FROM_HOME/1st_LEVEL/root_test/fc_deconv_60/Tree_Run_%04d.root",run); // Deconv physics runs
+        // RunFile.Form("/media/roger/ACTAR_USB_2/E690_root/root_integral_20200324/Tree_Run_%04d.root",run); // Intg no deconv physics runs
+        // RunFile.Form("/home/roger/Desktop/E690_FROM_HOME/1st_LEVEL/root_calib2020/Tree_Run_%04d_Merged.root",run); // test physics runs
+        // RunFile.Form("/home/roger/Bureau/ANALYSIS_E690/1st_LEVEL/root_calib_deconv_max_20200408/Tree_Run_%04d.root",run); // Calib runs
+        // RunFile.Form("/home/lorenzo/Desktop/Ganil_Actar/ACTAR_ANALYSIS_LIGHT/root_e796/Tree_Run_%04d_Merged.root", run); // test physics runs
+
+        RunFile.Form("/home/lorenzo/Desktop/ROOTFiles/Tree_Run_%04d_Merged.root", run); // test physics runs
         Tree->AddFile(RunFile.Data(), 0, "ACTAR_TTree");
         RUN = run;
     }
@@ -269,7 +264,7 @@ int preCal(int run_f, int run_l)
             ch = EvtRed->CoboAsad[it].globalchannelid - (co << 11) - (as << 9) - (ag << 7);
             int where = co * NB_ASAD * NB_AGET * NB_CHANNEL + as * NB_AGET * NB_CHANNEL + ag * NB_CHANNEL + ch;
 
-            cout << "To check if where and gID are the same... " << where << "   " << EvtRed->CoboAsad[it].globalchannelid << endl;
+            // cout << "To check if where and gID are the same... " << where << "   " << EvtRed->CoboAsad[it].globalchannelid << endl;
 
             float Qpad = 0;
             if (co != 31 && co != 16)
@@ -302,6 +297,7 @@ int preCal(int run_f, int run_l)
 
     return 0;
 }
+
 // if (argc < 3)
 // {
 //     cout << "Usage: precalibrator input1.root input2.root [...] output.root" << endl;
