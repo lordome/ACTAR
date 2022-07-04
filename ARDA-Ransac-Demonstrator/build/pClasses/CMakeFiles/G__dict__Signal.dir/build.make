@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lorenzo/Desktop/ARDAC/ARDA
+CMAKE_SOURCE_DIR = /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lorenzo/Desktop/ARDAC/build
+CMAKE_BINARY_DIR = /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build
 
 # Utility rule file for G__dict__Signal.
 
@@ -58,12 +58,12 @@ pClasses/CMakeFiles/G__dict__Signal: pClasses/libdict__Signal_rdict.pcm
 pClasses/CMakeFiles/G__dict__Signal: pClasses/libdict__Signal.rootmap
 
 
-pClasses/G__dict__Signal.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/pClasses/inc/pSignalLinkDef.h
-pClasses/G__dict__Signal.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/pClasses/inc/pSignal.h
-pClasses/G__dict__Signal.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/pClasses/inc/pSignal.h
-pClasses/G__dict__Signal.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/pClasses/inc/pSignalLinkDef.h
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating G__dict__Signal.cxx, libdict__Signal_rdict.pcm, libdict__Signal.rootmap"
-	cd /home/lorenzo/Desktop/ARDAC/build/pClasses && /usr/bin/cmake -E env LD_LIBRARY_PATH=/home/lorenzo/root/lib:/home/root/lib/:/home/lorenzo/root/lib:/home/root/lib/:/home/lorenzo/root/lib /home/lorenzo/root/bin/rootcling -v2 -f G__dict__Signal.cxx -s /home/lorenzo/Desktop/ARDAC/build/pClasses/libdict__Signal.so -rml libdict__Signal.so -rmf /home/lorenzo/Desktop/ARDAC/build/pClasses/libdict__Signal.rootmap -I/home/lorenzo/root/include -I/home/lorenzo/Desktop/ARDAC/ARDA/inc -I/home/lorenzo/Desktop/ARDAC/ARDA/libMFM -I/home/lorenzo/Desktop/ARDAC/ARDA/pClasses/inc -I/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/inc -I/home/lorenzo/Desktop/ARDAC/ARDA/pClasses pSignal.h /home/lorenzo/Desktop/ARDAC/ARDA/pClasses/inc/pSignalLinkDef.h
+pClasses/G__dict__Signal.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/pClasses/inc/pSignalLinkDef.h
+pClasses/G__dict__Signal.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/pClasses/inc/pSignal.h
+pClasses/G__dict__Signal.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/pClasses/inc/pSignal.h
+pClasses/G__dict__Signal.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/pClasses/inc/pSignalLinkDef.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating G__dict__Signal.cxx, libdict__Signal_rdict.pcm, libdict__Signal.rootmap"
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/pClasses && /usr/bin/cmake -E env LD_LIBRARY_PATH=/home/lorenzo/root/lib:/home/lorenzo/root/lib:/home/lorenzo/root/lib.:/usr/local/geant4/lib/.:/usr/local/geant4/lib/ /home/lorenzo/root/bin/rootcling -v2 -f G__dict__Signal.cxx -s /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/pClasses/libdict__Signal.so -rml libdict__Signal.so -rmf /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/pClasses/libdict__Signal.rootmap -I/home/lorenzo/root/include -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/pClasses/inc -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/inc -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/pClasses pSignal.h /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/pClasses/inc/pSignalLinkDef.h
 
 pClasses/libdict__Signal_rdict.pcm: pClasses/G__dict__Signal.cxx
 	@$(CMAKE_COMMAND) -E touch_nocreate pClasses/libdict__Signal_rdict.pcm
@@ -85,10 +85,10 @@ pClasses/CMakeFiles/G__dict__Signal.dir/build: G__dict__Signal
 .PHONY : pClasses/CMakeFiles/G__dict__Signal.dir/build
 
 pClasses/CMakeFiles/G__dict__Signal.dir/clean:
-	cd /home/lorenzo/Desktop/ARDAC/build/pClasses && $(CMAKE_COMMAND) -P CMakeFiles/G__dict__Signal.dir/cmake_clean.cmake
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/pClasses && $(CMAKE_COMMAND) -P CMakeFiles/G__dict__Signal.dir/cmake_clean.cmake
 .PHONY : pClasses/CMakeFiles/G__dict__Signal.dir/clean
 
 pClasses/CMakeFiles/G__dict__Signal.dir/depend:
-	cd /home/lorenzo/Desktop/ARDAC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lorenzo/Desktop/ARDAC/ARDA /home/lorenzo/Desktop/ARDAC/ARDA/pClasses /home/lorenzo/Desktop/ARDAC/build /home/lorenzo/Desktop/ARDAC/build/pClasses /home/lorenzo/Desktop/ARDAC/build/pClasses/CMakeFiles/G__dict__Signal.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/pClasses /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/pClasses /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/pClasses/CMakeFiles/G__dict__Signal.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : pClasses/CMakeFiles/G__dict__Signal.dir/depend
 

@@ -6,33 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/inc/EdgeDetector.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/inc/EdgeDetector.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/inc/SignalAnalyser.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/inc/SignalAnalyser.h
 vector
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/inc/TrapezoidAnalyser.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/inc/TrapezoidAnalyser.h
 vector
 -
 SignalAnalyser.h
-/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/inc/SignalAnalyser.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/inc/SignalAnalyser.h
 EdgeDetector.h
-/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/inc/EdgeDetector.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/inc/EdgeDetector.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/EdgeDetector.cpp
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/EdgeDetector.cpp
 TMath.h
 -
 EdgeDetector.h
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/SignalAnalyser.cpp
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/SignalAnalyser.cpp
 vector
 -
 SignalAnalyser.h
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/TrapezoidAnalyser.cpp
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/TrapezoidAnalyser.cpp
 iostream
 -
 functional

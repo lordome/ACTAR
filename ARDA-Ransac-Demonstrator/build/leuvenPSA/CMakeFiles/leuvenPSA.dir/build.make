@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lorenzo/Desktop/ARDAC/ARDA
+CMAKE_SOURCE_DIR = /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lorenzo/Desktop/ARDAC/build
+CMAKE_BINARY_DIR = /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build
 
 # Include any dependencies generated for this target.
 include leuvenPSA/CMakeFiles/leuvenPSA.dir/depend.make
@@ -58,43 +58,43 @@ include leuvenPSA/CMakeFiles/leuvenPSA.dir/progress.make
 include leuvenPSA/CMakeFiles/leuvenPSA.dir/flags.make
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.o: leuvenPSA/CMakeFiles/leuvenPSA.dir/flags.make
-leuvenPSA/CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.o: /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/EdgeDetector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object leuvenPSA/CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.o"
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.o -c /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/EdgeDetector.cpp
+leuvenPSA/CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/EdgeDetector.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object leuvenPSA/CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.o"
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/EdgeDetector.cpp
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.i"
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/EdgeDetector.cpp > CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.i
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/EdgeDetector.cpp > CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.i
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.s"
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/EdgeDetector.cpp -o CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.s
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/EdgeDetector.cpp -o CMakeFiles/leuvenPSA.dir/src/EdgeDetector.cpp.s
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.o: leuvenPSA/CMakeFiles/leuvenPSA.dir/flags.make
-leuvenPSA/CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.o: /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/SignalAnalyser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object leuvenPSA/CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.o"
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.o -c /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/SignalAnalyser.cpp
+leuvenPSA/CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/SignalAnalyser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object leuvenPSA/CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.o"
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/SignalAnalyser.cpp
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.i"
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/SignalAnalyser.cpp > CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.i
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/SignalAnalyser.cpp > CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.i
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.s"
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/SignalAnalyser.cpp -o CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.s
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/SignalAnalyser.cpp -o CMakeFiles/leuvenPSA.dir/src/SignalAnalyser.cpp.s
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.o: leuvenPSA/CMakeFiles/leuvenPSA.dir/flags.make
-leuvenPSA/CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.o: /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/TrapezoidAnalyser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object leuvenPSA/CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.o"
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.o -c /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/TrapezoidAnalyser.cpp
+leuvenPSA/CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/TrapezoidAnalyser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object leuvenPSA/CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.o"
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/TrapezoidAnalyser.cpp
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.i"
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/TrapezoidAnalyser.cpp > CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.i
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/TrapezoidAnalyser.cpp > CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.i
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.s"
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/src/TrapezoidAnalyser.cpp -o CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.s
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/src/TrapezoidAnalyser.cpp -o CMakeFiles/leuvenPSA.dir/src/TrapezoidAnalyser.cpp.s
 
 # Object files for target leuvenPSA
 leuvenPSA_OBJECTS = \
@@ -129,8 +129,8 @@ leuvenPSA/libleuvenPSA.so: /home/lorenzo/root/lib/libThread.so
 leuvenPSA/libleuvenPSA.so: /home/lorenzo/root/lib/libMultiProc.so
 leuvenPSA/libleuvenPSA.so: /home/lorenzo/root/lib/libROOTVecOps.so
 leuvenPSA/libleuvenPSA.so: leuvenPSA/CMakeFiles/leuvenPSA.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libleuvenPSA.so"
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/leuvenPSA.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libleuvenPSA.so"
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/leuvenPSA.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 leuvenPSA/CMakeFiles/leuvenPSA.dir/build: leuvenPSA/libleuvenPSA.so
@@ -138,10 +138,10 @@ leuvenPSA/CMakeFiles/leuvenPSA.dir/build: leuvenPSA/libleuvenPSA.so
 .PHONY : leuvenPSA/CMakeFiles/leuvenPSA.dir/build
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/clean:
-	cd /home/lorenzo/Desktop/ARDAC/build/leuvenPSA && $(CMAKE_COMMAND) -P CMakeFiles/leuvenPSA.dir/cmake_clean.cmake
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA && $(CMAKE_COMMAND) -P CMakeFiles/leuvenPSA.dir/cmake_clean.cmake
 .PHONY : leuvenPSA/CMakeFiles/leuvenPSA.dir/clean
 
 leuvenPSA/CMakeFiles/leuvenPSA.dir/depend:
-	cd /home/lorenzo/Desktop/ARDAC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lorenzo/Desktop/ARDAC/ARDA /home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA /home/lorenzo/Desktop/ARDAC/build /home/lorenzo/Desktop/ARDAC/build/leuvenPSA /home/lorenzo/Desktop/ARDAC/build/leuvenPSA/CMakeFiles/leuvenPSA.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/leuvenPSA/CMakeFiles/leuvenPSA.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : leuvenPSA/CMakeFiles/leuvenPSA.dir/depend
 

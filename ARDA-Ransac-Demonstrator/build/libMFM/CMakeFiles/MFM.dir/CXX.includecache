@@ -6,43 +6,43 @@
 
 #IncludeRegexTransform: 
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/Cobo.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/Cobo.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/DataPar.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/DataPar.h
 string.h
 -
 iostream
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/DataParameters.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/DataParameters.cc
 DataParameters.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/DataParameters.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/DataParameters.h
 stdio.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/stdio.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/stdio.h
 stdlib.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/stdlib.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/stdlib.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/DataParameters.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/DataParameters.h
 vector
 -
 iostream
 -
 DataPar.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/DataPar.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/DataPar.h
 MError.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MError.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MError.h
 string.h
 -
 stdint.h
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MError.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MError.cc
 MError.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MError.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MError.h
 stdlib.h
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MError.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MError.h
 sstream
 -
 iostream
@@ -60,7 +60,7 @@ sys/types.h
 string
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBasicFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBasicFrame.cc
 iostream
 -
 cmath
@@ -74,13 +74,13 @@ stdio.h
 sstream
 -
 MFMBasicFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBasicFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBasicFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBasicFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBasicFrame.h
 MFMCommonFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMCommonFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMCommonFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBlobFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBlobFrame.cc
 iostream
 -
 cmath
@@ -94,13 +94,13 @@ stdio.h
 sstream
 -
 MFMBlobFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBlobFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBlobFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBlobFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBlobFrame.h
 MFMCommonFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMCommonFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMCommonFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMCoboFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMCoboFrame.cc
 iostream
 -
 cmath
@@ -116,17 +116,17 @@ sstream
 cstdlib
 -
 MFMCoboFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMCoboFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMCoboFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMCoboFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMCoboFrame.h
 MFMBasicFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBasicFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBasicFrame.h
 vector
 -
 Cobo.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/Cobo.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/Cobo.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMCommonFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMCommonFrame.cc
 iostream
 -
 cmath
@@ -144,19 +144,19 @@ cstdlib
 sys/time.h
 -
 MFMCommonFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMCommonFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMCommonFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMCommonFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMCommonFrame.h
 stdint.h
 -
 MFMTypes.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMTypes.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMTypes.h
 MError.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MError.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MError.h
 stdlib.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/stdlib.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/stdlib.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMEbyedatFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMEbyedatFrame.cc
 iostream
 -
 cmath
@@ -174,17 +174,17 @@ stdlib.h
 time.h
 -
 MFMEbyedatFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMEbyedatFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMEbyedatFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMEbyedatFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMEbyedatFrame.h
 MFMBasicFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBasicFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBasicFrame.h
 map
 -
 vector
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMExogamFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMExogamFrame.cc
 iostream
 -
 cmath
@@ -200,13 +200,13 @@ sstream
 stdlib.h
 -
 MFMExogamFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMExogamFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMExogamFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMExogamFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMExogamFrame.h
 MFMBlobFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBlobFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBlobFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMMergeFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMMergeFrame.cc
 iostream
 -
 cmath
@@ -222,13 +222,13 @@ sstream
 stdlib.h
 -
 MFMMergeFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMMergeFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMMergeFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMMergeFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMMergeFrame.h
 MFMBasicFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBasicFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBasicFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMMutantFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMMutantFrame.cc
 iostream
 -
 cmath
@@ -244,13 +244,13 @@ sstream
 stdlib.h
 -
 MFMMutantFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMMutantFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMMutantFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMMutantFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMMutantFrame.h
 MFMBlobFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBlobFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBlobFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMOscilloFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMOscilloFrame.cc
 iostream
 -
 cmath
@@ -266,13 +266,13 @@ sstream
 stdlib.h
 -
 MFMOscilloFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMOscilloFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMOscilloFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMOscilloFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMOscilloFrame.h
 MFMBasicFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBasicFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBasicFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMRibfFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMRibfFrame.cc
 iostream
 -
 cmath
@@ -288,13 +288,13 @@ sstream
 stdlib.h
 -
 MFMRibfFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMRibfFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMRibfFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMRibfFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMRibfFrame.h
 MFMBlobFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBlobFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBlobFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMScalerDataFrame.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMScalerDataFrame.cc
 cmath
 -
 string.h
@@ -312,13 +312,13 @@ time.h
 tinyxml.h
 -
 MFMScalerDataFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMScalerDataFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMScalerDataFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMScalerDataFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMScalerDataFrame.h
 stdlib.h
 -
 MFMBasicFrame.h
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMBasicFrame.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMBasicFrame.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/libMFM/MFMTypes.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM/MFMTypes.h
 

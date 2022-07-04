@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/Parameters.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/Parameters.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/banner.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/banner.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cAnalysisController.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cAnalysisController.h
 cPSA.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPSA.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPSA.h
 string
 -
 map
@@ -20,13 +20,13 @@ map
 list
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cHit.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cHit.h
 TObject.h
 -
 vector
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cLookupTable.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cLookupTable.h
 string
 -
 map
@@ -34,27 +34,27 @@ map
 list
 -
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPSA.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPSA.h
 cHit.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cHit.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cHit.h
 cRawSignal.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawSignal.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawSignal.h
 vector
 -
 map
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawSignal.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawSignal.h
 Parameters.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/Parameters.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/Parameters.h
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cRunFinder.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRunFinder.h
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 string
 -
 map
@@ -70,23 +70,23 @@ mutex
 tuple
 -
 cLookupTable.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cLookupTable.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cLookupTable.h
 cThreadFunctions.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cThreadFunctions.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cThreadFunctions.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cSignalPreprocessor.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cSignalPreprocessor.h
 map
 -
 cRawSignal.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawSignal.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawSignal.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cSignalPreprocessorManager.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cSignalPreprocessorManager.h
 cSignalPreprocessor.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cSignalPreprocessor.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cSignalPreprocessor.h
 list
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cThreadFunctions.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cThreadFunctions.h
 vector
 -
 string
@@ -94,29 +94,29 @@ string
 atomic
 -
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 cRunFinder.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cRunFinder.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRunFinder.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cUserInput.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cUserInput.h
 string
 -
 vector
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/src/main.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/main.cc
 iostream
 -
 cRunFinder.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/cRunFinder.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRunFinder.h
 cUserInput.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/cUserInput.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cUserInput.h
 cLookupTable.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/cLookupTable.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLookupTable.h
 cAnalysisController.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/cAnalysisController.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cAnalysisController.h
 cSignalPreprocessorManager.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/cSignalPreprocessorManager.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cSignalPreprocessorManager.h
 experimental/filesystem
 -
 climits
@@ -126,7 +126,7 @@ string
 stdexcept
 -
 banner.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/banner.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/banner.h
 
 /home/lorenzo/root/include/DllImport.h
 

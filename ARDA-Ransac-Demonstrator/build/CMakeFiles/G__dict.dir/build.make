@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lorenzo/Desktop/ARDAC/ARDA
+CMAKE_SOURCE_DIR = /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lorenzo/Desktop/ARDAC/build
+CMAKE_BINARY_DIR = /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build
 
 # Utility rule file for G__dict.
 
@@ -58,28 +58,28 @@ CMakeFiles/G__dict: libdict_rdict.pcm
 CMakeFiles/G__dict: libdict.rootmap
 
 
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/LinkDef.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cHit.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cLookupTable.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawSignal.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalHit.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cFittedLine.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cFittedEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cVertex.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cHit.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cLookupTable.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawSignal.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalHit.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cFittedLine.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cFittedEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cVertex.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/LinkDef.h
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating G__dict.cxx, libdict_rdict.pcm, libdict.rootmap"
-	/usr/bin/cmake -E env LD_LIBRARY_PATH=/home/lorenzo/root/lib:/home/root/lib/:/home/lorenzo/root/lib:/home/root/lib/:/home/lorenzo/root/lib /home/lorenzo/root/bin/rootcling -v2 -f G__dict.cxx -s /home/lorenzo/Desktop/ARDAC/build/libdict.so -rml libdict.so -rmf /home/lorenzo/Desktop/ARDAC/build/libdict.rootmap -I/home/lorenzo/root/include -I/home/lorenzo/Desktop/ARDAC/ARDA/inc -I/home/lorenzo/Desktop/ARDAC/ARDA/libMFM -I/home/lorenzo/Desktop/ARDAC/ARDA/pClasses/inc -I/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/inc -I/home/lorenzo/Desktop/ARDAC/ARDA cHit.h cRawEvent.h cLookupTable.h cRawSignal.h cPhysicalHit.h cPhysicalEvent.h cFittedLine.h cFittedEvent.h cVertex.h /home/lorenzo/Desktop/ARDAC/ARDA/inc/LinkDef.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/LinkDef.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cHit.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cLookupTable.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawSignal.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalHit.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cFittedLine.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cFittedEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cVertex.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cHit.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cLookupTable.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawSignal.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalHit.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cFittedLine.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cFittedEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cVertex.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/LinkDef.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating G__dict.cxx, libdict_rdict.pcm, libdict.rootmap"
+	/usr/bin/cmake -E env LD_LIBRARY_PATH=/home/lorenzo/root/lib:/home/lorenzo/root/lib:/home/lorenzo/root/lib.:/usr/local/geant4/lib/.:/usr/local/geant4/lib/ /home/lorenzo/root/bin/rootcling -v2 -f G__dict.cxx -s /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/libdict.so -rml libdict.so -rmf /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/libdict.rootmap -I/home/lorenzo/root/include -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/pClasses/inc -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/inc -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA cHit.h cRawEvent.h cLookupTable.h cRawSignal.h cPhysicalHit.h cPhysicalEvent.h cFittedLine.h cFittedEvent.h cVertex.h /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/LinkDef.h
 
 libdict_rdict.pcm: G__dict.cxx
 	@$(CMAKE_COMMAND) -E touch_nocreate libdict_rdict.pcm
@@ -105,6 +105,6 @@ CMakeFiles/G__dict.dir/clean:
 .PHONY : CMakeFiles/G__dict.dir/clean
 
 CMakeFiles/G__dict.dir/depend:
-	cd /home/lorenzo/Desktop/ARDAC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lorenzo/Desktop/ARDAC/ARDA /home/lorenzo/Desktop/ARDAC/ARDA /home/lorenzo/Desktop/ARDAC/build /home/lorenzo/Desktop/ARDAC/build /home/lorenzo/Desktop/ARDAC/build/CMakeFiles/G__dict.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles/G__dict.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/G__dict.dir/depend
 

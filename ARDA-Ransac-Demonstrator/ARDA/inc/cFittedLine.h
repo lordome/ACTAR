@@ -19,7 +19,7 @@ class cFittedLine : public TObject {
     bool fittable = false;
     bool gone=false;
 
-    TPolyLine3D *drawObj;
+    // TPolyLine3D *drawObj;
 
 
   public:

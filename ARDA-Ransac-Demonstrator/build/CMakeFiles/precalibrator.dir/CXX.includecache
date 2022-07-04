@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/Parameters.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/Parameters.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cHit.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cHit.h
 TObject.h
 -
 vector
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cLookupTable.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cLookupTable.h
 string
 -
 map
@@ -22,63 +22,63 @@ map
 list
 -
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalEvent.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalEvent.h
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 list
 -
 cPhysicalHit.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalHit.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalHit.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalHit.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalHit.h
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawEvent.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawEvent.h
 vector
 -
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 cHit.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cHit.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cHit.h
 cRawSignal.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawSignal.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawSignal.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawSignal.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawSignal.h
 Parameters.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/Parameters.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/Parameters.h
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cUserInput.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cUserInput.h
 string
 -
 vector
 -
 
-/home/lorenzo/Desktop/ARDAC/ARDA/src/precalibrator.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/precalibrator.cc
 iostream
 -
 TFile.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/TFile.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/TFile.h
 TEnv.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/TEnv.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/TEnv.h
 TTree.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/TTree.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/TTree.h
 cPhysicalEvent.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/cPhysicalEvent.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cPhysicalEvent.h
 cUserInput.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/cUserInput.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cUserInput.h
 TTreeReader.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/TTreeReader.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/TTreeReader.h
 cLookupTable.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/cLookupTable.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLookupTable.h
 cRawEvent.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/cRawEvent.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRawEvent.h
 TVector3.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/TVector3.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/TVector3.h
 utility
 -
 map

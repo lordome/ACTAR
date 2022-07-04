@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalEvent.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalEvent.h
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 list
 -
 cPhysicalHit.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalHit.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalHit.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalHit.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalHit.h
 TObject.h
-/home/lorenzo/Desktop/ARDAC/ARDA/inc/TObject.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/TObject.h
 
-/home/lorenzo/Desktop/ARDAC/ARDA/src/convert2txt.cc
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/convert2txt.cc
 iostream
 -
 fstream
@@ -26,13 +26,13 @@ fstream
 string
 -
 TFile.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/TFile.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/TFile.h
 TTree.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/TTree.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/TTree.h
 TTreeReader.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/TTreeReader.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/TTreeReader.h
 cPhysicalEvent.h
-/home/lorenzo/Desktop/ARDAC/ARDA/src/cPhysicalEvent.h
+/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cPhysicalEvent.h
 
 /home/lorenzo/root/include/Bytes.h
 RtypesCore.h

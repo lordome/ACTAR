@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lorenzo/Desktop/ARDAC/ARDA
+CMAKE_SOURCE_DIR = /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lorenzo/Desktop/ARDAC/build
+CMAKE_BINARY_DIR = /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ARDAlib.dir/depend.make
@@ -57,28 +57,28 @@ include CMakeFiles/ARDAlib.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ARDAlib.dir/flags.make
 
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/LinkDef.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cHit.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cLookupTable.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawSignal.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalHit.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cFittedLine.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cFittedEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cVertex.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cHit.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cLookupTable.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cRawSignal.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalHit.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cPhysicalEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cFittedLine.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cFittedEvent.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/cVertex.h
-G__dict.cxx: /home/lorenzo/Desktop/ARDAC/ARDA/inc/LinkDef.h
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating G__dict.cxx, libdict_rdict.pcm, libdict.rootmap"
-	/usr/bin/cmake -E env LD_LIBRARY_PATH=/home/lorenzo/root/lib:/home/root/lib/:/home/lorenzo/root/lib:/home/root/lib/:/home/lorenzo/root/lib /home/lorenzo/root/bin/rootcling -v2 -f G__dict.cxx -s /home/lorenzo/Desktop/ARDAC/build/libdict.so -rml libdict.so -rmf /home/lorenzo/Desktop/ARDAC/build/libdict.rootmap -I/home/lorenzo/root/include -I/home/lorenzo/Desktop/ARDAC/ARDA/inc -I/home/lorenzo/Desktop/ARDAC/ARDA/libMFM -I/home/lorenzo/Desktop/ARDAC/ARDA/pClasses/inc -I/home/lorenzo/Desktop/ARDAC/ARDA/leuvenPSA/inc -I/home/lorenzo/Desktop/ARDAC/ARDA cHit.h cRawEvent.h cLookupTable.h cRawSignal.h cPhysicalHit.h cPhysicalEvent.h cFittedLine.h cFittedEvent.h cVertex.h /home/lorenzo/Desktop/ARDAC/ARDA/inc/LinkDef.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/LinkDef.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cHit.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cLookupTable.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawSignal.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalHit.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cFittedLine.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cFittedEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cVertex.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cHit.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cLookupTable.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cRawSignal.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalHit.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cPhysicalEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cFittedLine.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cFittedEvent.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/cVertex.h
+G__dict.cxx: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/LinkDef.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating G__dict.cxx, libdict_rdict.pcm, libdict.rootmap"
+	/usr/bin/cmake -E env LD_LIBRARY_PATH=/home/lorenzo/root/lib:/home/lorenzo/root/lib:/home/lorenzo/root/lib.:/usr/local/geant4/lib/.:/usr/local/geant4/lib/ /home/lorenzo/root/bin/rootcling -v2 -f G__dict.cxx -s /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/libdict.so -rml libdict.so -rmf /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/libdict.rootmap -I/home/lorenzo/root/include -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/libMFM -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/pClasses/inc -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/leuvenPSA/inc -I/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA cHit.h cRawEvent.h cLookupTable.h cRawSignal.h cPhysicalHit.h cPhysicalEvent.h cFittedLine.h cFittedEvent.h cVertex.h /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/inc/LinkDef.h
 
 libdict_rdict.pcm: G__dict.cxx
 	@$(CMAKE_COMMAND) -E touch_nocreate libdict_rdict.pcm
@@ -88,328 +88,328 @@ libdict.rootmap: G__dict.cxx
 
 CMakeFiles/ARDAlib.dir/G__dict.cxx.o: CMakeFiles/ARDAlib.dir/flags.make
 CMakeFiles/ARDAlib.dir/G__dict.cxx.o: G__dict.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ARDAlib.dir/G__dict.cxx.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/G__dict.cxx.o -c /home/lorenzo/Desktop/ARDAC/build/G__dict.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ARDAlib.dir/G__dict.cxx.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/G__dict.cxx.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/G__dict.cxx
 
 CMakeFiles/ARDAlib.dir/G__dict.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/G__dict.cxx.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/build/G__dict.cxx > CMakeFiles/ARDAlib.dir/G__dict.cxx.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/G__dict.cxx > CMakeFiles/ARDAlib.dir/G__dict.cxx.i
 
 CMakeFiles/ARDAlib.dir/G__dict.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/G__dict.cxx.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/build/G__dict.cxx -o CMakeFiles/ARDAlib.dir/G__dict.cxx.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/G__dict.cxx -o CMakeFiles/ARDAlib.dir/G__dict.cxx.s
 
 CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cAnalysisController.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cAnalysisController.cc
+CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cAnalysisController.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cAnalysisController.cc
 
 CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cAnalysisController.cc > CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cAnalysisController.cc > CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cAnalysisController.cc -o CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cAnalysisController.cc -o CMakeFiles/ARDAlib.dir/src/cAnalysisController.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cBaselineSubtract.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cBaselineSubtract.cc
+CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBaselineSubtract.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBaselineSubtract.cc
 
 CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cBaselineSubtract.cc > CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBaselineSubtract.cc > CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cBaselineSubtract.cc -o CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBaselineSubtract.cc -o CMakeFiles/ARDAlib.dir/src/cBaselineSubtract.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cBaselineSubtractAncillaries.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cBaselineSubtractAncillaries.cc
+CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBaselineSubtractAncillaries.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBaselineSubtractAncillaries.cc
 
 CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cBaselineSubtractAncillaries.cc > CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBaselineSubtractAncillaries.cc > CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cBaselineSubtractAncillaries.cc -o CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBaselineSubtractAncillaries.cc -o CMakeFiles/ARDAlib.dir/src/cBaselineSubtractAncillaries.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cBasicPSA.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cBasicPSA.cc
+CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBasicPSA.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBasicPSA.cc
 
 CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cBasicPSA.cc > CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBasicPSA.cc > CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cBasicPSA.cc -o CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cBasicPSA.cc -o CMakeFiles/ARDAlib.dir/src/cBasicPSA.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cDSSDBasicPSA.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cDSSDBasicPSA.cc
+CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cDSSDBasicPSA.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cDSSDBasicPSA.cc
 
 CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cDSSDBasicPSA.cc > CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cDSSDBasicPSA.cc > CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cDSSDBasicPSA.cc -o CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cDSSDBasicPSA.cc -o CMakeFiles/ARDAlib.dir/src/cDSSDBasicPSA.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cFPNSubtract.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cFPNSubtract.cc
+CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cFPNSubtract.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cFPNSubtract.cc
 
 CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cFPNSubtract.cc > CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cFPNSubtract.cc > CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cFPNSubtract.cc -o CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cFPNSubtract.cc -o CMakeFiles/ARDAlib.dir/src/cFPNSubtract.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cHit.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cHit.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cHit.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ARDAlib.dir/src/cHit.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cHit.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cHit.cc
+CMakeFiles/ARDAlib.dir/src/cHit.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cHit.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ARDAlib.dir/src/cHit.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cHit.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cHit.cc
 
 CMakeFiles/ARDAlib.dir/src/cHit.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cHit.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cHit.cc > CMakeFiles/ARDAlib.dir/src/cHit.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cHit.cc > CMakeFiles/ARDAlib.dir/src/cHit.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cHit.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cHit.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cHit.cc -o CMakeFiles/ARDAlib.dir/src/cHit.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cHit.cc -o CMakeFiles/ARDAlib.dir/src/cHit.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cInfoPrinter.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cInfoPrinter.cc
+CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cInfoPrinter.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cInfoPrinter.cc
 
 CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cInfoPrinter.cc > CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cInfoPrinter.cc > CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cInfoPrinter.cc -o CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cInfoPrinter.cc -o CMakeFiles/ARDAlib.dir/src/cInfoPrinter.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cLeuvenPSA.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cLeuvenPSA.cc
+CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLeuvenPSA.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLeuvenPSA.cc
 
 CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cLeuvenPSA.cc > CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLeuvenPSA.cc > CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cLeuvenPSA.cc -o CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLeuvenPSA.cc -o CMakeFiles/ARDAlib.dir/src/cLeuvenPSA.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cLineMinPSA.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cLineMinPSA.cc
+CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLineMinPSA.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLineMinPSA.cc
 
 CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cLineMinPSA.cc > CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLineMinPSA.cc > CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cLineMinPSA.cc -o CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLineMinPSA.cc -o CMakeFiles/ARDAlib.dir/src/cLineMinPSA.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cLinePSA.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cLinePSA.cc
+CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLinePSA.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLinePSA.cc
 
 CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cLinePSA.cc > CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLinePSA.cc > CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cLinePSA.cc -o CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLinePSA.cc -o CMakeFiles/ARDAlib.dir/src/cLinePSA.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cLookupTable.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cLookupTable.cc
+CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLookupTable.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLookupTable.cc
 
 CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cLookupTable.cc > CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLookupTable.cc > CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cLookupTable.cc -o CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cLookupTable.cc -o CMakeFiles/ARDAlib.dir/src/cLookupTable.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cMayaBasicPSA.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cMayaBasicPSA.cc
+CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cMayaBasicPSA.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cMayaBasicPSA.cc
 
 CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cMayaBasicPSA.cc > CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cMayaBasicPSA.cc > CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cMayaBasicPSA.cc -o CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cMayaBasicPSA.cc -o CMakeFiles/ARDAlib.dir/src/cMayaBasicPSA.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cMultiPeakPSA.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cMultiPeakPSA.cc
+CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cMultiPeakPSA.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cMultiPeakPSA.cc
 
 CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cMultiPeakPSA.cc > CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cMultiPeakPSA.cc > CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cMultiPeakPSA.cc -o CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cMultiPeakPSA.cc -o CMakeFiles/ARDAlib.dir/src/cMultiPeakPSA.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cPhysicalEvent.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cPhysicalEvent.cc
+CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cPhysicalEvent.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cPhysicalEvent.cc
 
 CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cPhysicalEvent.cc > CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cPhysicalEvent.cc > CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cPhysicalEvent.cc -o CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cPhysicalEvent.cc -o CMakeFiles/ARDAlib.dir/src/cPhysicalEvent.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cPhysicalHit.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cPhysicalHit.cc
+CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cPhysicalHit.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cPhysicalHit.cc
 
 CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cPhysicalHit.cc > CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cPhysicalHit.cc > CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cPhysicalHit.cc -o CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cPhysicalHit.cc -o CMakeFiles/ARDAlib.dir/src/cPhysicalHit.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cRawEvent.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cRawEvent.cc
+CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRawEvent.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRawEvent.cc
 
 CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cRawEvent.cc > CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRawEvent.cc > CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cRawEvent.cc -o CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRawEvent.cc -o CMakeFiles/ARDAlib.dir/src/cRawEvent.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cRawSignal.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cRawSignal.cc
+CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRawSignal.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRawSignal.cc
 
 CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cRawSignal.cc > CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRawSignal.cc > CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cRawSignal.cc -o CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRawSignal.cc -o CMakeFiles/ARDAlib.dir/src/cRawSignal.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cRunController.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cRunController.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cRunController.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ARDAlib.dir/src/cRunController.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cRunController.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cRunController.cc
+CMakeFiles/ARDAlib.dir/src/cRunController.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRunController.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ARDAlib.dir/src/cRunController.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cRunController.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRunController.cc
 
 CMakeFiles/ARDAlib.dir/src/cRunController.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cRunController.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cRunController.cc > CMakeFiles/ARDAlib.dir/src/cRunController.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRunController.cc > CMakeFiles/ARDAlib.dir/src/cRunController.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cRunController.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cRunController.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cRunController.cc -o CMakeFiles/ARDAlib.dir/src/cRunController.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRunController.cc -o CMakeFiles/ARDAlib.dir/src/cRunController.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cRunFinder.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cRunFinder.cc
+CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRunFinder.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRunFinder.cc
 
 CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cRunFinder.cc > CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRunFinder.cc > CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cRunFinder.cc -o CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cRunFinder.cc -o CMakeFiles/ARDAlib.dir/src/cRunFinder.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cSignalPreprocessorManager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cSignalPreprocessorManager.cc
+CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cSignalPreprocessorManager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cSignalPreprocessorManager.cc
 
 CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cSignalPreprocessorManager.cc > CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cSignalPreprocessorManager.cc > CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cSignalPreprocessorManager.cc -o CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cSignalPreprocessorManager.cc -o CMakeFiles/ARDAlib.dir/src/cSignalPreprocessorManager.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cThreadFunctions.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cThreadFunctions.cc
+CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cThreadFunctions.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cThreadFunctions.cc
 
 CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cThreadFunctions.cc > CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cThreadFunctions.cc > CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cThreadFunctions.cc -o CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cThreadFunctions.cc -o CMakeFiles/ARDAlib.dir/src/cThreadFunctions.cc.s
 
 CMakeFiles/ARDAlib.dir/src/cUserInput.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/cUserInput.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/cUserInput.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/ARDAlib.dir/src/cUserInput.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cUserInput.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/cUserInput.cc
+CMakeFiles/ARDAlib.dir/src/cUserInput.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cUserInput.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/ARDAlib.dir/src/cUserInput.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/cUserInput.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cUserInput.cc
 
 CMakeFiles/ARDAlib.dir/src/cUserInput.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/cUserInput.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/cUserInput.cc > CMakeFiles/ARDAlib.dir/src/cUserInput.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cUserInput.cc > CMakeFiles/ARDAlib.dir/src/cUserInput.cc.i
 
 CMakeFiles/ARDAlib.dir/src/cUserInput.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/cUserInput.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/cUserInput.cc -o CMakeFiles/ARDAlib.dir/src/cUserInput.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/cUserInput.cc -o CMakeFiles/ARDAlib.dir/src/cUserInput.cc.s
 
 CMakeFiles/ARDAlib.dir/src/convert2txt.cc.o: CMakeFiles/ARDAlib.dir/flags.make
-CMakeFiles/ARDAlib.dir/src/convert2txt.cc.o: /home/lorenzo/Desktop/ARDAC/ARDA/src/convert2txt.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/ARDAlib.dir/src/convert2txt.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/convert2txt.cc.o -c /home/lorenzo/Desktop/ARDAC/ARDA/src/convert2txt.cc
+CMakeFiles/ARDAlib.dir/src/convert2txt.cc.o: /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/convert2txt.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/ARDAlib.dir/src/convert2txt.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ARDAlib.dir/src/convert2txt.cc.o -c /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/convert2txt.cc
 
 CMakeFiles/ARDAlib.dir/src/convert2txt.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ARDAlib.dir/src/convert2txt.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ARDAC/ARDA/src/convert2txt.cc > CMakeFiles/ARDAlib.dir/src/convert2txt.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/convert2txt.cc > CMakeFiles/ARDAlib.dir/src/convert2txt.cc.i
 
 CMakeFiles/ARDAlib.dir/src/convert2txt.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ARDAlib.dir/src/convert2txt.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ARDAC/ARDA/src/convert2txt.cc -o CMakeFiles/ARDAlib.dir/src/convert2txt.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA/src/convert2txt.cc -o CMakeFiles/ARDAlib.dir/src/convert2txt.cc.s
 
 # Object files for target ARDAlib
 ARDAlib_OBJECTS = \
@@ -490,7 +490,7 @@ libARDAlib.so: /home/lorenzo/root/lib/libThread.so
 libARDAlib.so: /home/lorenzo/root/lib/libMultiProc.so
 libARDAlib.so: /home/lorenzo/root/lib/libROOTVecOps.so
 libARDAlib.so: CMakeFiles/ARDAlib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lorenzo/Desktop/ARDAC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Linking CXX shared library libARDAlib.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Linking CXX shared library libARDAlib.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ARDAlib.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -505,6 +505,6 @@ CMakeFiles/ARDAlib.dir/clean:
 CMakeFiles/ARDAlib.dir/depend: G__dict.cxx
 CMakeFiles/ARDAlib.dir/depend: libdict_rdict.pcm
 CMakeFiles/ARDAlib.dir/depend: libdict.rootmap
-	cd /home/lorenzo/Desktop/ARDAC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lorenzo/Desktop/ARDAC/ARDA /home/lorenzo/Desktop/ARDAC/ARDA /home/lorenzo/Desktop/ARDAC/build /home/lorenzo/Desktop/ARDAC/build /home/lorenzo/Desktop/ARDAC/build/CMakeFiles/ARDAlib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/ARDA /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build /home/lorenzo/Desktop/ACTAR_git/ARDA-Ransac-Demonstrator/build/CMakeFiles/ARDAlib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ARDAlib.dir/depend
 
