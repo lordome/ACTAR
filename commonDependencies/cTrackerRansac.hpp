@@ -334,10 +334,12 @@ void cTrackerRansac<T>::Ransac(bool &beamTracks, bool &oneSidedTracks, bool &isF
     bestTrack.getPoints().insert(bestTrack.getPoints().begin(), list_i.begin(), list_i.end()); // setting bestTrack (conversion from vector to list)
     bestTrack.setFittable(isFittable);
 
-    if ((longTracksEqualBeam && (minX < 5 && maxX > 120)) || (int)(minZ > 295 || maxZ < 230) || (maxZ > 400 && minZ < 100))
-      bestTrack.setFittable(false);
-    else
-      bestTrack.setFittable(isFittable);
+
+    // Geometrical cut for selecting beamTracks ( not used and hardcoded - yet it can be generalized!) 
+    // if ((longTracksEqualBeam && (minX < 5 && maxX > 120)) || (int)(minZ > 295 || maxZ < 230) || (maxZ > 400 && minZ < 100))
+    //   bestTrack.setFittable(false);
+    // else
+    //   bestTrack.setFittable(isFittable);
 
     // saving bestTrack into the lines array
     lines.push_back(bestTrack);
