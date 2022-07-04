@@ -183,6 +183,8 @@ void cTrackerRansac<T>::Ransac(bool &beamTracks, bool &oneSidedTracks, bool &isF
     double minZ = DBL_MAX;
     double maxZ = -100;
 
+
+    // checking for min and max position of tracks.
     if (1)
     {
       for (auto &it : bestInliers)
@@ -201,7 +203,10 @@ void cTrackerRansac<T>::Ransac(bool &beamTracks, bool &oneSidedTracks, bool &isF
         if (zPosition > maxZ)
           maxZ = zPosition;
       }
-      if (beamTracks && (minX > 10 || maxX < 110))
+      // if looking for beamTracks and the track stops before the end of the chamber or start after its beginning 
+      // respectively 0.9 and 0.1 % of the total beam-axis length, then the routine stops. ( and in principle restarts looking for 
+      // normal tracks!)
+      if (beamTracks && (minX > beamXmin || maxX < beamXmax))
       {
         break;
       }
@@ -220,21 +225,21 @@ void cTrackerRansac<T>::Ransac(bool &beamTracks, bool &oneSidedTracks, bool &isF
       averageY /= bestInliers.size();
 
       std::vector<T> temporary;
-      if (averageY > 68)
+      if (averageY > upperOneSideLimit)
       {
         for (unsigned int i = 0; i < bestInliers.size(); i++)
         {
-          if (bestInliers[i].getY() > 64)
+          if (bestInliers[i].getY() > midChamberOneSide)
             temporary.push_back(bestInliers[i]);
         }
         bestInliers = temporary;
       }
 
-      if (averageY < 61)
+      if (averageY < lowerOneSideLimit)
       {
         for (unsigned int i = 0; i < bestInliers.size(); i++)
         {
-          if (bestInliers[i].getY() < 64)
+          if (bestInliers[i].getY() < midChamberOneSide)
             temporary.push_back(bestInliers[i]);
         }
         bestInliers = temporary;
@@ -252,7 +257,7 @@ void cTrackerRansac<T>::Ransac(bool &beamTracks, bool &oneSidedTracks, bool &isF
         break;
       }
 
-      if (averageY > 68)
+      if (averageY > upperOneSideLimit)
       {
         for (auto it_hits = hits.begin(); it_hits != hits.end(); it_hits++)
         {
@@ -267,7 +272,7 @@ void cTrackerRansac<T>::Ransac(bool &beamTracks, bool &oneSidedTracks, bool &isF
           }
         }
       }
-      else if (averageY < 61)
+      else if (averageY < lowerOneSideLimit)
       {
         for (auto it_hits = hits.begin(); it_hits != hits.end(); it_hits++)
         {
@@ -282,7 +287,7 @@ void cTrackerRansac<T>::Ransac(bool &beamTracks, bool &oneSidedTracks, bool &isF
           }
         }
       }
-      else if (averageY >= 61 && averageY <= 68)
+      else if (averageY >= lowerOneSideLimit && averageY <= upperOneSideLimit)
       {
         for (auto it_hits = hits.begin(); it_hits != hits.end(); it_hits++)
         {

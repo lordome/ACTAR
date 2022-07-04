@@ -79,17 +79,22 @@ public:
     bool longTracksEqualBeam = false;
 
     std::list<T> points;
-    // std::list<T> unfittedPoints;
     std::list<cFittedLine<T>> lines;
     std::list<cFittedLine<T>> fittedLines;
 
-    // Function for running Ransac
+    // Function for running Ransac over the event.
     void Ransac(bool &beamTracks, bool &oneSidedTracks, bool &isFittable);
 
-    // void Ransac(double &minEnergy, double &minSize, double &widthTrack, bool &beamTracks, bool &oneSidedTracks, bool &isFittable);
+    // values used to define the boundaries of the center, and to check whether tracks on sides include points on the other sides.
+    // Used only if oneSidedTracks is true!
+    int lowerOneSideLimit = 61;
+    int upperOneSideLimit = 68;
+    int midChamberOneSide = 64; // 16 for demo
 
-    // Load points in the maximum as a line, returns true if a line is found
-    // bool loadPointsInLine(direction, direction);
+    // chamber dimensions over beam axis (for classifying beam Tracks)
+    int maxX = 128;
+    int beamXmin = int(maxX * 0.1);
+    int beamXmax = int(maxX * 0.9);
 
     // Fits each line contained in lines
     void fitLines();
