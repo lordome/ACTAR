@@ -24,6 +24,7 @@ Ransac-ACTAR/pngRun71.pdf
 simACTAR/Actarsim/*
 
 
-*
-*/
-!.gitignore
+./ARDA-Ransac-Demonstrator/bin_old/*
+./ARDA-Ransac-Demonstrator/OLDbin_root6.24.06/*
+
+
