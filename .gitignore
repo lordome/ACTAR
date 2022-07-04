@@ -22,4 +22,8 @@ Ransac-ACTAR/pngRun71.pdf
 
 
 simACTAR/Actarsim/*
-./J*
+
+
+*
+*/
+!.gitignore
