@@ -1,0 +1,52 @@
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+/ActarSim/phys/addPhysics emstandard_opt3
+/ActarSim/phys/verbose 0
+/run/initialize
+/ActarSim/det/ACTARTPCGeoIncludedFlag on
+/ActarSim/det/setMediumMat Galactic
+/ActarSim/det/gas/setGasPressure 0.950 bar
+/ActarSim/det/gas/setGasTemperature 293.15
+/ActarSim/det/gas/mixture/GasMixture 2
+/ActarSim/det/gas/mixture/setGasMix 1 D2 0.95
+/ActarSim/det/gas/mixture/setGasMix 2 iC4H10 0.05
+/ActarSim/det/gas/setGasMat GasMix
+/ActarSim/det/gasGeoIncludedFlag on
+/ActarSim/det/gas/setBeamShield off
+/ActarSim/det/silGeoIncludedFlag off
+/ActarSim/det/sil/sideCoverage 25
+/ActarSim/det/sil/xBoxHalfLength 53.8 mm
+/ActarSim/det/sil/yBoxHalfLength 0. mm
+/ActarSim/det/sil/zBoxHalfLength 46.8 mm
+/ActarSim/det/sciGeoIncludedFlag off
+/ActarSim/analControl/storeTracks on
+/ActarSim/analControl/storeTrackHistos off
+/ActarSim/analControl/storeEvents on
+/ActarSim/analControl/storeHistograms off
+/ActarSim/analControl/storeSimpleTracks on
+/ActarSim/det/update
+/ActarSim/gun/beamInteraction on
+/ActarSim/gun/realisticBeam off
+/ActarSim/gun/beamDirection 0 0 1
+/ActarSim/gun/beamPosition 0 0 -200 mm
+/ActarSim/gun/ion 8 20 8 0.0
+/ActarSim/gun/energy 1200 MeV
+/ActarSim/gun/randomVertexZPosition on
+/ActarSim/gun/randomVertexZRange -100 100 mm
+/ActarSim/gun/reactionFromEvGen off
+/ActarSim/gun/reactionFromCrossSection off
+/ActarSim/gun/reactionFromFile off
+/ActarSim/gun/reactionFromCine off
+/ActarSim/gun/reactionFromKine on
+/ActarSim/gun/Kine/incidentIon 8 20 8 0.0 20.0040754
+/ActarSim/gun/Kine/targetIon 1 2 1 0.0 2.01410177811
+/ActarSim/gun/Kine/scatteredIon 2 3 2 0.0 3.016029322
+/ActarSim/gun/Kine/recoilIon 7 19 7 0.0 19.017022
+/ActarSim/gun/Kine/labEnergy 1200 MeV
+/ActarSim/gun/Kine/randomThetaCM on
+/ActarSim/gun/Kine/randomThetaRange 0.0 180.0
+/ActarSim/gun/Kine/randomPhiAngle on
+/ActarSim/gun/Kine/vertexPosition 0. 0. -188 mm
+/ActarSim/event/printModulo 10
+/run/beamOn 100
