@@ -4,7 +4,6 @@
 *.root
 *.json
 
-Actarsim_build/*
 JuanClustering/*
 
 Ransac-ACTAR/Images/
@@ -15,3 +14,12 @@ LOGBOOK TESI
 precalibrator-ACTAR/.ipynb_checkpoints/*
 NNdevelopment/findEvents.ipynb
 .ipynb_checkpoints/*
+InternshipCertificate.pdf
+Ransac-ACTAR/Event2DPrint.jpg
+Ransac-ACTAR/NOEvent2DPring.jpg
+Ransac-ACTAR/pngrun69.pdf
+Ransac-ACTAR/pngRun71.pdf
+
+
+simACTAR/Actarsim/*
+./J*
